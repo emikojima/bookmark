@@ -1,3 +1,4 @@
+module Api::V1
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :update, :destroy]
 
@@ -48,4 +49,5 @@ class ListsController < ApplicationController
     def list_params
       params.require(:list).permit(:name)
     end
+end
 end
