@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+
+  get '/api/v1/books', to: 'get_books#books'
+
+
   namespace :api do
     namespace :v1 do
-      resources :books
-      resources :lists
+
+      resources :lists do
+        resources :books
+      end
       resources :users
     end
   end
