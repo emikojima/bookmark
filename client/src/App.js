@@ -27,7 +27,7 @@ class App extends Component {
             <Col xs={4} md={4} lg={4} >
               {logged}
             </Col>
-            <Col xsHidden mdHidden lgHidden />
+            <Col xsHidden mdHidden lgHidden/>
           </Row>
         </Grid>;
       </div>
