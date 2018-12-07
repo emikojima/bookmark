@@ -1,2 +1,2 @@
 export const SIGNUP = 'SIGN_UP';
-export const LOGIN = 'LOGIN '
+export const LOGIN = 'LOGIN'

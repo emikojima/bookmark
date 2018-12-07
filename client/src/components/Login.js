@@ -5,7 +5,7 @@ export default class Login extends Component {
   state = {
     username: "",
     password: "",
-    signUp: this.props.signUpState
+    signUp: false
   }
 
   validateForm() {
@@ -27,14 +27,13 @@ export default class Login extends Component {
     axios.post('/api/v1/users', { user })
     .then(res => {
       console.log(res);
-      console.log(res.data);
+      this.props.loginUser(res.data);
     })
   }
 
   handleSignUp = event => {
     event.preventDefault();
-    this.setState({signUp: !this.props.signUpState})
-    this.props.callbackFromParent(this.state.signUp)
+    this.props.showSignup(this.props.signUp)
   }
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import LoginSigninForm from './components/LoginSigninForm';
+import UserContainer from './container/UserContainer';
 import NYTbookList from './components/NYTbookList';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router';
@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 class App extends Component {
 
   render() {
-    const logged = !this.props.loggedIn ? <LoginSigninForm /> : < NYTbookList />
+    const logged = !this.props.loggedIn ? <UserContainer signUp={this.props.signUp}/> : < NYTbookList />
     return (
       <div className="App">
       {logged}
@@ -19,6 +19,7 @@ class App extends Component {
 }
 const mapStateToProps = state =>{
   return {
-   loggedIn: false
+   loggedIn: state.loggedIn,
+   signUp: state.signUp
  }}
 export default connect(mapStateToProps)(App);

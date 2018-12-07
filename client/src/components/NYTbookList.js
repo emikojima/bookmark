@@ -6,11 +6,10 @@ class NYTbookList extends Component {
     books: []
   }
 
-
 componentDidMount() {
-  axios.get('api/v1/books.json')
+  axios.get('/api/v1/books.json')
   .then(response => {
-    console.log(response)
+    console.log(response.data)
     this.setState({
       books: response.data
     })
@@ -19,9 +18,10 @@ componentDidMount() {
 
 render() {
   console.log("nyt render", this.state.books)
+  const renderBooks = this.state.books.map(book => <li>{ book.title} </li>)
   return(
     <div>
-
+      {renderBooks}
     </div>
   )
 }

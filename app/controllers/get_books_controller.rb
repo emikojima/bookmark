@@ -7,7 +7,15 @@ def books
     end
     body = JSON.parse(@resp.body)
     if @resp.success?
-      @books = body["results"].map{|b| b["book_details"].push(rank: b["rank"], weeks_on_list: b["weeks_on_list"]) + b["reviews"].flatten}
+
+      @books = body["results"].map{|book|
+        {rank: book["rank"],
+        weeks_on_list: book["weeks_on_list"],
+        title: book["book_details"][0]["title"],
+        author: book["book_details"][0]["author"],
+        description: book["book_details"][0]["description"],
+        review: book["reviews"][0]["book_review_link"]
+      }}
       render json: @books
     else
       @error = body["meta"]["errorDetail"]
