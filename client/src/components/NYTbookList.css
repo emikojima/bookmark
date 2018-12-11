@@ -1,14 +1,22 @@
 li.pborder {
+    background-image: url('../book1.png');
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: left 15px top 15px;
     border-radius: 15px;
-    border: 3px solid pink;
-    display: inline-grid;
+    border: 2px solid white;
+    display: inline-block;
+    vertical-align: middle;
     margin: 20px;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
-    width: 30%;
-    box-shadow: 0 0 10px 0 black;
+    width: 35%;
+    box-shadow: 0 0 10px 0 gray;
+    background-color: white;
+
 }
 
 .bodymargin {
   margin-top: 70px;
+  background-image: linear-gradient(to bottom right, DodgerBlue, pink);
 }

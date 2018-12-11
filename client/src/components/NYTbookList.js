@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
-import {Well} from 'react-bootstrap'
+import { connect } from 'react-redux'
+
 
 class NYTbookList extends Component {
   state = {
-    books: []
+    list: "To Read",
+    books: [],
+    userbooks: []
   }
 
 componentDidMount() {
@@ -20,19 +23,43 @@ componentDidMount() {
 }
 
 render() {
+  console.log("userbooks", this.state.userbooks)
   console.log("nyt render", this.state.books)
   const renderBooks = this.state.books.map((book, id) =>
-  <li className="pborder" key={book.rank}><h3>#{book.rank} NYT Bestseller</h3><h4>{ book.title} </h4><h5>By: { book.author}</h5><h5>{book.weeks_on_list} weeks on Bestseller List</h5><p>Synopsis: {book.description}</p><p></p></li>)
+
+    <a href='#'><li
+      key={book.rank}
+      onClick={() => this.props.addBook(book, this.state.list)}
+      className="pborder"
+      >
+      <h3>#{book.rank} NYT Bestseller</h3>
+      <h3>{ book.title} </h3>
+      <h4>By: { book.author}</h4>
+      <h5>{book.weeks_on_list} weeks on Bestseller List</h5>
+      <h5>Synopsis: {book.description}</h5>
+    </li>
+  </a>)
   return(
     <div>
       <NavBarcomp />
-    <div className="bodymargin">  
+    <div className="bodymargin">
       {renderBooks}
     </div>
     </div>
   )
 }
 }
+const mapStateToProps = state => {
+  return {
+    list: state.list,
+    books: state.books
+  }
+}
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addBook: (book, list) => dispatch({ type: 'ADD_BOOK', book, list }),
+  }
+}
 
-export default NYTbookList;
+export default connect(mapStateToProps, mapDispatchToProps)(NYTbookList);

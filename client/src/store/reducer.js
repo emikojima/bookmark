@@ -20,6 +20,11 @@ export default function reducer(state = initialState, action) {
       ...state, username: action.user.username, lists: [action.user.lists], books: [action.user.books], loggedIn: true
     }
 
+    case 'ADD_BOOK':
+    debugger
+    return {
+      ...state, books: action.books, lists: action.list
+    }
     default:
     return state;
  }
