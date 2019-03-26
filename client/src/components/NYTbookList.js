@@ -3,6 +3,7 @@ import axios from 'axios';
 import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
 import { connect } from 'react-redux'
+import { postBook } from '../actions/bookActions'
 
 
 class NYTbookList extends Component {
@@ -13,23 +14,29 @@ class NYTbookList extends Component {
   }
 
 componentDidMount() {
-  axios.get('/api/v1/books.json')
+  axios.get('api/v1/books.json')
   .then(response => {
-    console.log(response.data)
-    this.setState({
-      books: response.data
-    })
-  })
+	console.log("asion",response.data);
+  this.setState({books: response.data})
+})
+.catch(error => {
+    console.log(error.response)
+});
+}
+
+handleClickedBook = () =>
+{
+
 }
 
 render() {
   console.log("userbooks", this.state.userbooks)
   console.log("nyt render", this.state.books)
-  const renderBooks = this.state.books.map((book, id) =>
 
+  const renderBooks = this.state.books.map((book, id) =>
     <a href='#'><li
       key={book.rank}
-      onClick={() => this.props.addBook(book, this.state.list)}
+      onClick={() => this.props.postBook(book, this.state.list)}
       className="pborder"
       >
       <h3>#{book.rank} NYT Bestseller</h3>
@@ -37,12 +44,15 @@ render() {
       <h4>By: { book.author}</h4>
       <h5>{book.weeks_on_list} weeks on Bestseller List</h5>
       <h5>Synopsis: {book.description}</h5>
+      <a href={book.review}>Link to review </a>
     </li>
   </a>)
   return(
     <div>
       <NavBarcomp />
     <div className="bodymargin">
+      <br></br>
+      <h1> NEW YORK TIMES BESTSELLERS </h1>
       {renderBooks}
     </div>
     </div>
@@ -52,13 +62,14 @@ render() {
 const mapStateToProps = state => {
   return {
     list: state.list,
-    books: state.books
+    books: state.books,
+    user: state.userId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    addBook: (book, list) => dispatch({ type: 'ADD_BOOK', book, list }),
+    postBook: (book, list) => dispatch(postBook(book, list))
   }
 }
 

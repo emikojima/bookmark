@@ -20,3 +20,8 @@ li.pborder {
   margin-top: 70px;
   background-image: linear-gradient(to bottom right, DodgerBlue, pink);
 }
+
+h1 {
+  color: white;
+  text-shadow: 2px 2px gray;
+}
