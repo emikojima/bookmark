@@ -26,7 +26,7 @@ export default class Login extends Component {
     }
     axios.post('/api/v1/users', { user })
     .then(res => {
-      console.log(res);
+      console.log("login",res.data, this.props);
       this.props.loginUser(res.data);
     })
   }

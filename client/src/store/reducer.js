@@ -17,6 +17,8 @@ export default function reducer(state = initialState, action) {
     }
 
     case 'LOGIN_USER':
+    debugger
+    console.log("reducer",action.user)
     return {
       ...state, username: action.user.username, lists: [action.user.lists], books: [action.user.books], loggedIn: true
     }

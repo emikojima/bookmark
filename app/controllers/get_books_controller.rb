@@ -22,7 +22,7 @@ def books
       }}
       render json: @books
     else
-      @error = body["data"]["error"]
+      @error = ["errors"][0]
     end
 
   end

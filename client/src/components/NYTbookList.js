@@ -16,7 +16,7 @@ class NYTbookList extends Component {
 componentDidMount() {
   axios.get('api/v1/books.json')
   .then(response => {
-	console.log("asion",response.data);
+	console.log("axios",response.data);
   this.setState({books: response.data})
 })
 .catch(error => {
@@ -69,7 +69,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postBook: (book, list) => dispatch(postBook(book, list))
+    postBook: (book, list) => dispatch({ type: 'POST_BOOK', book, list}),
   }
 }
 
