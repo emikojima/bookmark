@@ -50,7 +50,10 @@ render() {
         <h1> NEW YORK TIMES BESTSELLERS </h1>
         {renderBooks}
       </div>
-      <UserBooks />
+      <div className="bodymargin">
+        <h1> MY BOOKLIST</h1>
+        <UserBooks />
+      </div>
   </div>
   )
 }
