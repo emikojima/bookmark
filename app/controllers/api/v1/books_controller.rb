@@ -21,7 +21,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      render json: @book, status: :created, location: @book
+      render json: @book
     else
       render json: @book.errors, status: :unprocessable_entity
     end
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def book_params
-      params.require(:book).permit(:title, :description, :author, :notes)
+      params.require(:book).permit(:title, :description, :author, :user_id,:notes)
     end
 end
 end

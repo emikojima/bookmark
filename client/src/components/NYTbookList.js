@@ -29,11 +29,12 @@ handleClickedBook = () =>
 }
 
 render() {
-  console.log("userbooks", this.props.books)
+
+  console.log("userbooks", this.props)
   console.log("nyt render", this.state.books)
 
   const renderBooks = this.state.books.map((book, id) =>
-    <a href='#'><li
+    <div><li
       key={book.rank}
       onClick={() => this.props.postBook(book, this.props.user)}
       className="pborder"
@@ -45,7 +46,7 @@ render() {
       <h5>Synopsis: {book.description}</h5>
       <a href={book.review}>Link to review </a>
     </li>
-  </a>)
+  </div>)
   return(
     <div>
       <NavBarcomp />

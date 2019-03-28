@@ -28,10 +28,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
       }
+
     case 'ADD_BOOK':
       console.log('ADD_BOOK is returning', { action});
       return {
-        ...state, books: [...state.books, action.payload]
+        ...state, books: [...state.books, action.book]
       }
 
 
