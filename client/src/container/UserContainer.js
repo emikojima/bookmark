@@ -5,6 +5,7 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import hero from '../hero.jpg'
 import { connect } from 'react-redux'
 
+
 class UserContainer extends Component {
 
   render() {
@@ -30,7 +31,9 @@ class UserContainer extends Component {
 
   const mapStateToProps = state =>{
     return {
-      signUp: state.signUp
+      signUp: state.signUp,
+      books: state.books,
+      user: state.userId
     }
   }
  const mapDispatchToProps = dispatch =>{

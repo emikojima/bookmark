@@ -7,7 +7,6 @@ const initialState = {
   password: "",
   loggedIn: false,
   signUp: false,
-  lists: [],
   books: []
 }
 
@@ -20,19 +19,19 @@ export default function reducer(state = initialState, action) {
 
     case 'LOGIN_USER':
     return {
-      ...state, username: action.user.username, lists: [action.user.lists], books: [action.user.books], userId: action.user.id, loggedIn: true
+      ...state, username: action.user.username, userId: action.user.id, loggedIn: true
     }
 
-    case 'BEGIN_BOOKS_POST':
-      console.log('POST_BOOK is returning', { action});
+    case 'GET_USER_BOOKS_SUCCESS':
+      console.log('GET USER BOOKS is returning', action);
       return {
-        ...state,
+        ...state, books: [...state.books, action.books[1]]
       }
 
     case 'ADD_BOOK':
-      console.log('ADD_BOOK is returning', { action});
+      console.log('ADD_BOOK is returning', action);
       return {
-        ...state, books: [...state.books, action.book]
+        ...state, books: [action.book]
       }
 
 

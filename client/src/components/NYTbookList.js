@@ -4,6 +4,7 @@ import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
 import { connect } from 'react-redux'
 import {postBook }from '../actions/bookActions'
+import UserBooks from '../components/UserBooks'
 
 
 class NYTbookList extends Component {
@@ -21,11 +22,6 @@ componentDidMount() {
 .catch(error => {
     console.log(error.response)
 });
-}
-
-handleClickedBook = () =>
-{
-
 }
 
 render() {
@@ -50,6 +46,7 @@ render() {
   return(
     <div>
       <NavBarcomp />
+      <UserBooks />
     <div className="bodymargin">
       <br></br>
       <h1> NEW YORK TIMES BESTSELLERS </h1>
