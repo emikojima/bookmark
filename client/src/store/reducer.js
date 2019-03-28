@@ -25,13 +25,13 @@ export default function reducer(state = initialState, action) {
     case 'GET_USER_BOOKS_SUCCESS':
       console.log('GET USER BOOKS is returning', action);
       return {
-        ...state, books: [...state.books, action.books[1]]
+        ...state, books: action.books[1]
       }
 
     case 'ADD_BOOK':
       console.log('ADD_BOOK is returning', action);
       return {
-        ...state, books: [action.book]
+        ...state, books: action.book
       }
 
 

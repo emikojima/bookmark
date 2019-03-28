@@ -25,12 +25,11 @@ componentDidMount() {
 }
 
 render() {
-
   console.log("userbooks", this.props)
   console.log("nyt render", this.state.books)
 
   const renderBooks = this.state.books.map((book, id) =>
-    <div><li
+    <a href="#"><li
       key={book.rank}
       onClick={() => this.props.postBook(book, this.props.user)}
       className="pborder"
@@ -42,17 +41,17 @@ render() {
       <h5>Synopsis: {book.description}</h5>
       <a href={book.review}>Link to review </a>
     </li>
-  </div>)
+  </a>)
   return(
     <div>
       <NavBarcomp />
+      <div className="bodymargin">
+        <br></br>
+        <h1> NEW YORK TIMES BESTSELLERS </h1>
+        {renderBooks}
+      </div>
       <UserBooks />
-    <div className="bodymargin">
-      <br></br>
-      <h1> NEW YORK TIMES BESTSELLERS </h1>
-      {renderBooks}
-    </div>
-    </div>
+  </div>
   )
 }
 }

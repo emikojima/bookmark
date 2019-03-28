@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import {Grid, Row, Col} from 'react-bootstrap'
-import hero from '../hero.jpg'
-import { connect } from 'react-redux'
+import hero from '../hero.jpg';
+import { connect } from 'react-redux';
+
 
 
 class UserContainer extends Component {
@@ -13,6 +14,7 @@ class UserContainer extends Component {
     const image = <img src={hero} alt="a person sitting on a bed with books and magazines spread over the bed" />
     return (
     <div>
+
       <Grid>
         <Row >
           <Col xs={4} md={4} lg={4}>
