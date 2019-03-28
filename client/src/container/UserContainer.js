@@ -4,13 +4,11 @@ import SignUp from '../components/SignUp';
 import {Grid, Row, Col} from 'react-bootstrap'
 import hero from '../hero.jpg'
 import { connect } from 'react-redux'
-import { loginUser } from '../store/action.js'
-
 
 class UserContainer extends Component {
 
   render() {
-    const show = !this.props.signUp ? < Login loginUser={loginUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signupUser={this.props.signupUser} />
+    const show = !this.props.signUp ? < Login loginUser={this.props.loginUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signupUser={this.props.signupUser} />
     const image = <img src={hero} alt="a person sitting on a bed with books and magazines spread over the bed" />
     return (
     <div>

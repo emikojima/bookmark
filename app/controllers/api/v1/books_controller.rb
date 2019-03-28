@@ -5,10 +5,10 @@ class BooksController < ApplicationController
   # GET /books
   def index
 
-    @list = List.find(params[:list_id])
-    @books = @list.books
+    @user = User.find(params[:user_id])
+    @books = @user.books
 
-    render json: [@list, @books]
+    render json: [@user, @books]
   end
 
   # GET /books/1

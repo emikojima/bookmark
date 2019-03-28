@@ -3,14 +3,13 @@ import axios from 'axios';
 import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
 import { connect } from 'react-redux'
-import { postBook } from '../actions/bookActions'
+import {postBook }from '../actions/bookActions'
 
 
 class NYTbookList extends Component {
   state = {
     list: "To Read",
-    books: [],
-    userbooks: []
+    books: []
   }
 
 componentDidMount() {
@@ -30,13 +29,13 @@ handleClickedBook = () =>
 }
 
 render() {
-  console.log("userbooks", this.state.userbooks)
+  console.log("userbooks", this.props.books)
   console.log("nyt render", this.state.books)
 
   const renderBooks = this.state.books.map((book, id) =>
     <a href='#'><li
       key={book.rank}
-      onClick={() => this.props.postBook(book, this.state.list)}
+      onClick={() => this.props.postBook(book, this.props.user)}
       className="pborder"
       >
       <h3>#{book.rank} NYT Bestseller</h3>
@@ -67,10 +66,10 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    postBook: (book, list) => dispatch({ type: 'POST_BOOK', book, list}),
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addBook: (book, list, user) => dispatch({ type: 'ADD_BOOK', book, list, user }),
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NYTbookList);
+export default connect(mapStateToProps,{postBook})(NYTbookList);

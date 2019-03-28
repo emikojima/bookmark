@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-List.create([{name: 'Sad Fiction', user_id: 1}, {name:'Sci-Fi'}, {name: 'POC Women Writers'}])
 
-Book.create([{title: 'Under the Mango Tree', description: "A young woman’s well-ordered life is disrupted by the I.T. guy from her office.", author: 'Lia Mishicma'}, {title: 'Now, a GET request to photos would succeed, but a POST request to photos which would ordinarily be routed to the create action will fail.', author: 'Michiko Kakutani'}])
+Book.create([{title: 'Under the Mango Tree', description: "A young woman’s well-ordered life is disrupted by the I.T. guy from her office.", author: 'Lia Mishicma', user_id: 1}, {title: 'Now', author: 'Michiko Kakutani', user_id: 1}])
 
-User.create(username: 'emi', password: 'emi')
+User.create(username: 'emi', password_digest: 'emi')

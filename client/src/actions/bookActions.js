@@ -1,18 +1,15 @@
-export function postBook(book, list) {
-    console.log('in action postBook with', book, list);
-
+export const postBook = (book, userId) => {
+    console.log('in action postBook with', book, userId);
 
     return (dispatch) => {
-        dispatch({ type: "BEGIN_BOOKS_REQUEST" })
-
         const body = JSON.stringify({ book })
-
-        return fetch('/api/parks', {
+        const user = userId
+        return fetch(`/api/v1/users/${user}/books`, {
             method: 'POST',
             headers: { "Content-type": 'application/json' },
             body: body,
         })
-            .then(resp => resp.json())
-            .then(parks => dispatch({ type: 'ADD_BOOK', payload: book }))
+            .then(resp => console.log("bookaction",resp.json()))
+            .then(book => dispatch({ type: 'ADD_BOOK', payload: book }))
     }
 }
