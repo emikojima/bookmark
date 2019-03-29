@@ -13,8 +13,21 @@ const deleteBook = book => {
   }
 }
 
-// asynch actions
+const setNytBooks = books => {
+  return {
+    type: 'GET_NYT_BOOKS_SUCCESS', books
+  }
+}
 
+// asynch actions
+export const getNytBooks = () => {
+  console.log("getNytBooks")
+  return (dispatch) => {
+    return fetch('/api/v1/books')
+    .then(resp => resp.json())
+    .then(books => dispatch(setNytBooks(books)))
+  }
+}
 
 export const getUserBooks = (user) => {
     console.log("getUserBooks action", user)
@@ -44,7 +57,7 @@ export const postBook = (book, userId) => {
 }
 
 export const deleteUserBook = (book) => {
-    console.log("deleteUserBook action", book)
+  console.log("deleteUserBook action", book)
   return (dispatch) => {
     return fetch(`api/v1/users/${book.user_id}/books/${book.id}`, {
       method: 'DELETE',

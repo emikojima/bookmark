@@ -4,31 +4,30 @@ import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
 import { connect } from 'react-redux'
 import {postBook }from '../actions/bookActions'
-import UserBooks from '../components/UserBooks'
+import UserBooks from '../components/UserBooks';
+import {getNytBooks} from '../actions/bookActions'
 
 
 class NYTbookList extends Component {
-  state = {
-    list: "To Read",
-    books: []
-  }
+
 
 componentDidMount() {
-  axios.get('api/v1/books.json')
-  .then(response => {
-	console.log("axios",response.data);
-  this.setState({books: response.data})
-})
-.catch(error => {
-    console.log(error.response)
-});
+  this.props.getNytBooks()
+  // axios.get('api/v1/books.json')
+  // .then(response => {
+	// console.log("axios",response.data);
+  // this.setState({books: response.data})
+// })
+// .catch(error => {
+//     console.log(error.response)
+// });
 }
 
 render() {
   console.log("userbooks", this.props)
-  console.log("nyt render", this.state.books)
+  console.log("nyt render", this.props.nytbooks)
 
-  const renderBooks = this.state.books.map((book, id) =>
+  const renderBooks = this.props.nytbooks.map((book, id) =>
     <a href="#"><li
       key={book.rank}
       onClick={() => this.props.postBook(book, this.props.user)}
@@ -62,7 +61,8 @@ const mapStateToProps = state => {
   return {
     list: state.list,
     books: state.books,
-    user: state.userId
+    user: state.userId,
+    nytbooks: state.nytbooks,
   }
 }
 
@@ -72,4 +72,4 @@ const mapStateToProps = state => {
 //   }
 // }
 
-export default connect(mapStateToProps,{postBook})(NYTbookList);
+export default connect(mapStateToProps,{postBook, getNytBooks})(NYTbookList);

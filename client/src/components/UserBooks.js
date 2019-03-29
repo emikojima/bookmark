@@ -5,7 +5,7 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 
 class UserBooks extends Component {
-  componentDidMount() {
+  componentWillMount() {
     console.log("USERBOOKS",this.props.user, this.props)
     this.props.getUserBooks(this.props.user)
 
