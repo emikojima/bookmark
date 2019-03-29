@@ -14,7 +14,14 @@ export default function reducer(state = initialState, action) {
  switch (action.type) {
    case 'SHOW_SIGN_UP':
     return {
-      ...state, signUp: !action.user, userId: cuid()
+      ...state, signUp: !action.user
+    }
+
+    case 'SIGNUP_USER': {
+      console.log("signup", action.user)
+      return{
+        ...state, loggedIn: true, username: action.user.username, password: action.user.password
+      }
     }
 
     case 'LOGIN_USER':

@@ -33,9 +33,10 @@ export default class SignUp extends Component {
      }
      axios.post('/api/v1/users', { user })
      .then(res => {
-       console.log(res);
-       console.log(res.data);
+       console.log(res)
      })
+
+
    }
 
 render() {

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.find_by(username: params[:user][:username])
+    @user = User.find_by(username: params[:user][:username], password_digest: params[:user][:password])
     if @user
       render json: @user
     else
