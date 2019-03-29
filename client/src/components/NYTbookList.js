@@ -39,22 +39,22 @@ render() {
       <h4>By: { book.author}</h4>
       <h5>{book.weeks_on_list} weeks on Bestseller List</h5>
       <h5>Synopsis: {book.description}</h5>
-      <a href={book.review}>Link to review </a>
+      // <a href={book.review}>Link to review </a>
     </li>
   </a>)
   return(
-    <div>
+    <>
       <NavBarcomp />
       <div className="bodymargin">
         <br></br>
         <h1> NEW YORK TIMES BESTSELLERS </h1>
         {renderBooks}
+        <>
+          <h1> MY BOOKLIST</h1>
+          <UserBooks />
+        </>
       </div>
-      <div className="bodymargin">
-        <h1> MY BOOKLIST</h1>
-        <UserBooks />
-      </div>
-  </div>
+    </>
   )
 }
 }

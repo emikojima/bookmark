@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserBooks } from '../actions/bookActions';
+import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 
 class UserBooks extends Component {
@@ -15,6 +16,7 @@ class UserBooks extends Component {
         <UserBookCard
           key={book.id}
           book={book}
+          deleteUserBook={this.props.deleteUserBook}
           userId={this.props.user} />)})
 
     return(
@@ -30,4 +32,4 @@ const mapStateToProps = (state) => {
     user: state.userId
   })
 }
-export default connect(mapStateToProps,{getUserBooks})(UserBooks)
+export default connect(mapStateToProps,{getUserBooks,deleteUserBook})(UserBooks)

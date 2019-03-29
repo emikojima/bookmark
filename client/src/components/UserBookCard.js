@@ -4,16 +4,17 @@ import './NYTbookList.css';
 class UserBookCard extends Component {
 
   render() {
-    const {title, author, description, id, userId} = this.props.book
+    // const {book, deleteUserBook} = this.props
     console.log("UBC",this.props)
     return(
-      <div >
+      <>
       <li className="pborder">
-          <h4>{title}</h4>
-          <h5>{description}</h5>
-          <h5>{author}</h5>
+          <h4>{this.props.book.title}</h4>
+          <h5>{this.props.book.description}</h5>
+          <h5>{this.props.book.author}</h5>
+          <button onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</button>
       </li>
-    </div>
+      </>
     )}
 }
 

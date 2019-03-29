@@ -31,7 +31,14 @@ export default function reducer(state = initialState, action) {
     case 'ADD_BOOK':
       console.log('ADD_BOOK is returning', action);
       return {
-        ...state, books: action.book
+        ...state, books: [ action.book, ...state.books]
+      }
+
+    case 'DELETE_USER_BOOK_SUCCESS':
+      console.log('DELETE USER BOOKS SUC is returning', action);
+      const books = state.books.filter(book => book.id !== action.book.id)
+      return {
+        ...state, books: books
       }
 
 

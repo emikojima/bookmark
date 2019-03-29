@@ -5,8 +5,6 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import hero from '../hero.jpg';
 import { connect } from 'react-redux';
 
-
-
 class UserContainer extends Component {
 
   render() {
