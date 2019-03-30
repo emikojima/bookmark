@@ -26,10 +26,11 @@ class UserBooks extends Component {
     )
   }
 }
-const mapStateToProps = (state) => {
-  return ({
-    books: state.books,
-    user: state.userId
-  })
-}
+  const mapStateToProps = (state) => {
+    return ({
+      books: state.books,
+      user: state.userId
+    })
+  }
+  
 export default connect(mapStateToProps,{getUserBooks,deleteUserBook})(UserBooks)

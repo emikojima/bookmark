@@ -3,19 +3,22 @@ const setBooks = books => {
   return {
   type: 'GET_USER_BOOKS_SUCCESS',
   books
-}}
+  }
+}
 
 const deleteBook = book => {
   console.log("deleteBook", book)
   return {
     type: 'DELETE_USER_BOOK_SUCCESS',
     book
-  }}
+  }
+}
 
 const setNytBooks = books => {
   return {
     type: 'GET_NYT_BOOKS_SUCCESS', books
-  }}
+  }
+}
 
 // asynch actions
 export const getNytBooks = () => {
@@ -24,7 +27,8 @@ export const getNytBooks = () => {
     return fetch('/api/v1/books')
     .then(resp => resp.json())
     .then(books => dispatch(setNytBooks(books)))
-  }}
+  }
+}
 
 export const getUserBooks = (user) => {
   console.log("getUserBooks action", user)
@@ -33,7 +37,8 @@ export const getUserBooks = (user) => {
     .then(resp => resp.json())
     .then(books => dispatch(setBooks(books)))
     .catch(error => console.log(error))
-  }}
+  }
+}
 
 export const postBook = (book, userId) => {
     console.log('in action postBook with', book, userId);
@@ -48,7 +53,8 @@ export const postBook = (book, userId) => {
         })
         .then(resp => resp.json())
         .then(book => dispatch({ type: 'ADD_BOOK', book }))
-  }}
+  }
+}
 
 export const deleteUserBook = (book) => {
   console.log("deleteUserBook action", book)
@@ -60,4 +66,5 @@ export const deleteUserBook = (book) => {
     .then(() => console.log("book was deleted"))
     .then(() => dispatch(deleteBook(book)))
     .catch(error => console.log(error));
-  }}
+  }
+}

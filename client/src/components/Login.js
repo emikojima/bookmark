@@ -85,9 +85,6 @@ export default class Login extends Component {
           Sign Up
           </Button>
       </div>
-
-
-
-)
-}
+    )
+  }
 }
