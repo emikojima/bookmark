@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './NYTbookList.css';
 import NavBarcomp from './NavBarcomp'
 import { connect } from 'react-redux'
@@ -13,15 +12,14 @@ class NYTbookList extends Component {
 
 componentDidMount() {
   this.props.getNytBooks()
-  // axios.get('api/v1/books.json')
-  // .then(response => {
-	// console.log("axios",response.data);
-  // this.setState({books: response.data})
-// })
-// .catch(error => {
-//     console.log(error.response)
-// });
 }
+
+checkForDuplicateBook = (book) => {
+  const booktitlearray = [];
+  const booktitles = this.props.books.map(book => booktitlearray.push(book.title));
+
+   !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists")}
+
 
 render() {
   console.log("userbooks", this.props)
@@ -30,7 +28,7 @@ render() {
   const renderBooks = this.props.nytbooks.map((book, id) =>
     <a href="#"><li
       key={book.rank}
-      onClick={() => this.props.postBook(book, this.props.user)}
+      onClick={() => this.checkForDuplicateBook(book)}
       className="pborder"
       >
       <h3>#{book.rank} NYT Bestseller</h3>
@@ -48,7 +46,7 @@ render() {
         <br></br>
         <h1> NEW YORK TIMES BESTSELLERS </h1>
         {renderBooks}
-        <>
+    <>
           <h1> MY BOOKLIST</h1>
           <UserBooks />
         </>
@@ -66,10 +64,5 @@ const mapStateToProps = state => {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addBook: (book, list, user) => dispatch({ type: 'ADD_BOOK', book, list, user }),
-//   }
-// }
 
 export default connect(mapStateToProps,{postBook, getNytBooks})(NYTbookList);
