@@ -9,5 +9,4 @@ const UserBookCard = (props) =>
       <button onClick={()=>props.deleteUserBook(props.book)}>DELETE THIS BOOK</button>
     </li>
 
-
 export default UserBookCard;
