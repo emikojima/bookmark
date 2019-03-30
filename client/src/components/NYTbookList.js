@@ -9,24 +9,24 @@ import {getNytBooks} from '../actions/bookActions'
 
 class NYTbookList extends Component {
 
-
 componentDidMount() {
   this.props.getNytBooks()
 }
 
+// checking to see if the book is already in user's list, if not in list adding book to database / redux store
 checkForDuplicateBook = (book) => {
   const booktitlearray = [];
-  const booktitles = this.props.books.map(book => booktitlearray.push(book.title));
+   this.props.books.map(book => booktitlearray.push(book.title));
 
-   !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists")}
-
+   !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists")};
 
 render() {
   console.log("userbooks", this.props)
   console.log("nyt render", this.props.nytbooks)
 
   const renderBooks = this.props.nytbooks.map((book, id) =>
-    <a href="#"><li
+    <a href="#">
+      <li
       key={book.rank}
       onClick={() => this.checkForDuplicateBook(book)}
       className="pborder"
@@ -36,9 +36,9 @@ render() {
       <h4>By: { book.author}</h4>
       <h5>{book.weeks_on_list} weeks on Bestseller List</h5>
       <h5>Synopsis: {book.description}</h5>
-      // <a href={book.review}>Link to review </a>
-    </li>
-  </a>)
+     // {<a href={book.review}>Link to review </a>}
+      </li>
+    </a>)
   return(
     <>
       <NavBarcomp />
