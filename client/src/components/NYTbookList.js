@@ -9,6 +9,11 @@ import NYTbookCard from './NYTbookCard';
 
 class NYTbookList extends Component {
 
+  state = {
+    showMybooks: false,
+    buttonText: false
+  }
+
   componentDidMount() {
     this.props.getNytBooks()
   };
@@ -24,6 +29,7 @@ class NYTbookList extends Component {
     console.log("userbooks", this.props);
     console.log("nyt render", this.props.nytbooks);
 
+    const buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
@@ -33,12 +39,15 @@ class NYTbookList extends Component {
         <NavBarcomp />
         <div className="bodymargin">
           <br></br>
+          <>
+          <h1> MY BOOKLIST</h1>
+          <button onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</button>
+          {this.state.showMybooks ? <UserBooks /> : null}
+
+
+          </>
           <h1> NEW YORK TIMES BESTSELLERS </h1>
           {renderBooks}
-            <>
-              <h1> MY BOOKLIST</h1>
-              <UserBooks />
-            </>
         </div>
       </>
     );
