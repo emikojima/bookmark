@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import axios from 'axios'
+import axios from 'axios';
+
 export default class Login extends Component {
   state = {
     username: "",
@@ -36,33 +37,29 @@ export default class Login extends Component {
     this.props.showSignup(this.props.signUp)
   }
 
-
   render() {
     return (
       <div className="whiteText" >
         <h3>LOGIN</h3>
         <form inline onSubmit={this.handleSubmit}>
           <FormGroup controlId="username">
-
-            <ControlLabel>Username</ControlLabel>
-
-            <FormControl
-              autoFocus
-              placeholder="Username"
-              type="text"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
+          <ControlLabel>Username</ControlLabel>
+          <FormControl
+            autoFocus
+            placeholder="Username"
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
           </FormGroup>
-
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              placeholder="Password"
-              type="password"
-            />
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            value={this.state.password}
+            onChange={this.handleChange}
+            placeholder="Password"
+            type="password"
+          />
           </FormGroup>
           <Button
             bsStyle="info"
@@ -74,16 +71,16 @@ export default class Login extends Component {
             Login
           </Button>
         </form>
-          <h4>OR</h4>
-          <Button
-            onClick={(event) => {this.handleSignUp(event)}}
-            bsStyle="info"
-            block
-            bsSize="large"
-            type="submit"
-          >
-          Sign Up
-          </Button>
+        <h4>OR</h4>
+        <Button
+          onClick={(event) => {this.handleSignUp(event)}}
+          bsStyle="info"
+          block
+          bsSize="large"
+          type="submit"
+        >
+        Sign Up
+        </Button>
       </div>
     )
   }
