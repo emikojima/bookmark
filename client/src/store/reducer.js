@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action) {
   case 'SIGNUP_USER':
     console.log("signup", action.user)
     return{
-      ...state, loggedIn: true, username: action.user.username, password: action.user.password
+      ...state, loggedIn: true, username: action.user.username, password: action.user.password, signUp: false
     };
 
   case 'LOGIN_USER':
