@@ -27,19 +27,19 @@ export default class SignUp extends Component {
 
    handleSubmit = event => {
      event.preventDefault();
+     console.log("Sign up js", this.props)
      const user = {
        username: this.state.username,
        password: this.state.password
      }
-     axios.post('/api/v1/users', { user })
-     .then(res => {
-       console.log(res)
-     })
+      this.props.signUpUser(user)
+     }
 
 
-   }
+
 
 render() {
+   console.log("Sign up js", this.props)
   return (
    <div className="whiteText" >
      <h3>Sign Up</h3>

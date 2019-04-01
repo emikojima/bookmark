@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
  switch (action.type) {
   case 'SHOW_SIGN_UP':
     return {
-    ...state, signUp: !action.user
+    ...state, signUp: true
     };
 
   case 'SIGNUP_USER':
@@ -25,8 +25,9 @@ export default function reducer(state = initialState, action) {
     };
 
   case 'LOGIN_USER':
+  console.log("loginuser reducer", action)
     return {
-      ...state, username: action.user.username, userId: action.user.id, loggedIn: true
+      ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true
     };
 
   case 'GET_USER_BOOKS_SUCCESS':
