@@ -14,6 +14,14 @@ const deleteBook = book => {
   }
 }
 
+const updateBook = book => {
+  console.log("updateBook reducer", book)
+  return {
+    type: 'UPDATE_BOOK',
+    book
+  }
+}
+
 const setNytBooks = books => {
   return {
     type: 'GET_NYT_BOOKS_SUCCESS', books
@@ -59,7 +67,7 @@ export const postBook = (book, userId) => {
 export const deleteUserBook = (book) => {
   console.log("deleteUserBook action", book)
   return (dispatch) => {
-    return fetch(`api/v1/users/${book.user_id}/books/${book.id}`, {
+    return fetch(`/api/v1/users/${book.user_id}/books/${book.id}`, {
       method: 'DELETE',
       headers: {"Content-Type": 'application/json'},
     })
@@ -67,4 +75,18 @@ export const deleteUserBook = (book) => {
     .then(() => dispatch(deleteBook(book)))
     .catch(error => console.log(error));
   }
+}
+
+export const addBookNote = (book) => {
+  console.log("addBookNote action", book)
+  const body = JSON.stringify({title: book.title, description: book.description, author: book.author, user_id: book.user_id, notes: book.notes})
+  return (dispatch) => {
+  return fetch(`/api/v1/users/${book.user_id}/books/${book.id}`, {
+    method: 'PUT',
+    headers: {"Content-type": 'application/json' },
+    body: body
+  })
+  .then(resp => resp.json())
+  .then(data => dispatch(updateBook(book)))
+}
 }

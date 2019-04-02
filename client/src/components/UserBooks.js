@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getUserBooks } from '../actions/bookActions';
 import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
+import { addBookNote } from '../actions/bookActions';
 
 class UserBooks extends Component {
   componentDidMount() {
@@ -17,7 +18,8 @@ class UserBooks extends Component {
           key={book.id}
           book={book}
           deleteUserBook={this.props.deleteUserBook}
-          userId={this.props.user} />)})
+          userId={this.props.user}
+          addBookNote={this.props.addBookNote} />)})
 
     return(
       <ul className="UserBooks">
@@ -32,5 +34,5 @@ class UserBooks extends Component {
       user: state.userId
     })
   }
-  
-export default connect(mapStateToProps,{getUserBooks,deleteUserBook})(UserBooks)
+
+export default connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote})(UserBooks)

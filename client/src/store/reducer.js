@@ -48,6 +48,16 @@ export default function reducer(state = initialState, action) {
       ...state, books: [ action.book, ...state.books]
     };
 
+    case 'UPDATE_BOOK':
+    const allbooks = state.books
+    const index = allbooks.findIndex(book => book.id === action.book.id)
+    allbooks[index].notes = (action.book.notes)
+    
+     return {
+       ...state, books: allbooks
+     }
+
+
   case 'DELETE_USER_BOOK_SUCCESS':
     console.log('DELETE USER BOOKS SUC is returning', action);
     const books = state.books.filter(book => book.id !== action.book.id)
