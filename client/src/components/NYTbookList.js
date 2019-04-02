@@ -6,6 +6,7 @@ import { postBook }from '../actions/bookActions';
 import UserBooks from '../components/UserBooks';
 import { getNytBooks } from '../actions/bookActions';
 import NYTbookCard from './NYTbookCard';
+import { Button } from 'react-bootstrap';
 
 class NYTbookList extends Component {
 
@@ -25,11 +26,14 @@ class NYTbookList extends Component {
     !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists");
   };
 
+
   render() {
     console.log("userbooks", this.props);
     console.log("nyt render", this.props.nytbooks);
+    let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
 
-    const buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
+
+
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
@@ -41,7 +45,10 @@ class NYTbookList extends Component {
           <br></br>
           <>
           <h1> MY BOOKLIST</h1>
-          <button onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</button>
+          <Button
+          variant="success"
+          onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
+          }>{buttonText}</Button>
           {this.state.showMybooks ? <UserBooks /> : null}
 
 
