@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import axios from 'axios'
-
 
 export default class SignUp extends Component {
-
    state = {
      username: "",
      password: "",
@@ -23,23 +20,18 @@ export default class SignUp extends Component {
      this.setState({
        [event.target.id]: event.target.value
      });
+   };
+
+  handleSubmit = event => {
+   event.preventDefault();
+   const user = {
+     username: this.state.username,
+     password: this.state.password
    }
-
-   handleSubmit = event => {
-     event.preventDefault();
-     console.log("Sign up js", this.props)
-     const user = {
-       username: this.state.username,
-       password: this.state.password
-     }
-      this.props.signUpUser(user)
-     }
-
-
-
+    this.props.signUpUser(user)
+  };
 
 render() {
-   console.log("Sign up js", this.props)
   return (
    <div className="whiteText" >
      <h3>Sign Up</h3>

@@ -25,11 +25,8 @@ export default class Login extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    axios.post('/api/v1/users', { user })
-    .then(res => {
-      console.log("login",res.data, this.props);
-      this.props.loginUser(res.data);
-    })
+    this.props.loginUser(user)
+
   }
 
   handleSignUp = event => {
