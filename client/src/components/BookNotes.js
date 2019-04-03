@@ -17,12 +17,16 @@ export default class BookNotes extends Component {
   handleNoteChange = event => {
     this.setState({note: event.target.value})}
 
-  render() {
 
+
+  render() {
+    const placeholderText = this.props.book.notes ? this.props.book.notes : "ADD your note for this book here."
+    const submitButtonText = this.props.book.notes ? "Edit Note" : "Add Note"
     return (
-      <form  inline onSubmit={this.onSubmitNote}>
-      <input type="text" placeholder="Add your note for this book here" value={this.state.note} onChange={this.handleNoteChange}></input>
-      <button type="submit">Add Note</button>
+      <form onSubmit={this.onSubmitNote}>
+      <textarea type="text" placeholder={placeholderText} value={this.state.note} onChange={this.handleNoteChange}></textarea>
+      <br/>
+      <button type="submit">{submitButtonText}</button>
     </form>
     )
   }

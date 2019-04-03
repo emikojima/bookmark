@@ -13,7 +13,7 @@ const NYTbookCard = (props) =>
       <h4>By: { props.book.author}</h4>
       <h5>{props.book.weeks_on_list} weeks on Bestseller List</h5>
       <h5>Synopsis: {props.book.description}</h5>
-     // {<a href={props.book.review}>Link to review </a>}
+      {props.book.review !== "" ? <a href={props.book.review} a target="_blank" rel="noopener noreferrer">Link to New York Times Book Review </a> : <a href={props.book.amazon_url} a target="_blank" rel="noopener noreferrer">Link to Review </a>}
     </li>
   </a>
 
