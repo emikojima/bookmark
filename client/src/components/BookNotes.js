@@ -9,9 +9,9 @@ export default class BookNotes extends Component {
     event.preventDefault()
     const book = this.props.book
     book.notes = this.state.note
-    console.log("onSub", book)
-    this.props.addBookNote(book)
     this.setState({note: ""})
+    this.props.addBookNote(book)
+
   }
 
   handleNoteChange = event => {
@@ -21,7 +21,7 @@ export default class BookNotes extends Component {
 
     return (
       <form  inline onSubmit={this.onSubmitNote}>
-      <input type="text" placeholder="Add your note for this book here" onChange={this.handleNoteChange}></input>
+      <input type="text" placeholder="Add your note for this book here" value={this.state.note} onChange={this.handleNoteChange}></input>
       <button type="submit">Add Note</button>
     </form>
     )
