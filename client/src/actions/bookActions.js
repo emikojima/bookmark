@@ -15,7 +15,7 @@ const deleteBook = book => {
 }
 
 const updateBook = book => {
-  console.log("updateBook reducer", book)
+  console.log("updateBook action", book)
   return {
     type: 'UPDATE_BOOK',
     book
@@ -88,5 +88,6 @@ export const addBookNote = (book) => {
   })
   .then(resp => resp.json())
   .then(data => dispatch(updateBook(book)))
-}
+  .catch(error => console.log(error));
+  }
 }

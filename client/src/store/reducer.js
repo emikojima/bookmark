@@ -49,13 +49,19 @@ export default function reducer(state = initialState, action) {
     };
 
     case 'UPDATE_BOOK':
-    const allbooks = state.books
+    console.log("UPDATE_BOOK REDUCER is returning", action)
+    const allbooks = [...state.books]
     const index = allbooks.findIndex(book => book.id === action.book.id)
-    allbooks[index].notes = (action.book.notes)
-    
+    allbooks[index].notes = action.book.notes
      return {
        ...state, books: allbooks
-     }
+     };
+
+     // whatever is returned is the new state for the store.
+     // there is also the old state.
+     // which component is not rerendering?
+     // must be the props didn't change. must mean that shallowCompare doesn't think a change happened.
+     // the key in mapStateToProps === that key on the returned state
 
 
   case 'DELETE_USER_BOOK_SUCCESS':
