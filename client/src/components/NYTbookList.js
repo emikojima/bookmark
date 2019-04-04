@@ -41,7 +41,7 @@ class NYTbookList extends Component {
           <>
           <h1> MY BOOKLIST</h1>
           <Button
-          bsStyle="outline-success"
+          bsStyle="light"
           onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
           }>{buttonText}</Button>
           {this.state.showMybooks ? <UserBooks /> : null}
