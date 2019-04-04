@@ -11,13 +11,15 @@ class UserBookCard extends Component {
   render() {
     const showBookNoteForm = this.state.showBookNoteComponent ? <BookNotes addBookNote={this.props.addBookNote} book={this.props.book} setShowBookNotesComponent={ this.setShowBookNotesComponent} showBookNoteComponent={this.state.showBookNoteComponent}/> : null
     const show = this.state.showBookNoteComponent ? {display: 'none'} : {}
+    const isThereAbookNote = this.props.book.notes ? <h5>NOTE: {this.props.book.notes} </h5> : null
+    const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
     return (
     <li className="pborder">
       <h4>{this.props.book.title}</h4>
       <h5>{this.props.book.description}</h5>
       <h5>{this.props.book.author}</h5>
-      <h5>NOTE: {this.props.book.notes}</h5>
-      <button style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>Add or Edit a Book Note</button>
+      {isThereAbookNote}
+      <button style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</button>
       {showBookNoteForm}
       <button onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</button>
     </li>
