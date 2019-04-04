@@ -12,7 +12,6 @@ class UserBooks extends Component {
 
   }
   render() {
-    console.log("book note added", this.props)
     const booksList = this.props.books.map(book => {
       return (
         <UserBookCard

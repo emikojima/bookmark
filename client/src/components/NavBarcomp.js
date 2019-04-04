@@ -2,7 +2,7 @@ import React from 'react';
 import './NavBarcomp.css'
 import book from '../book.png'
 
-export default function NavBarcomp(){
+const NavBarcomp = () => {
   return (
     <div>
       <header>
@@ -17,3 +17,5 @@ export default function NavBarcomp(){
     </div>
   )
 }
+
+export default NavBarcomp;
