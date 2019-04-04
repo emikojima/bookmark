@@ -7,20 +7,18 @@ import { addBookNote } from '../actions/bookActions';
 
 class UserBooks extends Component {
   componentDidMount() {
-    console.log("USERBOOKS",this.props.user, this.props)
     this.props.getUserBooks(this.props.user)
 
   }
   render() {
     const booksList = this.props.books.map(book => {
-      return (
-        <UserBookCard
-          key={book.id}
-          book={book}
-          deleteUserBook={this.props.deleteUserBook}
-          userId={this.props.user}
-          addBookNote={this.props.addBookNote} />)})
-
+      return (<UserBookCard
+        key={book.id}
+        book={book}
+        deleteUserBook={this.props.deleteUserBook}
+        userId={this.props.user}
+        addBookNote={this.props.addBookNote} />)
+    });
     return(
       <ul className="UserBooks">
         { booksList }

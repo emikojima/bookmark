@@ -18,5 +18,5 @@ export const logInOrsignUpUser = (user) => {
   return(dispatch) => {
     axios.post('/api/v1/users', { username: user.username, password: user.password })
     .then(res => dispatch(logInUser( {username: res.data.username, password: res.data.password_digest, id: res.data.id})
-    )).catch(error => console.log(error))
+  )).catch(error => window.alert( "Please check your username and/or password"))
 }}

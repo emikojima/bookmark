@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from 'react-bootstrap';
+import BookNoteForm from './BookNoteForm';
 
 export default class BookNotes extends Component {
   state = {
@@ -22,13 +22,9 @@ export default class BookNotes extends Component {
     const placeholderText = this.props.book.notes ? this.props.book.notes : "ADD your note for this book here."
     const submitButtonText = this.props.book.notes ? "Edit Note" : "Add Note"
     const display = !this.props.showBookNoteComponent ? {display: 'none'} : {}
-
     return (
-      <form onSubmit={this.onSubmitNote} style={display}>
-      <textarea type="text" placeholder={placeholderText} value={this.state.note} onChange={this.handleNoteChange}></textarea>
-      <br/>
-      <Button bsStyle="secondary" type="submit">{submitButtonText}</Button>
-    </form>
+      <BookNoteForm onSubmitNote={this.onSubmitNote} note={this.state.note} handleNoteChange={this.handleNoteChange} submitButtonText={this.submitButtonText}
+      book={this.props.book.notes} showBookNoteComponent={this.props.showBookNoteComponent} placeholderText={placeholderText} submitText={submitButtonText} diplay={display}/>
     )
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import UserContainer from './container/UserContainer';
 import NYTbookList from './components/NYTbookList';
 import { connect } from 'react-redux';

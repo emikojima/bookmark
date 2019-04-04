@@ -8,6 +8,7 @@ import { getNytBooks } from '../actions/bookActions';
 import NYTbookCard from './NYTbookCard';
 import { Button } from 'react-bootstrap';
 
+
 class NYTbookList extends Component {
   state = {
     showMybooks: false,
@@ -21,18 +22,16 @@ class NYTbookList extends Component {
   // checking to see if the book is already in user's list, if not adds book to database & redux store
   checkForDuplicateBook = (book) => {
     const booktitlearray = [];
+
     this.props.books.map(book => booktitlearray.push(book.title));
-    !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists");
+    !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
   };
 
   render() {
-    console.log("userbooks", this.props);
-    console.log("nyt render", this.props.nytbooks);
     let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
-    const style = {color: "white" ,textShadow: '2px 2px gray'}
+    const style = {color: "white" ,textShadow: '1px 1px gray'}
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />);
-
     return(
       <>
         <NavBarcomp />
