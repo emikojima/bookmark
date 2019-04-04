@@ -31,8 +31,7 @@ class NYTbookList extends Component {
     let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
     const style = {color: "white" ,textShadow: '2px 2px gray'}
     const renderBooks = this.props.nytbooks.map((book, id) =>
-      <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
-    );
+      <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />);
 
     return(
       <>
@@ -42,7 +41,7 @@ class NYTbookList extends Component {
           <>
           <h1> MY BOOKLIST</h1>
           <Button
-          variant="success"
+          bsStyle="outline-success"
           onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
           }>{buttonText}</Button>
           {this.state.showMybooks ? <UserBooks /> : null}

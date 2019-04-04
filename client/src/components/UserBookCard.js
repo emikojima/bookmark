@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NYTbookList.css';
 import BookNotes from './BookNotes';
+import { Button } from 'react-bootstrap';
 
 class UserBookCard extends Component {
   state = {showBookNoteComponent: false}
@@ -20,9 +21,9 @@ class UserBookCard extends Component {
       <h5>{this.props.book.description}</h5>
       <h5>{this.props.book.author}</h5>
       {isThereAbookNote}
-      <button style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</button>
+      <Button bsStyle="info" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
       {showBookNoteForm}
-      <button onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</button>
+      <Button bsStyle="info" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
     </li>
     )
   }

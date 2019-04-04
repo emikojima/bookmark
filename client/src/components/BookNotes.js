@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from 'react-bootstrap';
 
 export default class BookNotes extends Component {
   state = {
@@ -28,7 +29,7 @@ export default class BookNotes extends Component {
       <form onSubmit={this.onSubmitNote} style={display}>
       <textarea type="text" placeholder={placeholderText} value={this.state.note} onChange={this.handleNoteChange}></textarea>
       <br/>
-      <button type="submit">{submitButtonText}</button>
+      <Button bsStyle="secondary" type="submit">{submitButtonText}</Button>
     </form>
     )
   }
