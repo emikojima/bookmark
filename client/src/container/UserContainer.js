@@ -5,29 +5,23 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import hero from '../hero.jpg';
 import { connect } from 'react-redux';
 import { logInThisUser, showSignup, signUpUser } from '../actions/userActions'
+import './UserContainer.css'
 
 class UserContainer extends Component {
   render() {
     const show = !this.props.signUp ? < Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signUpUser={this.props.signUpUser} />;
-  const image = <img src={hero} alt="a person sitting on a bed with books and magazines spread over the bed" />;
+
     return (
-      <div className="backgroundcolor">
+      <div className="image" id="responsive">
+
         <Grid>
           <Row >
-
             <Col xs={4} md={4} lg={4}>
-              <div className="imageMargin">
-              {image}
-
-            </div>
             </Col>
-
             <Col xs={4} md={4} lg={4} >
-              <div className="textMargin"><h1>BOOKMARK</h1></div>
-
               {show}
             </Col>
-            <Col xsHidden mdHidden lgHidden/>
+            <Col xs={4} md={4} lg={4} />
           </Row>
         </Grid>
       </div>

@@ -1,0 +1,10 @@
+.image {
+  background-image: url('../hero.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: LightCyan;
+  width: 100%;
+  height: auto;
+}

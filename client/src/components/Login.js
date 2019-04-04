@@ -34,7 +34,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="whiteText" >
+      <div className="whiteText">
         <h3>LOGIN</h3>
           <form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="username">
