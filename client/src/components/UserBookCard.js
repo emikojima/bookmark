@@ -5,6 +5,7 @@ import BookNotes from './BookNotes';
 class UserBookCard extends Component {
   state = {showBookNoteComponent: false}
 
+  //callback function to get showBookNoteComponent prop back from child component
   setShowBookNotesComponent = (getback) => {
     this.setState({showBookNoteComponent: getback})}
 

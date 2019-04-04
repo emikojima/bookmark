@@ -9,7 +9,6 @@ import NYTbookCard from './NYTbookCard';
 import { Button } from 'react-bootstrap';
 
 class NYTbookList extends Component {
-
   state = {
     showMybooks: false,
     buttonText: false
@@ -25,7 +24,6 @@ class NYTbookList extends Component {
     this.props.books.map(book => booktitlearray.push(book.title));
     !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : console.log("book already exists");
   };
-
 
   render() {
     console.log("userbooks", this.props);
@@ -60,7 +58,6 @@ class NYTbookList extends Component {
 
   const mapStateToProps = state => {
     return {
-      list: state.list,
       books: state.books,
       user: state.userId,
       nytbooks: state.nytbooks,

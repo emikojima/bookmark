@@ -36,4 +36,4 @@ const mapStateToProps = state =>{
   };
 };
 
-export default connect(mapStateToProps,  {logInOrsignUpUser, showSignup})(UserContainer);
+export default connect(mapStateToProps, {logInOrsignUpUser, showSignup})(UserContainer);

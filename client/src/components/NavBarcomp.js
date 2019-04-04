@@ -8,10 +8,10 @@ export default function NavBarcomp(){
       <header>
         <img src={book} alt="illustrated icon of books" />
         <nav>
-           <ul>
-             <li><a href="#">Best Sellers</a></li>
-             <li><a href="#">My Books</a></li>
-           </ul>
+         <ul>
+           <li><a href="#">Best Sellers</a></li>
+           <li><a href="#">My Books</a></li>
+         </ul>
        </nav>
      </header>
     </div>
