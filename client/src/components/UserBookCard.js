@@ -19,14 +19,15 @@ class UserBookCard extends Component {
     const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
     return (
       <li className="pborder">
-        <h4>{this.props.book.title}</h4>
+        <h3>{this.props.book.title}</h3>
+        <br/>
         <h5>{this.props.book.description}</h5>
         <h5>{this.props.book.author}</h5>
         {isThereAbookNote}
         <Button bsStyle="outline-info" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
         <br></br>
         {showBookNoteForm}
-        <Button bsStyle="secondary" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
+        <Button bsStyle="outline-danger" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
       </li>
     )
   }

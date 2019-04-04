@@ -12,3 +12,24 @@
   opacity: .9;
   border-radius: 25px;
 }
+
+.backgroundcolor {
+  background-image: linear-gradient(to bottom right, LightCyan, snow);
+}
+
+.imageMargin {
+  margin-top: 15%;
+}
+
+.textMargin {
+  margin-top: 25%;
+}
+.textMargin > h1 {
+  color: white;
+  text-shadow: 2px 1px MidnightBlue;
+}
+
+#responsive {
+  width: 100%;
+  height: auto;
+}

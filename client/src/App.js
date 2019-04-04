@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     const logged = !this.props.loggedIn ? <UserContainer signUp={this.props.signUp}/> : < NYTbookList />
     return (
-      <div className="App">
+      <div className="App" id="responsive">
       {logged}
       </div>
     );

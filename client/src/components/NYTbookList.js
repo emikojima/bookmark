@@ -47,7 +47,9 @@ class NYTbookList extends Component {
           </>
           <h1> NEW YORK TIMES BESTSELLERS </h1>
           <h4 style={style}>Click on a book card to add it to your reading list!</h4>
+          <ul >
           {renderBooks}
+          </ul>
         </div>
       </>
     );
