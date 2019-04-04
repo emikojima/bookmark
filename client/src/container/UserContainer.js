@@ -4,11 +4,11 @@ import SignUp from '../components/SignUp';
 import {Grid, Row, Col} from 'react-bootstrap'
 import hero from '../hero.jpg';
 import { connect } from 'react-redux';
-import { logInOrsignUpUser, showSignup } from '../actions/userActions'
+import { logInThisUser, showSignup, signUpUser } from '../actions/userActions'
 
 class UserContainer extends Component {
   render() {
-    const show = !this.props.signUp ? < Login loginUser={this.props.logInOrsignUpUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signUpUser={this.props.logInOrsignUpUser} />;
+    const show = !this.props.signUp ? < Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signUpUser={this.props.signUpUser} />;
     const image = <img src={hero} alt="a person sitting on a bed with books and magazines spread over the bed" />;
     return (
       <>
@@ -36,4 +36,4 @@ const mapStateToProps = state =>{
   };
 };
 
-export default connect(mapStateToProps, {logInOrsignUpUser, showSignup})(UserContainer);
+export default connect(mapStateToProps, {logInThisUser, signUpUser, showSignup})(UserContainer);

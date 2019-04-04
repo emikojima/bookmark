@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   get '/api/v1/books', to: 'get_books#books'
+
   namespace :api do
     namespace :v1 do
       resources :users do
         resources:books
       end
+      post 'login', action: :login, controller: 'users'
     end
   end
 

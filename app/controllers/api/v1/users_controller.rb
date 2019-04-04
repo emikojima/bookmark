@@ -1,6 +1,6 @@
 module Api::V1
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+
 
   # GET /users
   def index
@@ -16,10 +16,6 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.find_by(username: params[:user][:username], password_digest: params[:password])
-    if @user
-      render json: @user
-    else
       @user = User.new(username: params[:username], password_digest: params[:password])
 
       if @user.save
@@ -27,6 +23,15 @@ class UsersController < ApplicationController
       else
         render json: @user.errors, status: :unprocessable_entity
       end
+  end
+
+  #POST /login
+  def login
+    @user = User.find_by(username: params[:user][:username], password_digest: params[:password])
+    if @user
+      render json: @user
+    else
+      render json: { error: 'Failed to Log In' }, status: 400
     end
   end
 
