@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import {Grid, Row, Col} from 'react-bootstrap'
-import hero from '../hero.jpg';
 import { connect } from 'react-redux';
 import { logInThisUser, showSignup, signUpUser } from '../actions/userActions'
 import './UserContainer.css'
@@ -13,15 +12,14 @@ class UserContainer extends Component {
 
     return (
       <div className="image" id="responsive">
-
         <Grid>
           <Row >
-            <Col xs={4} md={4} lg={4}>
+            <Col xs={2} md={4} lg={4}>
             </Col>
-            <Col xs={4} md={4} lg={4} >
+            <Col xs={8} md={5} lg={4} >
               {show}
             </Col>
-            <Col xs={4} md={4} lg={4} />
+            <Col xs={2} md={4} lg={4} />
           </Row>
         </Grid>
       </div>
