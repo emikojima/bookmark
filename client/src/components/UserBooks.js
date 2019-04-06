@@ -4,6 +4,7 @@ import { getUserBooks } from '../actions/bookActions';
 import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
+import './UserBooks.css';
 
 class UserBooks extends Component {
   componentDidMount() {
@@ -20,9 +21,11 @@ class UserBooks extends Component {
         addBookNote={this.props.addBookNote} />)
     });
     return(
-      <ul className="UserBooks">
+    <div className="userBooks">
+      <ul>
         { booksList }
       </ul>
+    </div>
     )
   }
 }

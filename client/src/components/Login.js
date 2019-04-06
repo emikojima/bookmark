@@ -36,7 +36,7 @@ export default class Login extends Component {
     return (
       <div className="whiteText">
         <h3>LOGIN</h3>
-          <form inline onSubmit={this.handleSubmit}>
+          <form inline="true" onSubmit={this.handleSubmit}>
             <FormGroup controlId="username">
             <ControlLabel>Username</ControlLabel>
             <FormControl
@@ -64,14 +64,14 @@ export default class Login extends Component {
               type="submit"
             >Login</Button>
           </form>
-        <h4>OR</h4>
-        <Button
-          onClick={(event) => {this.handleSignUp(event)}}
-          bsStyle="info"
-          block
-          bsSize="large"
-          type="submit"
-        >Sign Up</Button>
+            <h4>OR</h4>
+            <Button
+              onClick={(event) => {this.handleSignUp(event)}}
+              bsStyle="info"
+              block
+              bsSize="large"
+              type="submit"
+            >Sign Up</Button>
       </div>
     )
   }

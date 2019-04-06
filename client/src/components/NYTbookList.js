@@ -28,28 +28,30 @@ class NYTbookList extends Component {
   };
 
   render() {
+    console.log("I AM LOADING!")
     let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
     const style = {color: "white" ,textShadow: '1px 1px gray'}
     const renderBooks = this.props.nytbooks.map((book, id) =>
-      <NYTbookCard book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />);
+      <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
+    );
     return(
       <>
         <NavBarcomp />
         <div className="bodymargin">
-          <br></br>
-          <>
-          <h1> MY BOOKLIST</h1>
-          <Button
-          bsStyle="light"
-          onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
-          }>{buttonText}</Button>
-          {this.state.showMybooks ? <UserBooks /> : null}
-          </>
-          <h1> NEW YORK TIMES BESTSELLERS </h1>
-          <h4 style={style}>Click on a book card to add it to your reading list!</h4>
-          <ul className="flexlist">
-          {renderBooks}
-          </ul>
+        <br></br>
+      <>
+        <h1> MY BOOKLIST</h1>
+        <Button
+        bsStyle="light"
+        onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
+        }>{buttonText}</Button>
+        {this.state.showMybooks ? <UserBooks /> : null}
+        </>
+        <h1> NEW YORK TIMES BESTSELLERS </h1>
+        <h4 style={style}>Click on a book card to add it to your reading list!</h4>
+        <ul className="flexlist">
+        {renderBooks}
+        </ul>
         </div>
       </>
     );
