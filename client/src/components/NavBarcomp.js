@@ -12,6 +12,7 @@ const NavBarcomp = () => {
          <ul>
            <li><NavLink to="/bestsellers" exact >NYT Best Sellers List</NavLink></li>
            <li><NavLink to="/books">My Books</NavLink></li>
+           <li><NavLink to="/logout">Log Out</NavLink></li>
          </ul>
        </nav>
      </header>

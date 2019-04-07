@@ -18,7 +18,7 @@ class Bestsellers extends Component {
     );
     return(
         <div className="bodymargin">
-        <NavBarcomp />
+          <NavBarcomp />
         { renderBooks }
 
         </div>

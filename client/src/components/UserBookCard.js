@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './NYTbookList.css';
 import BookNotes from './BookNotes';
-import Note from './Note';
+import BookNote from './BookNote';
 import { Button } from 'react-bootstrap';
 
 
@@ -16,7 +16,7 @@ class UserBookCard extends Component {
   render() {
     const showBookNoteForm = this.state.showBookNoteComponent ? <BookNotes addBookNote={this.props.addBookNote} book={this.props.book} setShowBookNotesComponent={ this.setShowBookNotesComponent} showBookNoteComponent={this.state.showBookNoteComponent}/> : null
     const show = this.state.showBookNoteComponent ? {display: 'none'} : {}
-    const isThereAbookNote = this.props.book.notes ? <Note note={this.props.book.notes} /> : null
+    const isThereAbookNote = this.props.book.notes ? <BookNote note={this.props.book.notes} /> : null
     const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
     return (
 
@@ -31,7 +31,7 @@ class UserBookCard extends Component {
         {showBookNoteForm}
         <Button bsStyle="outline-danger" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
       </li>
-    
+
     )
   }
 }

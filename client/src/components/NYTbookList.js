@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './NYTbookList.css';
-import NavBarcomp from './NavBarcomp';
 import { connect } from 'react-redux';
 import { postBook }from '../actions/bookActions';
 import UserBooks from '../components/UserBooks';
@@ -28,6 +27,7 @@ class NYTbookList extends Component {
   };
 
   render() {
+
     console.log("I AM LOADING!")
     let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
     const style = {color: "white" ,textShadow: '1px 1px gray'}
@@ -36,7 +36,7 @@ class NYTbookList extends Component {
     );
     return(
       <>
-        <NavBarcomp />
+
         <div className="bodymargin">
         <br></br>
       <>
