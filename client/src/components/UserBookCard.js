@@ -4,6 +4,7 @@ import BookNotes from './BookNotes';
 import Note from './Note';
 import { Button } from 'react-bootstrap';
 
+
 class UserBookCard extends Component {
   state = {
     showBookNoteComponent: false
@@ -18,6 +19,7 @@ class UserBookCard extends Component {
     const isThereAbookNote = this.props.book.notes ? <Note note={this.props.book.notes} /> : null
     const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
     return (
+
       <li className="pborder">
         <h5>{this.props.book.title}</h5>
         <br/>
@@ -29,6 +31,7 @@ class UserBookCard extends Component {
         {showBookNoteForm}
         <Button bsStyle="outline-danger" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
       </li>
+    
     )
   }
 }

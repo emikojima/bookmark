@@ -40,9 +40,8 @@ class NYTbookList extends Component {
         <div className="bodymargin">
         <br></br>
       <>
-        <h1> MY BOOKLIST</h1>
         <Button
-        bsStyle="light"
+        bsStyle="link"
         onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
         }>{buttonText}</Button>
         {this.state.showMybooks ? <UserBooks /> : null}

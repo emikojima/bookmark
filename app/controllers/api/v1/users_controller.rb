@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if @user
       render json: @user
     else
-      render json: { error: 'Failed to Log In' }, status: 400
+      render json: @user.errors, status: 400
     end
   end
 

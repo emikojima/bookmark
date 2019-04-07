@@ -5,6 +5,7 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
 import './UserBooks.css';
+import NavBarcomp from './NavBarcomp';
 
 class UserBooks extends Component {
   componentDidMount() {
@@ -22,6 +23,8 @@ class UserBooks extends Component {
     });
     return(
     <div className="userBooks">
+      <NavBarcomp />
+      <h1> MY BOOKLIST</h1>
       <ul>
         { booksList }
       </ul>
