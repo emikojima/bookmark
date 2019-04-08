@@ -11,7 +11,6 @@ import UserContainer from '../container/UserContainer'
 const loggedIn = () => !!sessionStorage['user']
 
 const logout = () => {
-  debugger
   if(sessionStorage['user'])
   sessionStorage.removeItem('user')
 

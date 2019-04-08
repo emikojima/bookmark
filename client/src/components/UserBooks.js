@@ -10,8 +10,8 @@ import NavBarcomp from './NavBarcomp';
 class UserBooks extends Component {
   componentDidMount() {
     this.props.getUserBooks(this.props.user)
-
   }
+  
   render() {
     const booksList = this.props.books.map(book => {
       return (<UserBookCard

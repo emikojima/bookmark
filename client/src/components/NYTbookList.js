@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 import './NYTbookList.css';
 import { connect } from 'react-redux';
 import { postBook }from '../actions/bookActions';
-import UserBooks from '../components/UserBooks';
 import { getNytBooks } from '../actions/bookActions';
 import NYTbookCard from './NYTbookCard';
-import { Button } from 'react-bootstrap';
-
+import ShowMyBooksButton from './ShowMyBooksButton'
 
 class NYTbookList extends Component {
-  state = {
-    showMybooks: false,
-    buttonText: false
-  }
-
   componentDidMount() {
     this.props.getNytBooks()
   };
@@ -21,38 +14,25 @@ class NYTbookList extends Component {
   // checking to see if the book is already in user's list, if not adds book to database & redux store
   checkForDuplicateBook = (book) => {
     const booktitlearray = [];
-
     this.props.books.map(book => booktitlearray.push(book.title));
     !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
   };
 
   render() {
-
-    console.log("I AM LOADING!")
-    let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
-    const style = {color: "white" ,textShadow: '1px 1px gray'}
+    const style = {color: "white" ,textShadow: '1px 1px gray', fontFamily: "Palatino Linotype"}
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
     return(
-      <>
-
         <div className="bodymargin">
         <br></br>
-      <>
-        <Button
-        bsStyle="link"
-        onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
-        }>{buttonText}</Button>
-        {this.state.showMybooks ? <UserBooks /> : null}
-        </>
+        <ShowMyBooksButton />
         <h1> NEW YORK TIMES BESTSELLERS </h1>
         <h4 style={style}>Click on a book card to add it to your reading list!</h4>
         <ul className="flexlist">
         {renderBooks}
         </ul>
         </div>
-      </>
     );
   };
 };

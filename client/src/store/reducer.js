@@ -30,6 +30,19 @@ export default function reducer(state = initialState, action) {
       ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true
     };
 
+    case 'LOGOUT_USER':
+    console.log("logout user", action, initialState)
+    debugger
+    return {
+      username: "",
+      userId: "",
+      password: "",
+      loggedIn: false,
+      signUp: false,
+      books: [],
+      nytbooks: []
+    }
+
   case 'GET_USER_BOOKS_SUCCESS':
     console.log('GET USER BOOKS is returning', action);
     return {

@@ -7,11 +7,11 @@ import NavBarcomp from './components/NavBarcomp'
 
 class App extends Component {
   render() {
-    const logged = this.props.loggedIn ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
+    const logged = !!sessionStorage['user'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
 
     return (
       <div className="App">
-        {this.props.loggedIn ? <NavBarcomp /> : "HELLO!"}
+        {!!sessionStorage['user'] ? <NavBarcomp /> : "HELLO!"}
         {logged}
       </div>
     );

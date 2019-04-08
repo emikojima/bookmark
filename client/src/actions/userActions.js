@@ -13,6 +13,13 @@ export const showSignup = (user) => {
     user
   }
 }
+
+export const logOutUser = (user) => {
+  return {
+    type: 'LOGOUT_USER',
+    user
+  }
+}
 // asynch actions
 export const signUpUser = (user) => {
   return(dispatch) => {
