@@ -4,7 +4,6 @@ import BookNotes from './BookNotes';
 import BookNote from './BookNote';
 import { Button } from 'react-bootstrap';
 
-
 class UserBookCard extends Component {
   state = {
     showBookNoteComponent: false
@@ -21,7 +20,8 @@ class UserBookCard extends Component {
     return (
 
       <li className="pborder">
-        <h5>{this.props.book.title}</h5>
+        <br />
+        <h4>{this.props.book.title}</h4>
         <br/>
         <h6>{this.props.book.description}</h6>
         <h6>{this.props.book.author}</h6>

@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const logInUser = (user) => {
   return {
     type: 'LOGIN_USER',
@@ -22,10 +20,21 @@ export const logOutUser = (user) => {
 }
 // asynch actions
 export const signUpUser = (user) => {
+
+  let data = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user })}
   return(dispatch) => {
-    axios.post('/api/v1/users', { username: user.username, password: user.password })
-    .then(res => dispatch(logInUser( {username: res.data.username, password: res.data.password_digest, id: res.data.id})
-  )).catch(error => window.alert("username already taken"))
+    fetch('/api/v1/users', data)
+    .then(response => response.json())
+    .then(res => {
+      sessionStorage.setItem('user', res)
+    dispatch(logInUser({username: res.username, password: res.password_digest, id: res.id}))
+  }).catch(error => window.alert("username already taken"))
 }}
 
 // export const logInThisUser = (user) => {

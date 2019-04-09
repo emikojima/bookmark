@@ -5,11 +5,12 @@ export default class SignUp extends Component {
  state = {
    username: "",
    password: "",
+   passwordConfirmation: "",
    signUp: this.props.signUpState
  }
 
  validateForm() {
-   return this.state.username.length > 2 && this.state.password.length > 2;
+   return this.state.username.length > 2 && this.state.password.length > 2 && this.state.password === this.state.passwordConfirmation
  }
 
  toParent() {
@@ -52,6 +53,15 @@ export default class SignUp extends Component {
              value={this.state.password}
              onChange={this.handleChange}
              placeholder="Password"
+             type="password"
+           />
+         </FormGroup>
+         <FormGroup controlId="passwordConfirmation" bsSize="large">
+           <ControlLabel>Password Confirmation</ControlLabel>
+           <FormControl
+             value={this.state.passwordConfirmation}
+             onChange={this.handleChange}
+             placeholder="Confirm Password"
              type="password"
            />
          </FormGroup>

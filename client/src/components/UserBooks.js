@@ -11,7 +11,7 @@ class UserBooks extends Component {
   componentDidMount() {
     this.props.getUserBooks(this.props.user)
   }
-  
+
   render() {
     const booksList = this.props.books.map(book => {
       return (<UserBookCard
@@ -22,7 +22,7 @@ class UserBooks extends Component {
         addBookNote={this.props.addBookNote} />)
     });
     return(
-    <div className="userBooks">
+    <div className="bodymargin">
       <NavBarcomp />
       <h1> MY BOOKLIST</h1>
       <ul>

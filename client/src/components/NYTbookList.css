@@ -32,9 +32,14 @@ li.pborder {
   margin-top: 70px;
   background-image: linear-gradient(to bottom right, SkyBlue, pink);
   background-size: cover;
+  text-align: center;
 }
 
 h1 {
   color: white;
   text-shadow: 2px 2px gray;
+}
+
+h4 {
+     font-family: "Palatino Linotype";
 }
