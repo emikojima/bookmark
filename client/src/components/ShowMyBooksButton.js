@@ -13,13 +13,13 @@ class ShowMyBooksButton extends Component {
   render() {
     let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
     return(
-      <>
+      <div className="bodymargin">
       <Button
       bsStyle="link"
       onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
       }>{buttonText}</Button>
       {this.state.showMybooks ? <UserBooks /> : null}
-      </>
+    </div>
     )
 }
 }

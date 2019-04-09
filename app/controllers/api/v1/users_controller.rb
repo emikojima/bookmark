@@ -16,11 +16,14 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    
-      @user = User.new(username: params[:user][:username], password_digest: params[:user][:password])
+
+      @user = User.new(username: params[:user][:username], password: params[:user][:password])
+
 
       if @user.save
         render json: @user, status: :created
+        jwt = Auth.encrypt({ user_id: @user.id })
+        render json: { jwt: jwt, current: @user }
       else
         render json: @user.errors, status: :unprocessable_entity
       end
@@ -28,9 +31,12 @@ class UsersController < ApplicationController
 
   #POST /login
   def login
-    @user = User.find_by(username: params[:user][:username], password_digest: params[:user][:password])
-    if @user
-      render json: @user
+    @user = User.find_by(username: params[:user][:username])
+
+    if @user && @user.authenticate(params[:user][:password])
+      jwt = Auth.encrypt({ user_id: @user.id })
+      render json: { jwt: jwt, user: @user }
+
     else
       render json: @user.errors, status: 400
     end
@@ -58,7 +64,7 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password_digest)
+      params.require(:user).permit(:username, :password)
     end
 end
 end

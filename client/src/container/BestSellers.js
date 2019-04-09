@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import NYTbookCard from '../components/NYTbookCard'
 import { getNytBooks } from '../actions/bookActions';
 import { postBook }from '../actions/bookActions';
+import './BestSellers.css'
 
 class BestSellers extends Component {
   componentDidMount() {
@@ -23,11 +24,11 @@ class BestSellers extends Component {
     const style = {color: "white" ,textShadow: '1px 1px gray', fontFamily: "Palatino Linotype"}
 
     return(
-        <div className="bodymargin">
+        <div className="smallmargin">
           <NavBarcomp />
           <h1> NEW YORK TIMES BESTSELLERS </h1>
           <h4 style={style}>Click on a book card to add it to your reading list!</h4>
-          <ul className="flexlist">
+          <ul>
           {renderBooks}
           </ul>
         </div>

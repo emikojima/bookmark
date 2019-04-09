@@ -5,11 +5,11 @@ import BestSellers from '../container/BestSellers'
 import UserBooks from './UserBooks'
 
 
-const loggedIn = () => !!sessionStorage['user']
+const loggedIn = () => !!sessionStorage['jwt']
 
 const logout = () => {
   if(loggedIn())
-  sessionStorage.removeItem('user')
+  sessionStorage.removeItem('jwt')
 
   return <Redirect to="/"/>
 }

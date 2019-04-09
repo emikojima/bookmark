@@ -5,7 +5,7 @@ import BestSellers from '../container/BestSellers'
 
 const NYTbookList = () => {
    return(
-      <div className="bodymargin">
+      <div >
         <ShowMyBooksButton />
         <BestSellers />
       </div>

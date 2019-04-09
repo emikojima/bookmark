@@ -49,6 +49,7 @@ export const logInThisUser = (user) => {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
+      'Credentials': 'include',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ user })
@@ -57,9 +58,9 @@ export const logInThisUser = (user) => {
     fetch(`/api/v1/login`, data)
       .then(response => response.json())
       .then(res => {
-        sessionStorage.setItem('user', res)
-      dispatch(logInUser( {username: res.username, password: res.password_digest, id: res.id}))
-    console.log(sessionStorage)}).catch(error => window.alert("Log In failed, please check your username and password and try again"))
+        sessionStorage.setItem('jwt', res.jwt)
+      dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
+    }).catch(error => window.alert("Log In failed, please check your username and password and try again"))
 
   }
 }

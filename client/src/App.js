@@ -7,8 +7,8 @@ import NavBarcomp from './components/NavBarcomp'
 
 class App extends Component {
   render() {
-    const logged = !!sessionStorage['user'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-    const nav = !!sessionStorage['user'] ? <NavBarcomp /> : "HELLO!"
+    const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
+  const nav = !!sessionStorage['jwt'] ? <NavBarcomp /> : "HELLO!"
 
     return (
       <div className="App">
