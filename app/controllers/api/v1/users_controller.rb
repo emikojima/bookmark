@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       if @user.save
         render json: @user, status: :created
         jwt = Auth.encrypt({ user_id: @user.id })
-        render json: { jwt: jwt, current: @user }
+        render json: { jwt: jwt, user: @user }
       else
         render json: @user.errors, status: :unprocessable_entity
       end

@@ -56,7 +56,7 @@ export const postBook = (book, userId) => {
       console.log("fetch disp",body, user)
       return fetch(`/api/v1/users/${user}/books`, {
         method: 'POST',
-        headers: { "Content-type": 'application/json' },
+        headers: { "Content-type": 'application/json', 'Authorization': sessionStorage.jwt },
         body: body
         })
         .then(resp => resp.json())
