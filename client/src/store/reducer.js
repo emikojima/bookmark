@@ -26,9 +26,15 @@ export default function reducer(state = initialState, action) {
 
   case 'LOGIN_USER':
     console.log("loginuser reducer", action);
+
     return {
       ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true
     };
+
+    case 'LOGINFORREFRESH':
+      return {
+        ...state, userId: action.userId
+      }
 
     case 'LOGOUT_USER':
     console.log("logout user", action, initialState)

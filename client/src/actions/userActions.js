@@ -5,6 +5,14 @@ const logInUser = (user) => {
   }
 }
 
+export const logInForRefresh = (userId) => {
+  return {
+    type: 'LOGINFORREFRESH',
+    userId
+
+  }
+}
+
 export const showSignup = (user) => {
   return {
     type: 'SHOW_SIGN_UP',
@@ -31,9 +39,10 @@ export const signUpUser = (user) => {
   return(dispatch) => {
     fetch('/api/v1/users', data)
     .then(response => response.json())
-    .then(res => { debugger
+    .then(res => {debugger
       sessionStorage.setItem('jwt', res.jwt)
-    dispatch(logInUser({username: res.username, password: res.password_digest, id: res.id}))
+      sessionStorage.setItem('user', res.user.id)
+    dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user}))
   }).catch(error => window.alert("username already taken"))
 }}
 
@@ -52,6 +61,7 @@ export const logInThisUser = (user) => {
       .then(response => response.json())
       .then(res => {
         sessionStorage.setItem('jwt', res.jwt)
+        sessionStorage.setItem('user', res.user.id)
       dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
     }).catch(error => window.alert("Log In failed, please check your username and password and try again"))
 

@@ -5,12 +5,15 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
 import './UserBooks.css';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 
 
 class UserBooks extends Component {
   componentDidMount() {
-    this.props.getUserBooks(this.props.user)
+    if(this.props.user !== "" && !this.props.books.length ) {
+        this.props.getUserBooks(this.props.user)
+    }
+
     console.log("route props",this.props)
   }
 

@@ -6,6 +6,7 @@ import { postBook }from '../actions/bookActions';
 import './BestSellers.css'
 
 class BestSellers extends Component {
+
   componentDidMount() {
     this.props.getNytBooks()
   }
