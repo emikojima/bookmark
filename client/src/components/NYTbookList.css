@@ -15,19 +15,6 @@ li.pborder {
     vertical-align: top;
 }
 
-/* .flexlist {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; overflow: hidden;} */
-/* .flexlist-item {
-   width: calc(100% / 2 - 5px);
-   float: left;
-   display: -webkit-flex;
-   display: -ms-flexbox;
-   display: flex;} */
 .bodymargin {
   margin-top: 70px;
   background-image: linear-gradient(to bottom right, SkyBlue, pink);

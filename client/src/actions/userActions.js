@@ -20,29 +20,22 @@ export const logOutUser = (user) => {
 }
 // asynch actions
 export const signUpUser = (user) => {
-
   let data = {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Credentials': 'include'
     },
     body: JSON.stringify({ user })}
   return(dispatch) => {
     fetch('/api/v1/users', data)
     .then(response => response.json())
-    .then(res => {
-      sessionStorage.setItem('user', res)
+    .then(res => { debugger
+      sessionStorage.setItem('jwt', res.jwt)
     dispatch(logInUser({username: res.username, password: res.password_digest, id: res.id}))
   }).catch(error => window.alert("username already taken"))
 }}
-
-// export const logInThisUser = (user) => {
-//   return(dispatch) => {
-//     axios.post('/api/v1/login',{ username: user.username, password: user.password })
-//     .then(res => dispatch(logInUser( {username: res.data.username, password: res.data.password_digest, id: res.data.id})
-//   )).catch(error => window.alert("Log In failed, please check your username and password and try again"))
-// }}
 
 export const logInThisUser = (user) => {
   let data = {

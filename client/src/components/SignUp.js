@@ -36,7 +36,7 @@ export default class SignUp extends Component {
     return (
      <div className="whiteText" >
        <h3>Sign Up</h3>
-       <form inline onSubmit={this.handleSubmit}>
+       <form inline="true" onSubmit={this.handleSubmit}>
          <FormGroup controlId="username">
            <ControlLabel>Username</ControlLabel>
            <FormControl

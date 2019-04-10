@@ -5,10 +5,10 @@ import BestSellers from '../container/BestSellers'
 
 const NYTbookList = () => {
    return(
-      <div >
+      <>
         <ShowMyBooksButton />
         <BestSellers />
-      </div>
+      </>
     );
   };
 

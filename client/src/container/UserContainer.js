@@ -8,7 +8,7 @@ import './UserContainer.css'
 
 class UserContainer extends Component {
   render() {
-    const show = !this.props.signUp ? < Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : < SignUp signUpUser={this.props.signUpUser} />;
+    const show = !this.props.signUp ? <Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : <SignUp signUpUser={this.props.signUpUser} />;
 
     return (
       <div className="image" id="responsive">

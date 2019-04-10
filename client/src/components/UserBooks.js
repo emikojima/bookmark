@@ -5,11 +5,12 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
 import './UserBooks.css';
-import NavBarcomp from './NavBarcomp';
+
 
 class UserBooks extends Component {
   componentDidMount() {
     this.props.getUserBooks(this.props.user)
+    console.log("route props",this.props)
   }
 
   render() {
@@ -23,7 +24,7 @@ class UserBooks extends Component {
     });
     return(
     <div className="bodymargin">
-      <NavBarcomp />
+
       <h1> MY BOOKLIST</h1>
       <ul>
         { booksList }

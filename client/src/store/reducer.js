@@ -33,7 +33,7 @@ export default function reducer(state = initialState, action) {
     case 'LOGOUT_USER':
     console.log("logout user", action, initialState)
     return {
-    initialState
+      ...initialState
     }
 
   case 'GET_USER_BOOKS_SUCCESS':

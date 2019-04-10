@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
@@ -16,9 +15,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-
       @user = User.new(username: params[:user][:username], password: params[:user][:password])
-
 
       if @user.save
         render json: @user, status: :created

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBarcomp from '../components/NavBarcomp'
 import { connect } from 'react-redux'
 import NYTbookCard from '../components/NYTbookCard'
 import { getNytBooks } from '../actions/bookActions';
@@ -25,7 +24,6 @@ class BestSellers extends Component {
 
     return(
         <div className="smallmargin">
-          <NavBarcomp />
           <h1> NEW YORK TIMES BESTSELLERS </h1>
           <h4 style={style}>Click on a book card to add it to your reading list!</h4>
           <ul>
