@@ -18,7 +18,6 @@ class UsersController < ApplicationController
       @user = User.new(username: params[:user][:username], password: params[:user][:password])
 
       if @user.save
-        render json: @user, status: :created
         jwt = Auth.encrypt({ user_id: @user.id })
         render json: { jwt: jwt, user: @user }
       else

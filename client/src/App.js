@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     const loggedIn = () => !!sessionStorage['jwt']
     const logout = () => {
-      if(()=>loggedIn())
+      if(!!sessionStorage['jwt'])
       this.props.logOutUser(this.props.user)
       sessionStorage.removeItem('jwt')
       return <Redirect to="/"/>

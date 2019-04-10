@@ -25,7 +25,7 @@ export const signUpUser = (user) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Credentials': 'include'
+
     },
     body: JSON.stringify({ user })}
   return(dispatch) => {
