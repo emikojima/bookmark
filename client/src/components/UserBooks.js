@@ -27,7 +27,7 @@ class UserBooks extends Component {
         addBookNote={this.props.addBookNote} />)
     });
     return(
-    <div className="bodymargin">
+    <div className="userBooks">
 
       <h1> MY BOOKLIST</h1>
       <ul>

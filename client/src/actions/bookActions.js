@@ -60,7 +60,9 @@ export const postBook = (book, userId) => {
         body: body
         })
         .then(resp => resp.json())
-        .then(book => dispatch({ type: 'ADD_BOOK', book }))
+        .then(book => {
+          dispatch({ type: 'ADD_BOOK', book })
+          alert("Your book has been added!")})
   }
 }
 

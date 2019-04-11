@@ -1,5 +1,3 @@
-import cuid from 'cuid';
-export const cuidFn = cuid;
 
 const initialState = {
   username: "",
