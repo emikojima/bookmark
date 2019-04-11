@@ -4,7 +4,7 @@ import book from '../book.png'
 import { NavLink} from 'react-router-dom';
 import {Navbar} from 'react-bootstrap'
 
-const NavBarcomp = () => {
+const NavBarcomp = (props) => {
   return (
     <div>
       <header>
@@ -13,7 +13,7 @@ const NavBarcomp = () => {
         <nav>
          <ul>
            <li><NavLink to="/bestsellers" exact >NYT Best Sellers List</NavLink></li>
-           <li><NavLink to="/books">My Books</NavLink></li>
+           <li><NavLink to={`/users/${props.userId}/books`}>My Books</NavLink></li>
            <li><NavLink to="/logout">Log Out</NavLink></li>
          </ul>
        </nav>

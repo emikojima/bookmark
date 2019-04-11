@@ -35,14 +35,14 @@ class App extends Component {
     }
     console.log("route props",this.props)
     const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-    const nav = !!sessionStorage['jwt'] ? <NavBarcomp /> : null
-
+  const nav = !!sessionStorage['jwt'] ? <NavBarcomp userId={this.props.userId}/> : null
+    const user = "/users/"+this.props.userId+"/books"
     return (
       <div className="App">
         <Switch>
         <Route exact path="/" render={() => logged} />
         <Route path="/bestsellers" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers /> }/>
-        <Route path="/books" component= {() => !loggedIn() ? <Redirect to="/"/> : <UserBooks /> }/>
+        <Route path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path='/logout' component={ () => logout()} />
         </Switch>
         {nav}
@@ -54,6 +54,7 @@ const mapStateToProps = state =>{
   return {
     books: state.books,
    signUp: state.signUp,
-   loggedIn: state.loggedIn
+   loggedIn: state.loggedIn,
+   userId: state.userId
  }}
 export default connect(mapStateToProps,{logOutUser, getUserBooks, logInForRefresh})(App);
