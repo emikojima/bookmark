@@ -9,7 +9,6 @@ export const logInForRefresh = (userId, username) => {
   return {
     type: 'LOGINFORREFRESH',
     userId, username
-
   }
 }
 
@@ -26,6 +25,7 @@ export const logOutUser = (user) => {
     user
   }
 }
+
 // asynch actions
 export const signUpUser = (user) => {
   let data = {
@@ -33,18 +33,18 @@ export const signUpUser = (user) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-
     },
-    body: JSON.stringify({ user })}
-  return(dispatch) => {
-    fetch('/api/v1/users', data)
-    .then(response => response.json())
-    .then(res => { debugger
-      sessionStorage.setItem('jwt', res.jwt)
-      sessionStorage.setItem('user', res.user.id)
-      sessionStorage.setItem('username', res.user.username)
-    dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user}))
-  }).catch(error => window.alert("username already taken"))
+    body: JSON.stringify({ user })
+  }
+    return(dispatch) => {
+      fetch('/api/v1/users', data)
+      .then(response => response.json())
+      .then(res => { debugger
+        sessionStorage.setItem('jwt', res.jwt)
+        sessionStorage.setItem('user', res.user.id)
+        sessionStorage.setItem('username', res.user.username)
+      dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user.id}))
+    }).catch(error => window.alert("username already taken"))
 }}
 
 export const logInThisUser = (user) => {
@@ -57,15 +57,14 @@ export const logInThisUser = (user) => {
     },
     body: JSON.stringify({ user })
   }
-  return dispatch => {
-    fetch(`/api/v1/login`, data)
-      .then(response => response.json())
-      .then(res => {
-        sessionStorage.setItem('jwt', res.jwt)
-        sessionStorage.setItem('user', res.user.id)
-        sessionStorage.setItem('username', res.user.username)
-      dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
-    }).catch(error => window.alert("Log In failed, please check your username and password and try again"))
-
+    return dispatch => {
+      fetch(`/api/v1/login`, data)
+        .then(response => response.json())
+        .then(res => {
+          sessionStorage.setItem('jwt', res.jwt)
+          sessionStorage.setItem('user', res.user.id)
+          sessionStorage.setItem('username', res.user.username)
+        dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
+      }).catch(error => window.alert("Log In failed, please check your username and password and try again"))
   }
 }

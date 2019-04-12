@@ -35,17 +35,16 @@ class App extends Component {
     }
     console.log("route props",this.props)
     const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-  const nav = !!sessionStorage['jwt'] ? <NavBarcomp userId={this.props.userId}/> : null
-    const user = "/users/"+this.props.userId+"/books"
+    const nav = !!sessionStorage['jwt'] ? <NavBarcomp userId={this.props.userId}/> : null
     return (
       <div className="App">
+        {nav}
         <Switch>
         <Route exact path="/" render={() => logged} />
         <Route path="/bestsellers" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers /> }/>
         <Route path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path='/logout' component={ () => logout()} />
         </Switch>
-        {nav}
       </div>
     );
   }

@@ -8,7 +8,7 @@ const NavBarcomp = (props) => {
   return (
     <div>
       <header>
-        <Navbar >
+        <Navbar expand="sm" variant="light" bg="light">
         <NavLink to="/"><img src={book} alt="illustrated icon of books" /></NavLink>
         <nav>
          <ul>

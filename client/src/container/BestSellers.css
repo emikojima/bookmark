@@ -1,6 +1,10 @@
 .smallmargin {
   padding-top: 20px;
-  background-image: linear-gradient(to bottom right, MistyRose, Grey );
+  background-image: linear-gradient(to bottom, Snow, Silver, Snow );
   background-size: cover;
   text-align: center;
+}
+
+.smallmargin h5 {
+  color: black;
 }

@@ -29,7 +29,6 @@ class UserBooks extends Component {
     });
     return(
     <div className="userBooks">
-      <hr></hr>
       <h1>{this.props.username}'s books </h1>
         { booksList }
 

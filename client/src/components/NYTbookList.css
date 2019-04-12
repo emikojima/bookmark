@@ -11,18 +11,19 @@ li.pborder {
     text-align: center;
     width: 300px;
     box-shadow: 0 0 2px 0 Black;
-    background-color: white;
+    background-color: Snow ;
     vertical-align: top;
 }
 
 .bodymargin {
-  margin-top: 70px;
   background-size: cover;
   text-align: center;
 }
 
 h1 {
   font-family: "Palatino Linotype";
+  color: Black;
+  text-shadow: 0 0 1px 1px Black;
 }
 
 h5 {
