@@ -43,7 +43,7 @@ export const getUserBooks = (user) => {
   return (dispatch) => {
     return fetch(`/api/v1/users/${user}/books`)
     .then(resp => resp.json())
-    .then(books => dispatch(setBooks(books)))
+    .then(books => {if (books.error){console.log(books.error)} else dispatch(setBooks(books))})
     .catch(error => console.log(error))
   }
 }
@@ -60,7 +60,7 @@ export const postBook = (book, userId) => {
         body: body
         })
         .then(resp => resp.json())
-        .then(book => { 
+        .then(book => {
           dispatch({ type: 'ADD_BOOK', book })
           alert("Your book has been added!")})
   }

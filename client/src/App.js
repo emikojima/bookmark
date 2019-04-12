@@ -16,10 +16,8 @@ class App extends Component {
 
   componentDidMount() {
     if (this.props.books.length === 0) {
-      this.props.getUserBooks(sessionStorage['user'])
-
       this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
-
+      this.props.getUserBooks(sessionStorage['user'])
     } else {
       console.log("route props",this.props)
     }
@@ -28,12 +26,13 @@ class App extends Component {
     const loggedIn = () => !!sessionStorage['jwt']
     const logout = () => {
       if(!!sessionStorage['jwt'])
-      this.props.logOutUser(this.props.user)
       sessionStorage.removeItem('jwt')
-        sessionStorage.removeItem('user')
+      sessionStorage.removeItem('user')
+      sessionStorage.removeItem('username')
+      this.props.logOutUser(this.props.user)
       return <Redirect to="/"/>
     }
-    console.log("route props",this.props)
+  
     const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
     const nav = !!sessionStorage['jwt'] ? <NavBarcomp userId={this.props.userId}/> : null
     return (

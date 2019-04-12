@@ -29,7 +29,7 @@ class UserBooks extends Component {
     });
     return(
     <div className="userBooks">
-      <h1>{this.props.username}'s books </h1>
+      <h1>{this.props.username}'s Books </h1>
         { booksList }
 
     </div>
