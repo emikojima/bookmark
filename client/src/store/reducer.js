@@ -31,7 +31,8 @@ export default function reducer(state = initialState, action) {
 
     case 'LOGINFORREFRESH':
       return {
-        ...state, userId: action.userId
+
+        ...state, userId: action.userId, username: action.username
       }
 
     case 'LOGOUT_USER':

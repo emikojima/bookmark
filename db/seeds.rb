@@ -8,4 +8,4 @@
 
 Book.create([{title: 'Under the Mango Tree', description: "A young woman’s well-ordered life is disrupted by the I.T. guy from her office.", author: 'Lia Mishicma', user_id: 1}, {title: 'Now', author: 'Michiko Kakutani', user_id: 1}])
 
-User.create(username: 'emi', password_digest: 'emi')
+User.create(username: 'emi', password_digest: '$2a$10$VzCZjJQ1ZxlPAjT0msnNf.CD8kDW/UtWCoLAorxl87gz6kWkkzQyC')

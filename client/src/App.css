@@ -7,13 +7,12 @@
 .whiteText {
   margin: 190px 5px;
   padding: 20px 20px;
-  color: black;
-  text-shadow: 1px black;
   background-color: white;
   opacity: .9;
   border-radius: 25px;
   width: 100%;
   height: auto;
+  background-size: cover;
 }
 
 .imageMargin {

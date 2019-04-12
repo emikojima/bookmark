@@ -18,7 +18,7 @@ class UserBooks extends Component {
   }
 
   render() {
-    
+
     const booksList = this.props.books.map(book => {
       return (<UserBookCard
         key={book.id}
@@ -29,11 +29,10 @@ class UserBooks extends Component {
     });
     return(
     <div className="userBooks">
-
-      <h1> MY BOOKLIST</h1>
-      <ul>
+      <hr></hr>
+      <h1>{this.props.username}'s books </h1>
         { booksList }
-      </ul>
+
     </div>
     )
   }
@@ -41,7 +40,8 @@ class UserBooks extends Component {
   const mapStateToProps = (state) => {
     return ({
       books: state.books,
-      user: state.userId
+      user: state.userId,
+      username: state.username
     })
   }
 

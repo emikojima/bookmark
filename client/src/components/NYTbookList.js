@@ -6,7 +6,9 @@ import BestSellers from '../container/BestSellers'
 const NYTbookList = () => {
    return(
       <>
+        <hr></hr>
         <ShowMyBooksButton />
+        <hr></hr>
         <BestSellers />
       </>
     );

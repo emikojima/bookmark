@@ -11,25 +11,25 @@ class BestSellers extends Component {
     this.props.getNytBooks()
   }
   // checking to see if the book is already in user's list, if not adds book to database & redux store
+
   checkForDuplicateBook = (book) => {
-    const booktitlearray = [];
-    this.props.books.map(book => booktitlearray.push(book.title));
-    !booktitlearray.includes(book.title) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
+    const isbns = [];
+    this.props.books.map(b => isbns.push(b.isbns));
+    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
   };
 
   render() {
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
-    const style = {color: "white" ,textShadow: '1px 1px gray', fontFamily: "Palatino Linotype"}
 
     return(
         <div className="smallmargin">
-          <h1> NEW YORK TIMES BESTSELLERS </h1>
-          <h4 style={style}>Click on a book card to add it to your reading list!</h4>
-          <ul>
+          <h1> New York Times Bestsellers </h1>
+          <h5>Click on a book card to add it to your reading list</h5>
+
           {renderBooks}
-          </ul>
+
         </div>
     )
   }

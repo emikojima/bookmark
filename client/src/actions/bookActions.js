@@ -52,7 +52,7 @@ export const postBook = (book, userId) => {
     console.log('in action postBook with', book, userId);
     return (dispatch) => {
       const user = userId
-      const body = JSON.stringify({title: book.title, description: book.description, author: book.author, user_id: user})
+      const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: user})
       console.log("fetch disp",body, user)
       return fetch(`/api/v1/users/${user}/books`, {
         method: 'POST',
@@ -60,7 +60,7 @@ export const postBook = (book, userId) => {
         body: body
         })
         .then(resp => resp.json())
-        .then(book => {
+        .then(book => { 
           dispatch({ type: 'ADD_BOOK', book })
           alert("Your book has been added!")})
   }
@@ -81,7 +81,7 @@ export const deleteUserBook = (book) => {
 
 export const addBookNote = (book) => {
   console.log("addBookNote action", book)
-  const body = JSON.stringify({title: book.title, description: book.description, author: book.author, user_id: book.user_id, notes: book.notes})
+  const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: book.user_id, notes: book.notes})
   return (dispatch) => {
   return fetch(`/api/v1/users/${book.user_id}/books/${book.id}`, {
     method: 'PUT',

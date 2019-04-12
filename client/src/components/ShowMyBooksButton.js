@@ -11,11 +11,13 @@ class ShowMyBooksButton extends Component {
   }
 
   render() {
-    let buttonText = this.state.buttonText === true ? "Show Less" : "Show My Books"
+    let buttonText = this.state.buttonText === true ? "△ Show Less △ " : " ▽ Show My Books  ▽"
     return(
+
       <div className="bodymargin">
+        <br></br>
       <Button
-      bsStyle="link"
+      bsStyle="outline-secondary"
       onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
       }>{buttonText}</Button>
       {this.state.showMybooks ? <UserBooks /> : null}

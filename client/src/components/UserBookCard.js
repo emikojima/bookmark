@@ -20,16 +20,16 @@ class UserBookCard extends Component {
     return (
 
       <li className="pborder">
-        <br />
         <h4>{this.props.book.title}</h4>
-        <br/>
+        <h5>By: {this.props.book.author}</h5>
+
         <h6>{this.props.book.description}</h6>
-        <h6>{this.props.book.author}</h6>
         {isThereAbookNote}
         <Button bsStyle="outline-info" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
         <br></br>
         {showBookNoteForm}
-        <Button bsStyle="outline-danger" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
+
+        <Button bsStyle="outline-secondary" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
       </li>
 
     )

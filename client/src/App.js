@@ -18,7 +18,7 @@ class App extends Component {
     if (this.props.books.length === 0) {
       this.props.getUserBooks(sessionStorage['user'])
 
-      this.props.logInForRefresh(sessionStorage['user'])
+      this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
 
     } else {
       console.log("route props",this.props)
