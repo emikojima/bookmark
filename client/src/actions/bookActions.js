@@ -43,7 +43,7 @@ export const getUserBooks = (user) => {
   return (dispatch) => {
     return fetch(`/api/v1/users/${user}/books`)
     .then(resp => resp.json())
-    .then(books => {if (books.error){console.log(books.error)} else dispatch(setBooks(books))})
+    .then(books => {if (books.error){alert(books.error)} else dispatch(setBooks(books))})
     .catch(error => console.log(error))
   }
 }

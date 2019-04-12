@@ -8,7 +8,7 @@ import './BestSellers.css'
 class BestSellers extends Component {
 
   componentDidMount() {
-    this.props.getNytBooks()
+    this.props.getNytBooks('trade-fiction-paperback')
   }
   // checking to see if the book is already in user's list, if not adds book to database & redux store
 
