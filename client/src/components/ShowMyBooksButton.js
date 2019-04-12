@@ -15,8 +15,9 @@ class ShowMyBooksButton extends Component {
     return(
 
       <div className="bodymargin">
-      
+
       <Button
+      size="sm"
       bsStyle="light"
       onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
       }>{buttonText}</Button>

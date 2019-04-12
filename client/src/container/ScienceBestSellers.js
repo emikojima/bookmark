@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import NYTbookCard from '../components/NYTbookCard'
 import { getNytBooks } from '../actions/bookActions';
 import { postBook }from '../actions/bookActions';
-import './BestSellers.css'
+import './ScienceBestSellers.css'
 
-class BestSellers extends Component {
+class ScienceBestSellers extends Component {
 
   componentDidMount() {
-    this.props.getNytBooks('books')
+    this.props.getNytBooks('science')
   }
   // checking to see if the book is already in user's list, if not adds book to database & redux store
 
@@ -24,11 +24,9 @@ class BestSellers extends Component {
     );
 
     return(
-        <div className="smallmargin">
-
-          <h1> New York Times Bestsellers</h1>
-          <h3>FICTION</h3>
-
+        <div className="smargin">
+          <h1> New York Times Bestsellers </h1>
+          <h3>SCIENCE</h3>
           <h5>Click on a book card to add it to your reading list</h5>
 
           {renderBooks}
@@ -37,6 +35,7 @@ class BestSellers extends Component {
     )
   }
 }
+
 const mapStateToProps = state => {
   return {
     books: state.books,
@@ -46,4 +45,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps,{postBook, getNytBooks})(BestSellers);
+export default connect(mapStateToProps,{postBook, getNytBooks})(ScienceBestSellers);

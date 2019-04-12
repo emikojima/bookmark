@@ -5,8 +5,6 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
 import './UserBooks.css';
-import { withRouter } from 'react-router';
-
 
 class UserBooks extends Component {
   componentDidMount() {
@@ -44,4 +42,4 @@ class UserBooks extends Component {
     })
   }
 
-export default withRouter (connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote})(UserBooks))
+export default connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote})(UserBooks)

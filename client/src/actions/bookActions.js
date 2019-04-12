@@ -29,10 +29,10 @@ const setNytBooks = books => {
 }
 
 // asynch actions
-export const getNytBooks = () => {
+export const getNytBooks = (x) => {
   console.log("getNytBooks")
   return (dispatch) => {
-    return fetch('/api/v1/books')
+    return fetch(`/api/v1/${x}`)
     .then(resp => resp.json())
     .then(books => dispatch(setNytBooks(books)))
   }
