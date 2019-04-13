@@ -3,20 +3,24 @@ import { connect } from 'react-redux'
 import NYTbookCard from '../components/NYTbookCard'
 import { getNytBooks } from '../actions/bookActions';
 import { postBook }from '../actions/bookActions';
+import { setGenre } from '../actions/bookActions'
+
 import './BestSellers.css'
 
 class BestSellers extends Component {
 
   componentDidMount() {
-    this.props.getNytBooks('books')
-  }
-  // checking to see if the book is already in user's list, if not adds book to database & redux store
+       this.props.getNytBooks(this.props.genre)
+    }
+
 
   checkForDuplicateBook = (book) => {
     const isbns = [];
     this.props.books.map(b => isbns.push(b.isbns));
     !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
   };
+
+
 
   render() {
     const renderBooks = this.props.nytbooks.map((book, id) =>
@@ -27,7 +31,7 @@ class BestSellers extends Component {
         <div className="smallmargin">
 
           <h1> New York Times Bestsellers</h1>
-          <h3>FICTION</h3>
+          <h3>{this.props.genre}</h3>
 
           <h5>Click on a book card to add it to your reading list</h5>
 
@@ -42,8 +46,9 @@ const mapStateToProps = state => {
     books: state.books,
     user: state.userId,
     nytbooks: state.nytbooks,
+    genre: state.genre
   };
 };
 
 
-export default connect(mapStateToProps,{postBook, getNytBooks})(BestSellers);
+export default connect(mapStateToProps,{postBook, getNytBooks, setGenre})(BestSellers);

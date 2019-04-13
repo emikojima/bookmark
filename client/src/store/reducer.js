@@ -6,7 +6,8 @@ const initialState = {
   loggedIn: false,
   signUp: false,
   books: [],
-  nytbooks: []
+  nytbooks: [],
+  genre: "books"
 }
 
 export default function reducer(state = initialState, action) {
@@ -51,6 +52,10 @@ export default function reducer(state = initialState, action) {
       ...state, nytbooks: action.books
     };
 
+  case 'SET_GENRE':
+    return{
+      ...state, genre: action.genre
+    }
   case 'ADD_BOOK':
     console.log('ADD_BOOK is returning', action);
     return {

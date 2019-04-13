@@ -5,6 +5,11 @@ const setBooks = books => {
   books
   }
 }
+export const setGenre = genre => {
+console.log("setGenre", genre)
+  return {type: 'SET_GENRE',
+  genre}
+}
 
 const deleteBook = book => {
   console.log("deleteBook", book)
@@ -29,10 +34,11 @@ const setNytBooks = books => {
 }
 
 // asynch actions
-export const getNytBooks = (x) => {
+export const getNytBooks = (genre) => {
   console.log("getNytBooks")
+
   return (dispatch) => {
-    return fetch(`/api/v1/${x}`)
+    return fetch(`/api/v1/${genre}`)
     .then(resp => resp.json())
     .then(books => dispatch(setNytBooks(books)))
   }

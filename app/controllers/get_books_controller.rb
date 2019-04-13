@@ -1,4 +1,5 @@
 class GetBooksController < ApplicationController
+  
 def books
   begin
     @resp = Faraday.get 'https://api.nytimes.com/svc/books/v3/lists.json' do |req|
