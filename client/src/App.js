@@ -4,8 +4,6 @@ import UserContainer from './container/UserContainer';
 import NYTbookList from './components/NYTbookList';
 import { connect } from 'react-redux';
 import NavBarcomp from './components/NavBarcomp';
-import NonfictionBestSellers from './container/NonfictionBestSellers'
-import ScienceBestSellers from './container/ScienceBestSellers'
 import { Route, Redirect, Switch } from 'react-router-dom';
 import BestSellers from './container/BestSellers';
 import UserBooks from './components/UserBooks';
@@ -42,8 +40,8 @@ class App extends Component {
         <Switch>
         <Route exact path="/" render={() => logged} />
         <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers /> }/>
-        <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <NonfictionBestSellers /> }/>
-        <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <ScienceBestSellers /> }/>
+        <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="nonfiction" /> }/>
+        <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="science" /> }/>
         <Route path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path='/logout' component={ () => logout()} />
         </Switch>

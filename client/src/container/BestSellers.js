@@ -10,9 +10,12 @@ import './BestSellers.css'
 class BestSellers extends Component {
 
   componentDidMount() {
-       this.props.getNytBooks(this.props.genre)
+      if(this.props.rgenre){
+        this.props.getNytBooks(this.props.rgenre)
+      } else {
+        this.props.getNytBooks(this.props.genre)
+      }
     }
-
 
   checkForDuplicateBook = (book) => {
     const isbns = [];
@@ -20,30 +23,33 @@ class BestSellers extends Component {
     !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
   };
 
-
+  isRgenre = () => {
+    if(this.props.rgenre){
+      const genre = this.props.rgenre === "books" ? "fiction" : this.props.rgenre
+      return  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
+    }else {
+      const genre = this.props.genre === "books" ? "fiction" : this.props.genre
+      return  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
+    }
+  }
 
   render() {
-    const genre = this.props.genre === "books" ? "fiction" : this.props.genre
-    const genreName =  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
+    const genreName = this.isRgenre()
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
 
-
     return(
         <div className="smallmargin">
-
           <h1> New York Times Bestsellers</h1>
           <h3>{genreName}</h3>
-
           <h5>Click on a book card to add it to your reading list</h5>
-
           {renderBooks}
-
         </div>
     )
   }
 }
+
 const mapStateToProps = state => {
   return {
     books: state.books,

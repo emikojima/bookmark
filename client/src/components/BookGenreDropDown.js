@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import BestSellers from '../container/BestSellers'
-import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { setGenre, getNytBooks } from '../actions/bookActions'
 
