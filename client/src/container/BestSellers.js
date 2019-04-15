@@ -23,15 +23,18 @@ class BestSellers extends Component {
 
 
   render() {
+    const genre = this.props.genre === "books" ? "fiction" : this.props.genre
+    const genreName =  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
     const renderBooks = this.props.nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
     );
+
 
     return(
         <div className="smallmargin">
 
           <h1> New York Times Bestsellers</h1>
-          <h3>{this.props.genre}</h3>
+          <h3>{genreName}</h3>
 
           <h5>Click on a book card to add it to your reading list</h5>
 
