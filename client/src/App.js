@@ -10,11 +10,12 @@ import UserBooks from './components/UserBooks';
 import { logOutUser } from './actions/userActions';
 import { getUserBooks } from './actions/bookActions';
 import { logInForRefresh } from './actions/userActions';
+import Login from './components/Login';
 
 class App extends Component {
 
   componentDidMount() {
-    if (this.props.books.length === 0) {
+    if (sessionStorage['user'] && this.props.books.length === 0) {
       this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
       this.props.getUserBooks(sessionStorage['user'])
     } else {
@@ -31,18 +32,18 @@ class App extends Component {
       this.props.logOutUser(this.props.user)
       return <Redirect to="/"/>
     }
-
     const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-    const nav = !!sessionStorage['jwt'] ? <NavBarcomp userId={this.props.userId}/> : null
+    const nav = !!sessionStorage['jwt'] ? <NavBarcomp username={this.props.username}/> : null
     return (
       <div className="App">
         {nav}
         <Switch>
         <Route exact path="/" render={() => logged} />
-        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers /> }/>
+        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="books"/> }/>
         <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="nonfiction" /> }/>
         <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="science" /> }/>
         <Route path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
+        <Route path="/login" component={ () => logout()} />
         <Route path='/logout' component={ () => logout()} />
         </Switch>
       </div>
@@ -51,9 +52,9 @@ class App extends Component {
 }
 const mapStateToProps = state =>{
   return {
-    books: state.books,
+   books: state.books,
    signUp: state.signUp,
    loggedIn: state.loggedIn,
-   userId: state.userId
+   username: state.username
  }}
 export default connect(mapStateToProps,{logOutUser, getUserBooks, logInForRefresh})(App);

@@ -1,5 +1,8 @@
 .userBooks {
-  background-image: linear-gradient(to bottom, Snow, White, Gold, Snow );
+  background-image: linear-gradient(to bottom, Snow, White, Gold, White, Snow );
   background-size: cover;
-  padding-top: 20px;
+}
+
+.userBooks h6 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }

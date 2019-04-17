@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-
+import { Link } from 'react-router-dom';
 export default class SignUp extends Component {
  state = {
    username: "",
@@ -73,6 +73,7 @@ export default class SignUp extends Component {
            type="submit"
          >Sign Up</Button>
        </form>
+       <Link to="/login">Back to Login</Link>
      </div>
     )
   }

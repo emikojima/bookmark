@@ -16,7 +16,6 @@ class UserBooks extends Component {
   }
 
   render() {
-
     const booksList = this.props.books.map(book => {
       return (<UserBookCard
         key={book.id}
@@ -24,7 +23,7 @@ class UserBooks extends Component {
         deleteUserBook={this.props.deleteUserBook}
         userId={this.props.user}
         addBookNote={this.props.addBookNote} />)
-    });
+    }) 
     return(
     <div className="userBooks">
       <h1>{this.props.username}'s Books </h1>

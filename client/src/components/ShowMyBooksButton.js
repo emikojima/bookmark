@@ -18,7 +18,7 @@ class ShowMyBooksButton extends Component {
 
       <Button
       size="sm"
-      bsStyle="light"
+      bsStyle="link"
       onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
       }>{buttonText}</Button>
       {this.state.showMybooks ? <UserBooks /> : null}

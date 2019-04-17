@@ -7,6 +7,7 @@ const NYTbookList = () => {
    return(
       <>
         <ShowMyBooksButton />
+        <hr />
         <BookGenreDropDown />
       </>
     );

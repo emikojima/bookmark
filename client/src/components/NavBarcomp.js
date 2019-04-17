@@ -9,13 +9,14 @@ const NavBarcomp = (props) => {
     <div>
       <header>
         <Navbar expand="sm" variant="light" bg="light">
-        <NavLink to="/"><img src={book} alt="illustrated icon of books" /></NavLink>
+
         <nav>
          <ul>
-           <li><NavLink to="/bestsellers-fiction" exact >Fiction Best Sellers</NavLink></li>
-           <li><NavLink to="/bestsellers-nonfiction" exact >Nonfiction Best Sellers</NavLink></li>
-           <li><NavLink to="/bestsellers-science" exact >Science Best Sellers</NavLink></li>
-           <li><NavLink to={`/users/${props.userId}/books`}>My Books</NavLink></li>
+           <li><NavLink to="/"><img src={book} alt="illustrated icon of books" /></NavLink></li>
+           <li><NavLink to="/bestsellers-fiction" exact >Fiction</NavLink></li>
+           <li><NavLink to="/bestsellers-nonfiction" exact >Nonfiction</NavLink></li>
+           <li><NavLink to="/bestsellers-science" exact >Science</NavLink></li>
+           <li><NavLink to={`/users/${props.username}/books`}>My Books</NavLink></li>
            <li><NavLink to="/logout">Log Out</NavLink></li>
          </ul>
        </nav>
