@@ -20,6 +20,7 @@ header * {
 
 header li {
     margin: 20px;
+    font-size: 14px;
 }
 
 header li a {

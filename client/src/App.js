@@ -10,7 +10,6 @@ import UserBooks from './components/UserBooks';
 import { logOutUser } from './actions/userActions';
 import { getUserBooks } from './actions/bookActions';
 import { logInForRefresh } from './actions/userActions';
-import Login from './components/Login';
 
 class App extends Component {
 
@@ -42,9 +41,10 @@ class App extends Component {
         <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="books"/> }/>
         <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="nonfiction" /> }/>
         <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="science" /> }/>
-        <Route path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
+        <Route exact path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path="/login" component={ () => logout()} />
         <Route path='/logout' component={ () => logout()} />
+        <Route render={() => <h2 class="400-error">404 Error - Page not found</h2>} />
         </Switch>
       </div>
     );

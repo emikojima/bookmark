@@ -5,11 +5,11 @@ import BookGenreDropDown from './BookGenreDropDown';
 
 const NYTbookList = () => {
    return(
-      <>
+      <div className="bodymargin">
         <ShowMyBooksButton />
-        <hr />
+        <hr/>
         <BookGenreDropDown />
-      </>
+      </div>
     );
   };
 

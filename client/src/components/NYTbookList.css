@@ -18,20 +18,25 @@ li.pborder {
 .bodymargin {
   background-size: cover;
   text-align: center;
+  padding-bottom: 70px;
+  background-color: Black;
+  padding-top: 90px;
 }
 
 h1 {
   font-family: "Palatino Linotype";
-  color: Black;
-  text-shadow: 0 0 1px 1px Black;
+  color: white;
+
+
 }
+
 
 h5 {
   font-family: "Palatino Linotype";
 }
 
 
-h3 {
+li h3 {
   font-family: "Palatino Linotype";
 }
 

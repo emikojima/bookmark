@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import BestSellers from '../container/BestSellers'
 import { connect } from 'react-redux'
 import { setGenre, getNytBooks } from '../actions/bookActions'
-
-
+import './BookGenreDropDown.css'
 
 class BookGenreDropDown extends Component {
 
@@ -17,8 +16,8 @@ class BookGenreDropDown extends Component {
   }
   render() {
     return(
-    <div>
-      <form>
+    <div >
+      <form className="smallfont" >
           <select name="genre" onChange={this.handleGenreChange}>
             <option value="books">Choose a genre</option>
             <option value="books">Fiction</option>
@@ -26,6 +25,7 @@ class BookGenreDropDown extends Component {
             <option value="science">Science</option>
           </select>
         </form>
+        <hr/>
         <BestSellers />
     </div>
     )

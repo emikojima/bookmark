@@ -1,26 +1,89 @@
 .fmargin {
-  padding-top: 20px;
-  background-image: linear-gradient(to bottom, Snow , White, DeepSkyBlue, PaleTurquoise, White, Snow);
+  background-image: url('../fbookimage.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+  padding-top: 20px;
   text-align: center;
-}
-
-.fmargin h6 {
-  color: black;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .nmargin {
-  padding-top: 20px;
-  background-image: linear-gradient(to bottom, Snow , White, HotPink, Pink, White, Snow);
+  background-image: url('../stackbooks.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+  padding-top: 20px;
   text-align: center;
 }
 
-
 .smargin {
-  padding-top: 20px;
-  background-image: linear-gradient(to bottom, Snow , White, SpringGreen, White, Snow);
+  background-image: url('../darkbgbook.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
   text-align: center;
+  padding-top: 20px;
+}
+
+.fmargin > h6 {
+  color: white;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-shadow: 2px 2px Black;
+}
+
+.smargin > h6 {
+  color: white;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-shadow: 2px 2px Black;
+  margin-bottom: 20px;
+}
+
+.nmargin > h6 {
+  color: white;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-shadow: 2px 2px Black;
+
+}
+
+.fmargin > h3 {
+  color: white;
+  font-family: "Palatino Linotype";
+  text-shadow: 2px 2px Black;
+}
+
+.smargin > h3 {
+  color: white;
+  font-family: "Palatino Linotype";
+  text-shadow: 2px 2px Black;
+}
+
+.nmargin > h3 {
+  color: white;
+  font-family: "Palatino Linotype";
+  text-shadow: 2px 2px 2px Black;
+
+}
+
+.fmargin > h1 {
+  margin-top: 70px;
+  padding-top: 30px;
+  text-shadow: 2px 2px Black;
+}
+
+.smargin > h1 {
+  margin-top: 70px;
+  padding-top: 30px;
+  text-shadow: 2px 2px Black;
+}
+
+.nmargin > h1 {
+  margin-top: 70px;
+  padding-top: 30px;
+  text-shadow: 2px 2px Black;
 }

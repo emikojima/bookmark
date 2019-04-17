@@ -30,7 +30,7 @@ class BestSellers extends Component {
 
   render() {
     const genreName = this.props.rgenre ? this.isRgenre(this.props.rgenre) : this.isRgenre(this.props.genre)
-    const bcolor = () => {
+    const bimage = () => {
       if (genreName === "Fiction") {
         return "fmargin"
       } else if (genreName === "Science") {
@@ -44,7 +44,7 @@ class BestSellers extends Component {
     );
 
     return(
-        <div className={bcolor()}>
+        <div className={bimage()}>
           <h1> New York Times Bestsellers</h1>
           <h3>{genreName}</h3>
           <h6>Click on a book card to add it to your reading list</h6>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './NYTbookList.css';
 import UserBooks from '../components/UserBooks';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import './ShowMyBooksButton.css'
 
 
 class ShowMyBooksButton extends Component {
@@ -13,16 +14,10 @@ class ShowMyBooksButton extends Component {
   render() {
     let buttonText = this.state.buttonText === true ? "△ Show Less △ " : " ▽ Show My Books  ▽"
     return(
-
-      <div className="bodymargin">
-
-      <Button
-      size="sm"
-      bsStyle="link"
-      onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})
-      }>{buttonText}</Button>
+      <>
+      <Link className="link" onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</Link>
       {this.state.showMybooks ? <UserBooks /> : null}
-    </div>
+      </>
     )
 }
 }
