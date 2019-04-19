@@ -25,6 +25,8 @@ export default class Login extends Component {
       password: this.state.password
     }
     this.props.loginUser(user)
+    this.setState({username: "",
+    password: "",})
   }
 
   handleSignUp = event => {

@@ -27,7 +27,6 @@ class BestSellers extends Component {
       return  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
     }
 
-
   render() {
     const genreName = this.props.rgenre ? this.isRgenre(this.props.rgenre) : this.isRgenre(this.props.genre)
     const bimage = () => {
@@ -47,7 +46,9 @@ class BestSellers extends Component {
         <div className={bimage()}>
           <h1> New York Times Bestsellers</h1>
           <h3>{genreName}</h3>
+          <br></br>
           <h6>Click on a book card to add it to your reading list</h6>
+          <br></br>
           {renderBooks}
         </div>
     )

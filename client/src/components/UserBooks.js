@@ -5,30 +5,39 @@ import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
 import { addBookNote } from '../actions/bookActions';
 import './UserBooks.css';
+import SearchBar from './SearchBar'
 
 class UserBooks extends Component {
+  state = {term: ""}
   componentDidMount() {
     if(this.props.user !== "" && !this.props.books.length ) {
         this.props.getUserBooks(this.props.user)
     }
-
-    console.log("route props",this.props)
+  }
+  getsearch = (term ) => {
+    this.setState({term: term })
   }
 
+  filterIt = (search) => {
+    return (book) => {
+    return !!book.notes ? book.notes.toLowerCase().includes(search.toLowerCase()) : !search || book.title.toLowerCase().includes(search.toLowerCase()) || book.description.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()) || null
+  }}
+
   render() {
-    const booksList = this.props.books.map(book => {
+    console.log("search userpage", this.state.term)
+    const booksList = this.props.books.filter(this.filterIt(this.state.term)).map(book => {
       return (<UserBookCard
         key={book.id}
         book={book}
         deleteUserBook={this.props.deleteUserBook}
         userId={this.props.user}
-        addBookNote={this.props.addBookNote} />)
-    }) 
+        addBookNote={this.props.addBookNote} />)})
+
     return(
     <div className="userBooks">
-      <h1>{this.props.username}'s Books </h1>
+      <h1>{this.props.username}s Books </h1> <span> <SearchBar books={this.props.books} getsearch={this.getsearch}/></span>
+      <br></br>
         { booksList }
-
     </div>
     )
   }

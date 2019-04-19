@@ -19,3 +19,9 @@
 .imageMargin {
   margin-top: 15%;
 }
+
+.App > h1 {
+  color: black;
+  margin-top: 30%;
+  background-image: linear-gradient(to bottom, Snow, White, Gold, Snow );
+}

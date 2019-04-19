@@ -1,6 +1,9 @@
 .smallfont {
     font-size: 14px;
 }
+select {
+  background-color: white;
+}
 /* Dropdown Button */
 .dropbtn {
   background-color: #3498DB;
@@ -42,7 +45,7 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {background-color: pink}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}

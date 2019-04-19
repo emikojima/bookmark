@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       render json: { jwt: jwt, user: @user }
 
     else
-      render json: @user.errors, status: 400
+      render json: @user.errors, status: 404
     end
   end
 

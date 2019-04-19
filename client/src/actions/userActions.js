@@ -39,7 +39,7 @@ export const signUpUser = (user) => {
     return(dispatch) => {
       fetch('/api/v1/users', data)
       .then(response => response.json())
-      .then(res => { debugger
+      .then(res => { 
         sessionStorage.setItem('jwt', res.jwt)
         sessionStorage.setItem('user', res.user.id)
         sessionStorage.setItem('username', res.user.username)

@@ -13,6 +13,7 @@ li.pborder {
     box-shadow: 0 0 4px 0 Black;
     background-color: Snow ;
     vertical-align: top;
+    cursor:pointer;
 }
 
 .bodymargin {
@@ -26,8 +27,6 @@ li.pborder {
 h1 {
   font-family: "Palatino Linotype";
   color: white;
-
-
 }
 
 

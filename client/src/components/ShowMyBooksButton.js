@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './NYTbookList.css';
 import UserBooks from '../components/UserBooks';
-import { Link } from 'react-router-dom'
 import './ShowMyBooksButton.css'
 
 
@@ -15,7 +14,7 @@ class ShowMyBooksButton extends Component {
     let buttonText = this.state.buttonText === true ? "△ Show Less △ " : " ▽ Show My Books  ▽"
     return(
       <>
-      <Link className="link" onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</Link>
+      <h3 className="link" onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</h3>
       {this.state.showMybooks ? <UserBooks /> : null}
       </>
     )

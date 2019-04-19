@@ -7,6 +7,7 @@
   width: 100%;
   padding-top: 20px;
   text-align: center;
+  padding-bottom: 100px;
 }
 
 .nmargin {
@@ -18,6 +19,7 @@
   width: 100%;
   padding-top: 20px;
   text-align: center;
+  padding-bottom: 100px;
 }
 
 .smargin {
@@ -29,6 +31,7 @@
   width: 100%;
   text-align: center;
   padding-top: 20px;
+  padding-bottom: 100px;
 }
 
 .fmargin > h6 {

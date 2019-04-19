@@ -3,7 +3,5 @@
   color: white;
   font-weight: bold;
   font-size: 14px;
-}
-.link:hover {
-   color: snow;
+  cursor:pointer;
 }

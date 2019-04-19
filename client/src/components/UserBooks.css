@@ -7,11 +7,14 @@
   width: 100%;
   padding-top: 20px;
   text-align: center;
+  padding-bottom: 70px;
 }
 
 .userBooks > h1 {
   margin-top: 70px;
   padding-top: 30px;
+  text-shadow: 2px 2px black;
+
 }
 
 .userBooks h6 {

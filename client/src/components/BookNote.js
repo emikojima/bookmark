@@ -3,7 +3,7 @@ import React from 'react';
 const BookNote = (props) => {
   return (
     <>
-    <h6>MY NOTE: {props.note}</h6>
+    <p>MY NOTE: {props.note}</p>
     </>
   )
 }

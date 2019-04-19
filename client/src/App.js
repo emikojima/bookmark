@@ -44,7 +44,7 @@ class App extends Component {
         <Route exact path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path="/login" component={ () => logout()} />
         <Route path='/logout' component={ () => logout()} />
-        <Route render={() => <h2 class="400-error">404 Error - Page not found</h2>} />
+        <Route render={() => <h1 class="400-error">404 Error - Page not found</h1>} />
         </Switch>
       </div>
     );
