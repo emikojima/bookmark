@@ -14,31 +14,32 @@ class UserBooks extends Component {
         this.props.getUserBooks(this.props.user)
     }
   }
+  //callback to get search term from SearchBar.js
   getsearch = (term ) => {
     this.setState({term: term })
   }
 
   filterIt = (search) => {
     return (book) => {
-    return !!book.notes ? book.notes.toLowerCase().includes(search.toLowerCase()) : !search || book.title.toLowerCase().includes(search.toLowerCase()) || book.description.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()) || null
+    return !!book.notes ? book.notes.toLowerCase().includes(search.toLowerCase()) : !search || book.title.toLowerCase().includes(search.toLowerCase()) || book.description.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()) || !search
   }}
 
   render() {
     console.log("search userpage", this.state.term)
-    const booksList = this.props.books.filter(this.filterIt(this.state.term)).map(book => {
-      return (<UserBookCard
-        key={book.id}
-        book={book}
-        deleteUserBook={this.props.deleteUserBook}
-        userId={this.props.user}
-        addBookNote={this.props.addBookNote} />)})
-
+    const booksList = this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
+          key={book.id}
+          book={book}
+          deleteUserBook={this.props.deleteUserBook}
+          userId={this.props.user}
+          addBookNote={this.props.addBookNote} />)
+        }
+    )
     return(
-    <div className="userBooks">
-      <h1>{this.props.username}s Books </h1> <span> <SearchBar books={this.props.books} getsearch={this.getsearch}/></span>
-      <br></br>
-        { booksList }
-    </div>
+      <div className="userBooks">
+        <h1>{this.props.username}s Books </h1> <SearchBar books={this.props.books} getsearch={this.getsearch}/>
+        <br></br>
+          { booksList }
+      </div>
     )
   }
 }
