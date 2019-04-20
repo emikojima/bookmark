@@ -9,7 +9,6 @@ const NavBarcomp = (props) => {
     <div>
       <header>
         <Navbar expand="sm" variant="light" bg="light">
-
         <nav>
          <ul>
            <li><NavLink to="/"><img src={book} alt="illustrated icon of books" /></NavLink></li>

@@ -79,7 +79,7 @@ export const deleteUserBook = (book) => {
       method: 'DELETE',
       headers: {"Content-Type": 'application/json'},
     })
-    .then(() => console.log("book was deleted"))
+    .then(() => alert("book was deleted"))
     .then(() => dispatch(deleteBook(book)))
     .catch(error => console.log(error));
   }
@@ -96,6 +96,6 @@ export const addBookNote = (book) => {
   })
   .then(resp => resp.json())
   .then(data => dispatch(updateBook(book)))
-  .catch(error => console.log(error));
+  .catch(error => alert(error));
   }
 }

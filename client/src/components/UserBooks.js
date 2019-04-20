@@ -8,24 +8,31 @@ import './UserBooks.css';
 import SearchBar from './SearchBar'
 
 class UserBooks extends Component {
-  state = {term: ""}
+  state = {
+    term: ""
+  }
+
   componentDidMount() {
-    if(this.props.user !== "" && !this.props.books.length ) {
+    if(this.props.user !== "" && !this.props.books.length ){
         this.props.getUserBooks(this.props.user)
     }
   }
+
   //callback to get search term from SearchBar.js
   getsearch = (term ) => {
     this.setState({term: term })
   }
 
+  lower = (book, search) => {
+    return book.title.toLowerCase().includes(search.toLowerCase()) || book.description.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase())
+  }
+
   filterIt = (search) => {
     return (book) => {
-    return !!book.notes ? book.notes.toLowerCase().includes(search.toLowerCase()) : !search || book.title.toLowerCase().includes(search.toLowerCase()) || book.description.toLowerCase().includes(search.toLowerCase()) || book.author.toLowerCase().includes(search.toLowerCase()) || !search
+    return !book.notes ? this.lower(book, search) : book.notes.toLowerCase().includes(search.toLowerCase()) ||  this.lower(book, search)
   }}
 
   render() {
-    console.log("search userpage", this.state.term)
     const booksList = this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
           key={book.id}
           book={book}
@@ -36,9 +43,10 @@ class UserBooks extends Component {
     )
     return(
       <div className="userBooks">
-        <h1>{this.props.username}s Books </h1> <SearchBar books={this.props.books} getsearch={this.getsearch}/>
+        <h1>{this.props.username}'s Books </h1>
+        <SearchBar getsearch={this.getsearch} />
         <br></br>
-          { booksList }
+        { booksList }
       </div>
     )
   }

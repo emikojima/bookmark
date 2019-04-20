@@ -3,7 +3,6 @@ import './NYTbookList.css';
 import UserBooks from '../components/UserBooks';
 import './ShowMyBooksButton.css'
 
-
 class ShowMyBooksButton extends Component {
   state = {
     showMybooks: false,
