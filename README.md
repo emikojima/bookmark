@@ -6,6 +6,12 @@ To use this app, just fork and clone. Then in terminal, run cd bookmark, bundle 
 ## Summary
 “BookMark” utilizes a React/Redux client side, and a Rails API backend and New York Times API to show information about the week's NYT Bestsellers list by genre. 
 
+Users can login or signup.
+
+<img src="https://media.giphy.com/media/47z1VBb1ZKZWrwcHWX/giphy.gif" />
+
+Users can see books by genre.
+
 <img src="https://media.giphy.com/media/d7ndZcNhmGd0VaDdT9/giphy-downsized-large.gif" />
 
 Users can save a book they are interested in keeping in their list, add a note to a book, and search their books. 
