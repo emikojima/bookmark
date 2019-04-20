@@ -8,7 +8,7 @@ To use this app, just fork and clone. Then in terminal, run cd bookmark, bundle 
 
 Users can login or signup.
 
-<img src="https://media.giphy.com/media/47z1VBb1ZKZWrwcHWX/giphy.gif" />
+<img src="https://media.giphy.com/media/7NOR1f2SFf8VLg9WRk/giphy.gif" />
 
 Users can see books by genre.
 
