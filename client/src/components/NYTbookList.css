@@ -7,7 +7,7 @@ li.pborder {
     border: 1px solid Black;
     display: inline-block;
     margin: 20px;
-    padding: 24px 24px 16px 30px;
+    padding: 24px 30px 16px 40px;
     text-align: center;
     width: 300px;
     box-shadow: 0 0 4px 0 Black;
@@ -49,4 +49,11 @@ p{
 
 Button{
   margin: 8px 0 0 0;
+}
+
+@media only screen and (max-width: 600px) {
+  bodymargin {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

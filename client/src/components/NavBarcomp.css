@@ -19,8 +19,13 @@ header * {
 }
 
 header li {
-    margin: 20px;
-    font-size: 14px;
+    margin-right: 20px;
+
+}
+
+header li:last-child {
+    margin-right: 0px;
+
 }
 
 header li a {
@@ -28,11 +33,15 @@ header li a {
     text-decoration: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+  ul {
+    padding-left: 0px;
+  }
   header li {
     display: none;
+    margin-right: 15px;
   }
-  header li:nth-child(1),header li:nth-child(6) {
+  header li:nth-child(1),header li:nth-child(5),header li:nth-child(6) {
       display: inline-block;
   }
 }

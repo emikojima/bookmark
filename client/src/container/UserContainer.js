@@ -10,13 +10,16 @@ class UserContainer extends Component {
   render() {
     const show = !this.props.signUp ? <Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : <SignUp signUpUser={this.props.signUpUser} />;
 
+
+
+
     return (
-      <div className="image" id="responsive">
+      <div className="image" >
         <Grid>
           <Row >
             <Col xs={2} md={4} lg={4}>
             </Col>
-            <Col xs={8} md={5} lg={4} >
+            <Col xs={4} md={6} lg={4} >
               {show}
             </Col>
             <Col xs={2} md={4} lg={4} />
