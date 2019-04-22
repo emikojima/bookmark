@@ -9,14 +9,20 @@ class ShowMyBooksButton extends Component {
     buttonText: false
   }
 
+  onShowClick = () => {
+    this.setState({
+      showMybooks: !this.state.showMybooks,
+      buttonText: !this.state.buttonText}
+    )}
+
+
   render() {
-    let buttonText = this.state.buttonText === true ? "△ Show Less △ " : " ▽ Show My Books  ▽"
+    let buttonText = this.state.buttonText === true ? "△ Hide My Books △ " : " ▽ Show My Books  ▽"
     return(
       <>
-      <h3 className="link" onClick={() => this.setState({showMybooks: !this.state.showMybooks, buttonText: !this.state.buttonText})}>{buttonText}</h3>
-      {this.state.showMybooks ? <UserBooks /> : null}
+      {!this.state.showMybooks ? <h3 className="link" onClick={this.onShowClick}>{buttonText}</h3> :<> <h3 className="link" onClick={this.onShowClick}>{buttonText}</h3><UserBooks /><hr/><h3 className="link" onClick={this.onShowClick}>{buttonText}</h3></>}
       </>
     )
-}
+  }
 }
 export default ShowMyBooksButton;

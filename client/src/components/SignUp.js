@@ -73,6 +73,7 @@ export default class SignUp extends Component {
            type="submit"
          >Sign Up</Button>
        </form>
+       <hr />
        <Link to="/login">Back to Login</Link>
      </div>
     )

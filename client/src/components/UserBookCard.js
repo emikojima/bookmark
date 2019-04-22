@@ -24,10 +24,10 @@ class UserBookCard extends Component {
         <h5>By: {this.props.book.author}</h5>
         <h6>{this.props.book.description}</h6>
         {isThereAbookNote}
-        <Button bsStyle="outline-info" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
+        <Button bsStyle="success" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
         <br></br>
         {showBookNoteForm}
-        <Button bsStyle="outline-secondary" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
+        <Button bsStyle="link" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
       </li>
 
     )

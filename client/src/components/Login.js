@@ -66,12 +66,12 @@ export default class Login extends Component {
               type="submit"
             >Login</Button>
           </form>
-            <h4>OR</h4>
+          <hr/>
             <Button
               onClick={(event) => {this.handleSignUp(event)}}
-              bsStyle="info"
+              bsStyle="link"
               block
-              bsSize="large"
+              bsSize="lrg"
               type="submit"
             >Sign Up</Button>
       </div>
