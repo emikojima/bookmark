@@ -71,7 +71,7 @@ export default class Login extends Component {
               onClick={(event) => {this.handleSignUp(event)}}
               bsStyle="link"
               block
-              bsSize="lrg"
+              bsSize="large"
               type="submit"
             >Sign Up</Button>
       </div>

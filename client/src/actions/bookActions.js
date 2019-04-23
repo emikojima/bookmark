@@ -68,7 +68,7 @@ export const postBook = (book, userId) => {
         .then(resp => resp.json())
         .then(book => {
           dispatch({ type: 'ADD_BOOK', book })
-          alert("Your book has been added!")})
+          dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Your Book has been Added!"})})
   }
 }
 
@@ -79,7 +79,7 @@ export const deleteUserBook = (book) => {
       method: 'DELETE',
       headers: {"Content-Type": 'application/json'},
     })
-    .then(() => alert("book was deleted"))
+    .then(() => dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Your book has been deleted"}))
     .then(() => dispatch(deleteBook(book)))
     .catch(error => console.log(error));
   }

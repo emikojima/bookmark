@@ -10,11 +10,12 @@ import UserBooks from './components/UserBooks';
 import { logOutUser } from './actions/userActions';
 import { getUserBooks } from './actions/bookActions';
 import { logInForRefresh } from './actions/userActions';
+import AlertList from './components/AlertList';
 
 class App extends Component {
 
   componentDidMount() {
-    if (sessionStorage['user'] && this.props.books.length === 0) {
+    if (sessionStorage['user'] && this.props.books.length > 0) {
       this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
       this.props.getUserBooks(sessionStorage['user'])
     } else {
@@ -22,7 +23,8 @@ class App extends Component {
     }
   }
   render() {
-    const loggedIn = () => !!sessionStorage['jwt']
+
+    const loggedIn = () => sessionStorage['jwt'] !== "undefined" && sessionStorage.length > 1
     const logout = () => {
       if(!!sessionStorage['jwt'])
       sessionStorage.removeItem('jwt')
@@ -31,11 +33,12 @@ class App extends Component {
       this.props.logOutUser(this.props.user)
       return <Redirect to="/"/>
     }
-    const logged = !!sessionStorage['jwt'] ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-    const nav = !!sessionStorage['jwt'] ? <NavBarcomp username={this.props.username}/> : null
+    const logged = loggedIn() ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
+    const nav = loggedIn() ? <NavBarcomp username={this.props.username}/> : null
     return (
       <div className="App">
         {nav}
+        <AlertList />
         <Switch>
         <Route exact path="/" render={() => logged} />
         <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="books"/> }/>
@@ -52,9 +55,9 @@ class App extends Component {
 }
 const mapStateToProps = state =>{
   return {
-   books: state.books,
-   signUp: state.signUp,
-   loggedIn: state.loggedIn,
-   username: state.username
+   books: state.user.books,
+   signUp: state.user.signUp,
+   loggedIn: state.user.loggedIn,
+   username: state.user.username,
  }}
 export default connect(mapStateToProps,{logOutUser, getUserBooks, logInForRefresh})(App);

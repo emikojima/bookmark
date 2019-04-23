@@ -1,0 +1,6 @@
+.alert {
+  background-color: pink;
+  position: fixed;
+  width: 100%;
+  opacity: 90%;
+}

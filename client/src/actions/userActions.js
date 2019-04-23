@@ -39,13 +39,16 @@ export const signUpUser = (user) => {
     return(dispatch) => {
       fetch('/api/v1/users', data)
       .then(response => response.json())
-      .then(res => { 
+      .then(res => {
         sessionStorage.setItem('jwt', res.jwt)
         sessionStorage.setItem('user', res.user.id)
         sessionStorage.setItem('username', res.user.username)
       dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user.id}))
-    }).catch(error => window.alert("username already taken"))
-}}
+    }).catch(error => {
+            dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Username Already Taken"})
+      })
+  }
+}
 
 export const logInThisUser = (user) => {
   let data = {
@@ -65,6 +68,8 @@ export const logInThisUser = (user) => {
           sessionStorage.setItem('user', res.user.id)
           sessionStorage.setItem('username', res.user.username)
         dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
-      }).catch(error => window.alert("Log In failed, please check your username and password and try again"))
+      }).catch(error =>  {
+              dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Log In failed, please check your username and password and try again"})
+        })
   }
 }

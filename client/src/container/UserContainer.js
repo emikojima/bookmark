@@ -32,9 +32,9 @@ class UserContainer extends Component {
 
 const mapStateToProps = state =>{
   return {
-    signUp: state.signUp,
-    books: state.books,
-    user: state.userId
+    signUp: state.user.signUp,
+    books: state.user.books,
+    user: state.user.userId
   };
 };
 

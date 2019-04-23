@@ -33,7 +33,7 @@ class BookGenreDropDown extends Component {
 }
 const mapStateToProps = state => {
   return {
-    genre: state.genre
+    genre: state.user.genre
   };
 };
 export default connect(mapStateToProps,{setGenre, getNytBooks})(BookGenreDropDown);

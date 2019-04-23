@@ -53,9 +53,9 @@ class UserBooks extends Component {
 }
   const mapStateToProps = (state) => {
     return ({
-      books: state.books,
-      user: state.userId,
-      username: state.username
+      books: state.user.books,
+      user: state.user.userId,
+      username: state.user.username
     })
   }
 

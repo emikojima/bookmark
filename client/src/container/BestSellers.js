@@ -4,6 +4,7 @@ import NYTbookCard from '../components/NYTbookCard'
 import { getNytBooks } from '../actions/bookActions';
 import { postBook }from '../actions/bookActions';
 import { setGenre } from '../actions/bookActions'
+import { addAlertMessage } from '../actions/alertActions'
 import './BestSellers.css'
 
 class BestSellers extends Component {
@@ -19,7 +20,7 @@ class BestSellers extends Component {
   checkForDuplicateBook = (book) => {
     const isbns = [];
     this.props.books.map(b => isbns.push(b.isbns));
-    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : window.confirm("This book is already on your list")
+    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : this.props.addAlertMessage("This book is already on your list")
   };
 
   isRgenre = (x) => {
@@ -57,12 +58,12 @@ class BestSellers extends Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.books,
-    user: state.userId,
-    nytbooks: state.nytbooks,
-    genre: state.genre
+    books: state.user.books,
+    user: state.user.userId,
+    nytbooks: state.user.nytbooks,
+    genre: state.user.genre
   };
 };
 
 
-export default connect(mapStateToProps,{postBook, getNytBooks, setGenre})(BestSellers);
+export default connect(mapStateToProps,{postBook, getNytBooks, setGenre, addAlertMessage})(BestSellers);
