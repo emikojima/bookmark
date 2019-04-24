@@ -1,11 +1,11 @@
 .error {
   background-color: pink;
-  color: white;
   position: fixed;
   width: 100%;
   box-shadow: 0 3px 3px 0 white;
   opacity: 0.9;
-  padding: 5px;
+padding-top: 10px;
+  padding-right: 5px;
 }
 
 .success {
@@ -15,7 +15,9 @@
   border-color: green;
   opacity: 0.9;
   box-shadow: 0 3px 3px 0 white;
-  padding: 5px;
+  padding-top: 10px;
+  padding-right: 5px;
+
 }
 
 .error button {
