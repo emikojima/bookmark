@@ -1,17 +1,35 @@
-.alert-danger {
+.error {
   background-color: pink;
   color: white;
   position: fixed;
   width: 100%;
   box-shadow: 0 3px 3px 0 white;
   opacity: 0.9;
+  padding: 5px;
 }
 
-.alert-success {
+.success {
   background-color: cyan;
   position: fixed;
   width: 100%;
   border-color: green;
   opacity: 0.9;
   box-shadow: 0 3px 3px 0 white;
+  padding: 5px;
+}
+
+.error button {
+  opacity: .9;
+  float: right;
+  background-color: pink;
+  border: none;
+  font-weight: bolder;
+}
+
+.success button {
+  background-color: cyan;
+  opacity: .9;
+  float: right;
+  border: none;
+  font-weight: bolder;
 }

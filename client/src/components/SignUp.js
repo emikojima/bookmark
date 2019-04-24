@@ -30,6 +30,11 @@ export default class SignUp extends Component {
      password: this.state.password
    }
     this.props.signUpUser(user)
+    this.setState({
+      username: "",
+      password: "",
+      passwordConfirmation: "",
+    })
   };
 
   render() {
