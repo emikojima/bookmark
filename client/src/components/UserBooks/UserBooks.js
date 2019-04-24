@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UserBookCard from './UserBookCard';
 import { addBookNote, getUserBooks, deleteUserBook } from '../../actions/bookActions';
 import './UserBooks.css';
-import SearchBar from '../SearchBar'
+import SearchBar from '../UI/SearchBar'
 
 class UserBooks extends Component {
   state = {
@@ -38,10 +38,10 @@ class UserBooks extends Component {
           userId={this.props.user}
           addBookNote={this.props.addBookNote} />)
         }
-    ) : <h5>You have no books saved to your list! Click on any book card to save the book.</h5>
+    ) : <h5 className="white">You have no books saved to your list! Click on any book card to save the book.</h5>
     return(
       <div className="userBooks">
-        <h1>{this.props.username}'s Books </h1>
+        <h1>{this.props.username}'s Books</h1>
         <SearchBar getsearch={this.getsearch} />
         <br></br>
         { booksList }

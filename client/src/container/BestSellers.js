@@ -8,7 +8,7 @@ import './BestSellers.css'
 class BestSellers extends Component {
 
   componentDidMount() {
-      if(this.props.rgenre){
+      if(this.props.rgenre) {
         this.props.getNytBooks(this.props.rgenre)
       } else {
         this.props.getNytBooks(this.props.genre)
@@ -17,8 +17,8 @@ class BestSellers extends Component {
 
   checkForDuplicateBook = (book) => {
     const isbns = [];
-    this.props.books.map(b => isbns.push(b.isbns));
-    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : this.props.addAlertMessage({text: "This book is already on your list", type: "error"})
+    this.props.books.map(b => isbns.push(b.title));
+    !isbns.includes(book.title) ? this.props.postBook(book, this.props.user) : this.props.addAlertMessage({text: "This book is already on your list", type: "error"})
   };
 
   isRgenre = (x) => {

@@ -30,7 +30,7 @@ def fetch(genre)
         rank: book["rank"],
         weeks_on_list: book["weeks_on_list"],
         review: book["reviews"][0]["book_review_link"],
-        isbns: book["isbns"][0]["isbn10"],
+        
         amazon_url: book["amazon_product_url"],
         list_name: book["list_name"]
       }}

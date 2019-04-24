@@ -8,7 +8,6 @@ const initialState = {
   books: [],
   nytbooks: [],
   genre: "books"
-
 }
 
 export default function reducer(state = initialState, action) {

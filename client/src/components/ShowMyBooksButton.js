@@ -4,8 +4,8 @@ import './ShowMyBooksButton.css'
 
 class ShowMyBooksButton extends Component {
   state = {
-    showMybooks: false,
-    buttonText: false
+    showMybooks: true,
+    buttonText: true
   }
 
   onShowClick = () => {
@@ -16,6 +16,7 @@ class ShowMyBooksButton extends Component {
 
   render() {
     let buttonText = this.state.buttonText === true ? "△ Hide My Books △ " : " ▽ Show My Books  ▽"
+
     const button = <h3 className="link" onClick={this.onShowClick}>{buttonText}</h3>
     return(
       <>

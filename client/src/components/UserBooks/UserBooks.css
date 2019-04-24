@@ -16,12 +16,15 @@
   text-shadow: 2px 2px black;
 
 }
-.userBooks h5 {
-  margin-top: 50px;
-  color: white;
-  text-shadow: 1px 1px black;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
+
 .userBooks h6 {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.white {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: pink;
+  font-weight: 300;
+  opacity: 0.9;
+  padding: 60px;
 }

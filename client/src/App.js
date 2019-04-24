@@ -32,7 +32,7 @@ class App extends Component {
       return <Redirect to="/"/>
     }
     const logged = loggedIn() ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
-    const nav = loggedIn() ? <NavBarcomp username={this.props.username}/> : null
+  const nav = loggedIn() ? <NavBarcomp username={this.props.username} books={this.props.books} /> : null
     return (
       <div className="App">
         {nav}
