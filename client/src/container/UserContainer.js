@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Login from '../components/Login';
-import SignUp from '../components/SignUp';
+import Login from '../components/UserAuth/Login';
+import SignUp from '../components/UserAuth/SignUp';
 import {Grid, Row, Col} from 'react-bootstrap'
 import { connect } from 'react-redux';
 import { logInThisUser, showSignup, signUpUser } from '../actions/userActions'
@@ -9,10 +9,6 @@ import './UserContainer.css'
 class UserContainer extends Component {
   render() {
     const show = !this.props.signUp ? <Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : <SignUp signUpUser={this.props.signUpUser} />;
-
-
-
-
     return (
       <div className="image" >
         <Grid>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './NYTbookList.css';
-import ShowMyBooksButton from './ShowMyBooksButton';
-import BookGenreDropDown from './BookGenreDropDown';
-import BestSellers from '../container/BestSellers';
+import ShowMyBooksButton from '../ShowMyBooksButton';
+import BookGenreDropDown from '../BookGenreDropDown';
+import BestSellers from '../../container/BestSellers';
 
 const NYTbookList = () => {
    return(

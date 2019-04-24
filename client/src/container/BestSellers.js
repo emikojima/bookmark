@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import NYTbookCard from '../components/NYTbookCard'
+import NYTbookCard from '../components/NYTbooks/NYTbookCard'
 import { postBook, setGenre, getNytBooks }from '../actions/bookActions';
 import { addAlertMessage } from '../actions/alertActions'
 import './BestSellers.css'

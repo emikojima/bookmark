@@ -27,7 +27,7 @@ class BookGenreDropDown extends Component {
         <hr/>
     </div>
     )
-}
+  }
 }
 const mapStateToProps = state => {
   return {

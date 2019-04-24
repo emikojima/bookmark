@@ -1,5 +1,5 @@
 .fmargin {
-  background-image: url('../fbookimage.jpg');
+  background-image: url('../images/fbookimage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -11,7 +11,7 @@
 }
 
 .nmargin {
-  background-image: url('../stackbooks.jpg');
+  background-image: url('../images/stackbooks.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
 }
 
 .smargin {
-  background-image: url('../darkbgbook.jpg');
+  background-image: url('../images/darkbgbook.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

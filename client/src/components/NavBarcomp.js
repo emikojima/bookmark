@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBarcomp.css'
-import book from '../book.png'
+import book from '../images/book.png'
 import { NavLink} from 'react-router-dom';
 import {Navbar} from 'react-bootstrap'
 

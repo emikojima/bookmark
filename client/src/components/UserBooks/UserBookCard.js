@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../NYTbookList.css';
+import '../NYTbooks/NYTbookList.css';
 import BookNotes from '../BookNotes/BookNotes';
 import BookNote from '../BookNotes/BookNote';
 import { Button } from 'react-bootstrap';
