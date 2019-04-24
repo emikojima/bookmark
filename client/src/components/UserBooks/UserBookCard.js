@@ -13,20 +13,21 @@ class UserBookCard extends Component {
     this.setState({showBookNoteComponent: getback})}
 
   render() {
-    const showBookNoteForm = this.state.showBookNoteComponent ? <BookNotes addBookNote={this.props.addBookNote} book={this.props.book} setShowBookNotesComponent={ this.setShowBookNotesComponent} showBookNoteComponent={this.state.showBookNoteComponent}/> : null
+    const { book } = this.props
+    const showBookNoteForm = this.state.showBookNoteComponent ? <BookNotes addBookNote={this.props.addBookNote} book={book} setShowBookNotesComponent={ this.setShowBookNotesComponent} showBookNoteComponent={this.state.showBookNoteComponent}/> : null
     const show = this.state.showBookNoteComponent ? {display: 'none'} : {}
-    const isThereAbookNote = this.props.book.notes ? <BookNote note={this.props.book.notes} /> : null
-    const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
+    const bookNote = book.notes ? <BookNote note={book.notes} /> : null
+    const buttonText = !book.notes ? "Add Book Note" : "Edit Book Note"
     return (
       <li className="pborder">
-        <h4>{this.props.book.title}</h4>
-        <h5>By: {this.props.book.author}</h5>
-        <h6>{this.props.book.description}</h6>
+        <h4>{book.title}</h4>
+        <h5>By: {book.author}</h5>
+        <h6>{book.description}</h6>
         <br />
-        {isThereAbookNote}
+        {bookNote}
         <Button bsStyle="success" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
         {showBookNoteForm}
-        <Button bsStyle="link" onClick={()=>this.props.deleteUserBook(this.props.book)}>DELETE THIS BOOK</Button>
+        <Button bsStyle="link" onClick={()=>this.props.deleteUserBook(book)}>DELETE THIS BOOK</Button>
       </li>
 
     )

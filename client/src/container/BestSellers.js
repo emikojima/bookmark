@@ -27,17 +27,12 @@ class BestSellers extends Component {
     }
 
   render() {
-    const genreName = this.props.rgenre ? this.isRgenre(this.props.rgenre) : this.isRgenre(this.props.genre)
+    const {genre, rgenre, nytbooks} = this.props
+    const genreName = rgenre ? this.isRgenre(rgenre) : this.isRgenre(genre)
     const bimage = () => {
-      if (genreName === "Fiction") {
-        return "fmargin"
-      } else if (genreName === "Science") {
-        return "smargin"
-      } else {
-        return "nmargin"
-      }
+      return `${genreName.charAt(0).toLowerCase()}margin`
     }
-    const renderBooks = this.props.nytbooks.map((book, id) =>
+    const renderBooks = nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} cFd={this.checkForDuplicateBook} id={id} />
     );
 
@@ -62,6 +57,5 @@ const mapStateToProps = state => {
     genre: state.user.genre
   };
 };
-
 
 export default connect(mapStateToProps,{postBook, getNytBooks, setGenre, addAlertMessage})(BestSellers);
