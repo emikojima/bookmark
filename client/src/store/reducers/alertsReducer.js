@@ -5,7 +5,7 @@ function alertsReducer(state=[], action) {
     case 'ADD_ALERT_MESSAGE':
       return [...state,
           {id: cuid(),
-          text: action.message,
+          text: action.message.text,
           type: action.message.type}
         ];
 

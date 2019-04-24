@@ -45,7 +45,9 @@ export const signUpUser = (user) => {
         sessionStorage.setItem('username', res.user.username)
       dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user.id}))
     }).catch(error => {
-            dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Username Already Taken"})
+            dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Username Already Taken" , type: "error"} })
+
+
       })
   }
 }
@@ -69,7 +71,7 @@ export const logInThisUser = (user) => {
           sessionStorage.setItem('username', res.user.username)
         dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
       }).catch(error =>  {
-              dispatch({ type: 'ADD_ALERT_MESSAGE', message: "Log In failed, please check your username and password and try again"})
+              dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Log In failed, please check your username and password and try again", type:"error"}})
         })
   }
 }

@@ -1,6 +1,17 @@
-.alert {
+.alert-danger {
   background-color: pink;
+  color: white;
   position: fixed;
   width: 100%;
-  opacity: 90%;
+  box-shadow: 0 3px 3px 0 white;
+  opacity: 0.9;
+}
+
+.alert-success {
+  background-color: cyan;
+  position: fixed;
+  width: 100%;
+  border-color: green;
+  opacity: 0.9;
+  box-shadow: 0 3px 3px 0 white;
 }

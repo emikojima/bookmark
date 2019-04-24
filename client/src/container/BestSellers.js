@@ -20,7 +20,7 @@ class BestSellers extends Component {
   checkForDuplicateBook = (book) => {
     const isbns = [];
     this.props.books.map(b => isbns.push(b.isbns));
-    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : this.props.addAlertMessage("This book is already on your list")
+    !isbns.includes(book.isbns) ? this.props.postBook(book, this.props.user) : this.props.addAlertMessage({text: "This book is already on your list", type: "error"})
   };
 
   isRgenre = (x) => {

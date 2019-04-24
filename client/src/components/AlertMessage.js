@@ -25,9 +25,9 @@ class AlertMessage extends React.Component {
   render() {
     const { alert } = this.props;
 
-    // const alertClassName = `alert ${ this.alertClass(alert.type) } fade show`;
+    const alertClassName = `alert ${ this.alertClass(alert.type) } fade show`;
     return(
-      <div className="alert">
+      <div className={alertClassName}>
       { alert.text }
       <button className='close'
          onClick={ () => {this.props.removeAlert(alert.id)} }>x
