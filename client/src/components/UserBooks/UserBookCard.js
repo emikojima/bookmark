@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './NYTbookList.css';
-import BookNotes from './BookNotes';
-import BookNote from './BookNote';
+import '../NYTbookList.css';
+import BookNotes from '../BookNotes/BookNotes';
+import BookNote from '../BookNotes/BookNote';
 import { Button } from 'react-bootstrap';
 
 class UserBookCard extends Component {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import NYTbookCard from '../components/NYTbookCard'
-import { getNytBooks } from '../actions/bookActions';
-import { postBook }from '../actions/bookActions';
-import { setGenre } from '../actions/bookActions'
+import { postBook, setGenre, getNytBooks }from '../actions/bookActions';
 import { addAlertMessage } from '../actions/alertActions'
 import './BestSellers.css'
 
@@ -40,7 +38,7 @@ class BestSellers extends Component {
       }
     }
     const renderBooks = this.props.nytbooks.map((book, id) =>
-      <NYTbookCard key={id} book={book} checkForDuplicateBook={this.checkForDuplicateBook} id={id} />
+      <NYTbookCard key={id} book={book} cFd={this.checkForDuplicateBook} id={id} />
     );
 
     return(

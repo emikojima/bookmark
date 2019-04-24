@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import NavBarcomp from './components/NavBarcomp';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import BestSellers from './container/BestSellers';
-import UserBooks from './components/UserBooks';
+import UserBooks from './components/UserBooks/UserBooks';
 import { logOutUser } from './actions/userActions';
 import { getUserBooks } from './actions/bookActions';
 import { logInForRefresh } from './actions/userActions';
-import AlertList from './components/AlertList';
+import AlertList from './components/Alerts/AlertList';
 
 class App extends Component {
 

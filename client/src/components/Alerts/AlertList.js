@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteAlertMessage } from '../actions/alertActions';
+import { deleteAlertMessage } from '../../actions/alertActions';
 import AlertMessage from './AlertMessage';
 
 class AlertList extends Component {

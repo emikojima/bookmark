@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BestSellers from '../container/BestSellers'
 import { connect } from 'react-redux'
 import { setGenre, getNytBooks } from '../actions/bookActions'
 import './BookGenreDropDown.css'
@@ -26,7 +25,6 @@ class BookGenreDropDown extends Component {
           </select>
         </form>
         <hr/>
-        <BestSellers />
     </div>
     )
 }

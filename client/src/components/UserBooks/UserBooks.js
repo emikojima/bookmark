@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserBooks } from '../actions/bookActions';
-import { deleteUserBook } from '../actions/bookActions';
 import UserBookCard from './UserBookCard';
-import { addBookNote } from '../actions/bookActions';
+import { addBookNote, getUserBooks, deleteUserBook } from '../../actions/bookActions';
 import './UserBooks.css';
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 
 class UserBooks extends Component {
   state = {
