@@ -31,14 +31,14 @@ class UserBooks extends Component {
   }}
 
   render() {
-    const booksList = this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
+    const booksList = this.props.books.length > 0 ? this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
           key={book.id}
           book={book}
           deleteUserBook={this.props.deleteUserBook}
           userId={this.props.user}
           addBookNote={this.props.addBookNote} />)
         }
-    )
+    ) : <h5>You have no books saved to your list! Click on any book card to save the book.</h5>
     return(
       <div className="userBooks">
         <h1>{this.props.username}'s Books </h1>
