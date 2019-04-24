@@ -4,8 +4,10 @@
   width: 100%;
   box-shadow: 0 3px 3px 0 white;
   opacity: 0.9;
-padding-top: 10px;
+  padding-top: 10px;
   padding-right: 5px;
+  margin-top: 100px;
+  font-weight: bolder;
 }
 
 .success {
@@ -17,7 +19,8 @@ padding-top: 10px;
   box-shadow: 0 3px 3px 0 white;
   padding-top: 10px;
   padding-right: 5px;
-
+  margin-top: 100px;
+  font-weight: bolder;
 }
 
 .error button {

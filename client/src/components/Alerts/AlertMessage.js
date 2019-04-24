@@ -4,10 +4,10 @@ import './AlertMessage.css'
 class AlertMessage extends React.Component {
 
   componentDidMount() {
-    return this.props.alert ? this.timer = setTimeout(() =>
+    this.timer = setTimeout(() =>
       this.props.removeAlert(this.props.alert.id),
       3000
-    ) : null;
+    ) 
   }
 
   componentWillUnmount() {
