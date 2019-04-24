@@ -16,17 +16,13 @@ class AlertMessage extends React.Component {
 
   render() {
     const { alert } = this.props;
-
     const alertClassName = ` ${ alert.type } `;
     return(
       <div className={alertClassName}>
       { alert.text }
-
       <button
          onClick={ () => {this.props.removeAlert(alert.id)} }> x
       </button>
-
-
       </div>
     );
   }

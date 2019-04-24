@@ -22,7 +22,6 @@ class App extends Component {
     }
   }
   render() {
-
     const loggedIn = () => sessionStorage['jwt'] !== "undefined" && sessionStorage.length > 1
     const logout = () => {
       if(!!sessionStorage['jwt'])
@@ -46,7 +45,7 @@ class App extends Component {
         <Route exact path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path="/login" component={ () => logout()} />
         <Route path='/logout' component={ () => logout()} />
-        <Route render={() => <h1 class="400-error">404 Error - Page not found</h1>} />
+        <Route render={() => <h1 className="error-404">404 Error - Page not found</h1>} />
         </Switch>
       </div>
     );

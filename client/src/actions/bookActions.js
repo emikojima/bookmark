@@ -1,18 +1,15 @@
 const setBooks = books => {
-  console.log("setbooks", books)
   return {
   type: 'GET_USER_BOOKS_SUCCESS',
   books
   }
 }
 export const setGenre = genre => {
-console.log("setGenre", genre)
   return {type: 'SET_GENRE',
   genre}
 }
 
 const deleteBook = book => {
-  console.log("deleteBook", book)
   return {
     type: 'DELETE_USER_BOOK_SUCCESS',
     book
@@ -20,7 +17,6 @@ const deleteBook = book => {
 }
 
 const updateBook = book => {
-  console.log("updateBook action", book)
   return {
     type: 'UPDATE_BOOK',
     book
@@ -35,8 +31,6 @@ const setNytBooks = books => {
 
 // asynch actions
 export const getNytBooks = (genre) => {
-  console.log("getNytBooks")
-
   return (dispatch) => {
     return fetch(`/api/v1/${genre}`)
     .then(resp => resp.json())
@@ -45,7 +39,6 @@ export const getNytBooks = (genre) => {
 }
 
 export const getUserBooks = (user) => {
-  console.log("getUserBooks action", user)
   return (dispatch) => {
     return fetch(`/api/v1/users/${user}/books`)
     .then(resp => resp.json())
@@ -55,7 +48,6 @@ export const getUserBooks = (user) => {
 }
 
 export const postBook = (book, userId) => {
-    console.log('in action postBook with', book, userId);
     return (dispatch) => {
       const user = userId
       const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: user})
@@ -73,7 +65,6 @@ export const postBook = (book, userId) => {
 }
 
 export const deleteUserBook = (book) => {
-  console.log("deleteUserBook action", book)
   return (dispatch) => {
     return fetch(`/api/v1/users/${book.user_id}/books/${book.id}`, {
       method: 'DELETE',
@@ -86,7 +77,6 @@ export const deleteUserBook = (book) => {
 }
 
 export const addBookNote = (book) => {
-  console.log("addBookNote action", book)
   const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: book.user_id, notes: book.notes})
   return (dispatch) => {
   return fetch(`/api/v1/users/${book.user_id}/books/${book.id}`, {

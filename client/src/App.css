@@ -21,7 +21,14 @@
 }
 
 .App > h1 {
-  color: black;
+  color: white;
   margin-top: 30%;
-  background-image: linear-gradient(to bottom, Snow, White, Gold, Snow );
+  background-image: linear-gradient(to bottom, Snow, pink, Gold, Snow );
+  padding: 50px 0 200px 0;
+  height: 100%;
+}
+
+.error404 {
+  padding: 50px;
+  vertical-align: center;
 }

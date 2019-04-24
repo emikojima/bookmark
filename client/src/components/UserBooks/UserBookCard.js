@@ -18,7 +18,6 @@ class UserBookCard extends Component {
     const isThereAbookNote = this.props.book.notes ? <BookNote note={this.props.book.notes} /> : null
     const buttonText = !this.props.book.notes ? "Add Book Note" : "Edit Book Note"
     return (
-
       <li className="pborder">
         <h4>{this.props.book.title}</h4>
         <h5>By: {this.props.book.author}</h5>
