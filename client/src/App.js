@@ -14,7 +14,7 @@ import AlertList from './components/Alerts/AlertList';
 class App extends Component {
 
   componentDidMount() {
-    if (sessionStorage['user'] && this.props.books.length > 0) {
+    if (sessionStorage['user']) {
       this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
       this.props.getUserBooks(sessionStorage['user'])
     } else {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserBookCard from './UserBookCard';
 import { addBookNote, getUserBooks, deleteUserBook } from '../../actions/bookActions';
+import { logInForRefresh } from '../../actions/userActions'
 import './UserBooks.css';
 import SearchBar from '../UI/SearchBar'
 
@@ -11,9 +12,7 @@ class UserBooks extends Component {
   }
 
   componentDidMount() {
-    if(this.props.user !== "" && !this.props.books.length ){
-        this.props.getUserBooks(this.props.user)
-    }
+    this.props.getUserBooks(this.props.user)
   }
 
   //callback to get search term from SearchBar.js
@@ -57,4 +56,4 @@ class UserBooks extends Component {
     })
   }
 
-export default connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote})(UserBooks)
+export default connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote, logInForRefresh})(UserBooks)
