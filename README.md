@@ -1,7 +1,9 @@
 # README
 
 ## Usage
-To use this app, just fork and clone. Then in terminal, run cd bookmark, bundle install, rake db:migrate, cd client, npm i, and then 
+To use this app, just fork and clone. 
+Then in terminal, run `cd bookmark`, `bundle install`, `rake db:migrate`, `cd client`, `npm i`, and then run `cd ..` 
+Then run `rails s -p3001`. Open a new tab in your terminal and run `yarn --cwd client start`.
 
 ## Summary
 “BookMark” utilizes a React/Redux client side, and a Rails API backend and New York Times API to show information about the week's NYT Bestsellers list by genre. 
@@ -17,6 +19,22 @@ Users can see books by genre.
 Users can save a book they are interested in keeping in their list, add a note to a book, and search their books. 
 
 <img src="https://media.giphy.com/media/NsBjrSdM1OexBac4la/giphy.gif" />
+
+## Built 
+Back end:
+Rails 5.2.1
+Ruby 2.5.3
+Faraday
+JWT
+Bcrypt
+Postgres
+Front end:
+React
+Redux
+Thunk
+Axios
+React Router
+React Bootstrap
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/emikojima/bookmark. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
