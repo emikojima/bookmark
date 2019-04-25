@@ -62,6 +62,7 @@ export const logInThisUser = (user) => {
     body: JSON.stringify({ user })
   }
     return dispatch => {
+      dispatch({ type: "LOADING_USER_INFO" })
       fetch(`/api/v1/login`, data)
         .then(response => response.json())
         .then(res => {

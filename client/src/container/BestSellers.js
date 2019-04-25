@@ -8,11 +8,7 @@ import './BestSellers.css'
 class BestSellers extends Component {
 
   componentDidMount() {
-      if(this.props.rgenre) {
-        this.props.getNytBooks(this.props.rgenre)
-      } else {
         this.props.getNytBooks(this.props.genre)
-      }
     }
 
   checkForDuplicateBook = (book) => {

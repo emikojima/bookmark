@@ -7,6 +7,7 @@ const initialState = {
   signUp: false,
   books: [],
   nytbooks: [],
+  loading: false,
   genre: "books"
 }
 
@@ -17,6 +18,12 @@ export default function reducer(state = initialState, action) {
     ...state, signUp: true
     };
 
+  case 'LOADING_USER_INFO':
+    return {...state, loading: "true"};
+
+    case 'LOADING_BOOKS':
+      return {...state, loading: "true"};
+
   case 'SIGNUP_USER':
     console.log("signup", action.user);
     return{
@@ -25,12 +32,11 @@ export default function reducer(state = initialState, action) {
 
   case 'LOGIN_USER':
     return {
-      ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true
+      ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true, loading: false
     };
 
     case 'LOGINFORREFRESH':
       return {
-
         ...state, userId: action.userId, username: action.username
       }
 
@@ -43,13 +49,13 @@ export default function reducer(state = initialState, action) {
   case 'GET_USER_BOOKS_SUCCESS':
     console.log('GET USER BOOKS is returning', action);
     return {
-      ...state, books: action.books[1]
+      ...state, books: action.books[1], loading: false
     };
 
   case 'GET_NYT_BOOKS_SUCCESS':
     console.log('GET NYT BOOKS is returning', action);
     return{
-      ...state, nytbooks: action.books
+      ...state, nytbooks: action.books, loading: false
     };
 
   case 'SET_GENRE':

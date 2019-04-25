@@ -5,9 +5,11 @@ import BookGenreDropDown from '../BookGenreDropDown';
 import BestSellers from '../../container/BestSellers';
 import UserBooks from '../UserBooks/UserBooks';
 class NYTbookList extends Component {
+
     state = {
       show: true
     }
+    
     toParent = (x) => {
       this.setState({show: x})
     }
@@ -17,7 +19,7 @@ class NYTbookList extends Component {
       <div className="bodymargin">
         <ShowMyBooksButton toParent={this.toParent}/>
         <UserBooks display={display} />
-          <hr/>
+        <hr/>
         <BookGenreDropDown />
         <BestSellers />
       </div>

@@ -32,6 +32,7 @@ const setNytBooks = books => {
 // asynch actions
 export const getNytBooks = (genre) => {
   return (dispatch) => {
+    dispatch({ type: "LOADING_BOOKS" })
     return fetch(`/api/v1/${genre}`)
     .then(resp => resp.json())
     .then(books => dispatch(setNytBooks(books)))
@@ -40,6 +41,7 @@ export const getNytBooks = (genre) => {
 
 export const getUserBooks = (user) => {
   return (dispatch) => {
+    dispatch({ type: "LOADING_BOOKS" })
     return fetch(`/api/v1/users/${user}/books`)
     .then(resp => resp.json())
     .then(books => {if (books.error){alert(books.error)} else dispatch(setBooks(books))})
@@ -51,7 +53,6 @@ export const postBook = (book, userId) => {
     return (dispatch) => {
       const user = userId
       const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: user})
-      console.log("fetch disp",body, user)
       return fetch(`/api/v1/users/${user}/books`, {
         method: 'POST',
         headers: { "Content-type": 'application/json', 'Authorization': sessionStorage.jwt },
