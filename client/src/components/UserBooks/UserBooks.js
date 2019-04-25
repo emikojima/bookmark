@@ -40,7 +40,7 @@ class UserBooks extends Component {
         }
     ) : <h5 className="white">You have no books saved to your list! Click on any book card to save the book.</h5>
     return(
-      <div className="userBooks">
+      <div className="userBooks" style={this.props.display}>
         <h1>{this.props.username}'s Books</h1>
         <SearchBar getsearch={this.getsearch} />
         <br></br>
