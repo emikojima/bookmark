@@ -44,25 +44,27 @@ export const getUserBooks = (user) => {
     dispatch({ type: "LOADING_BOOKS" })
     return fetch(`/api/v1/users/${user}/books`)
     .then(resp => resp.json())
-    .then(books => {if (books.error){alert(books.error)} else dispatch(setBooks(books))})
+    .then(books =>  dispatch(setBooks(books)))
     .catch(error => console.log(error))
   }
 }
 
-export const postBook = (book, userId) => {
-    return (dispatch) => {
-      const user = userId
-      const body = JSON.stringify({title: book.title, description: book.description, author: book.author, isbns: book.isbns, user_id: user})
-      return fetch(`/api/v1/users/${user}/books`, {
-        method: 'POST',
-        headers: { "Content-type": 'application/json', 'Authorization': sessionStorage.jwt },
-        body: body
-        })
-        .then(resp => resp.json())
-        .then(book => {
-          dispatch({ type: 'ADD_BOOK', book })
-          dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Your Book has been Added!", type: "success"}})})
+export const postBook = (book, user) => {
+  // console.log('C');
+  return (dispatch) => {
+    const body = JSON.stringify({title: book.title, description: book.description, author: book.author, user_id: user})
+    return fetch(`/api/v1/users/${user}/books`, {
+      method: 'POST',
+      headers: { "Content-type": 'application/json', 'Authorization': sessionStorage.jwt },
+      body: body
+      })
+      .then(resp => resp.json())
+      .then(book => {
+        // console.log('D');
+        dispatch({ type: 'ADD_BOOK', book })
+        dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Your Book has been Added!", type: "success"}})})
   }
+  // console.log('E');
 }
 
 export const deleteUserBook = (book) => {

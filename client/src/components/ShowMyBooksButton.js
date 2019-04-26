@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './ShowMyBooksButton.css'
 
+
 class ShowMyBooksButton extends Component {
   state = {
-    showMybooks: true,
-    buttonText: true
+    showMybooks: false,
+    buttonText: false
   }
 
   onShowClick = () => {

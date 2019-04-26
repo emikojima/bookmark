@@ -6,14 +6,14 @@ import { logInForRefresh } from '../../actions/userActions'
 import './UserBooks.css';
 import SearchBar from '../UI/SearchBar'
 
+
 class UserBooks extends Component {
   state = {
-    term: ""
+    term: "",
+    sort: false
   }
 
-  componentDidMount() {
-    this.props.getUserBooks(this.props.user)
-  }
+
 
   //callback to get search term from SearchBar.js
   getsearch = (term ) => {
@@ -29,8 +29,19 @@ class UserBooks extends Component {
     return !book.notes ? this.lower(book, search) : book.notes.toLowerCase().includes(search.toLowerCase()) ||  this.lower(book, search)
   }}
 
+  onAlph = () => {
+    this.setState({sort: !this.state.sort})
+  }
+
   render() {
-    const booksList = this.props.books.length > 0 ? this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
+    /*const here = this.props.books.slice().sort(???).map(book => {return (<UserBookCard
+          key={book.id}
+          book={book}
+          deleteUserBook={this.props.deleteUserBook}
+          userId={this.props.user}
+          addBookNote={this.props.addBookNote} />)
+        })*/
+    const booksList = this.props.books.length > 0 ?  this.props.books.filter(this.filterIt(this.state.term)).map(book => {return (<UserBookCard
           key={book.id}
           book={book}
           deleteUserBook={this.props.deleteUserBook}
@@ -38,12 +49,18 @@ class UserBooks extends Component {
           addBookNote={this.props.addBookNote} />)
         }
     ) : <h5 className="white">You have no books saved to your list! Click on any book card to save the book.</h5>
+  /* const result = !!this.state.sort ? here : booksList
+
+      {this.props.books.length > 0 ? result : <h5 className="white">You have no books saved to your list! Click on any book card to save the book.</h5>
+
+       <button onClick={this.onAlph}></button>*/
     return(
       <div className="userBooks" style={this.props.display}>
+
         <h1>{this.props.username}'s Books</h1>
         <SearchBar getsearch={this.getsearch} />
         <br></br>
-        { booksList }
+         { booksList }
       </div>
     )
   }
@@ -55,5 +72,4 @@ class UserBooks extends Component {
       username: state.user.username
     })
   }
-
 export default connect(mapStateToProps,{getUserBooks,deleteUserBook,addBookNote, logInForRefresh})(UserBooks)

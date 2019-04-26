@@ -17,12 +17,10 @@ class App extends Component {
     if (sessionStorage['user']) {
       this.props.logInForRefresh(sessionStorage['user'], sessionStorage['username'])
       this.props.getUserBooks(sessionStorage['user'])
-    } else {
-      console.log("route props",this.props)
     }
   }
   render() {
-    const loggedIn = () => sessionStorage['jwt'] !== "undefined" && sessionStorage.length > 1
+    const loggedIn = () => !!sessionStorage['user']
     const logout = () => {
       if(!!sessionStorage['jwt'])
       sessionStorage.removeItem('jwt')
@@ -31,7 +29,7 @@ class App extends Component {
       this.props.logOutUser(this.props.user)
       return <Redirect to="/"/>
     }
-    const logged = loggedIn() ? <NYTbookList /> : <UserContainer signUp={this.props.signUp}/>
+    const logged = loggedIn() ? <NYTbookList user={this.props.user} getUserBooks={this.props.getUserBooks}/> : <UserContainer signUp={this.props.signUp}/>
   const nav = loggedIn() ? <NavBarcomp username={this.props.username} books={this.props.books} /> : null
     return (
       <div className="App">
@@ -57,5 +55,6 @@ const mapStateToProps = state =>{
    signUp: state.user.signUp,
    loggedIn: state.user.loggedIn,
    username: state.user.username,
+   user: state.user.userId
  }}
 export default connect(mapStateToProps,{logOutUser, getUserBooks, logInForRefresh})(App);

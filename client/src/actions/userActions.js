@@ -43,11 +43,10 @@ export const signUpUser = (user) => {
         sessionStorage.setItem('jwt', res.jwt)
         sessionStorage.setItem('user', res.user.id)
         sessionStorage.setItem('username', res.user.username)
-      dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user.id}))
-      dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Welcome to BookMark!", type: "success"} })
-    }).catch(error => {
-            dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Username Already Taken" , type: "error"} })
-      })
+        dispatch(logInUser({username: res.user.username, password: res.user.password_digest, id: res.user.id}))
+        dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Welcome to BookMark!", type: "success"} })}).catch(error => {
+              dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Username Already Taken" , type: "error"} })
+        })
   }
 }
 
@@ -69,8 +68,8 @@ export const logInThisUser = (user) => {
           sessionStorage.setItem('jwt', res.jwt)
           sessionStorage.setItem('user', res.user.id)
           sessionStorage.setItem('username', res.user.username)
-        dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
-      }).catch(error =>  {
+          dispatch(logInUser( {username: res.user.username, password: res.user.password_digest, id: res.user.id}))
+        }).catch(error =>  {
               dispatch({ type: 'ADD_ALERT_MESSAGE', message: {text: "Log In failed, please check your username and password and try again", type:"error"}})
         })
   }

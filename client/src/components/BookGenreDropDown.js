@@ -5,13 +5,10 @@ import './BookGenreDropDown.css'
 
 class BookGenreDropDown extends Component {
 
-  componentDidMount() {
-       this.props.getNytBooks(this.props.genre)
-    }
-
   handleGenreChange = (event) => {
-    this.props.setGenre(event.target.value)
-    this.props.getNytBooks(event.target.value)
+    const { value } = event.target
+    this.props.setGenre(value)
+    this.props.getNytBooks(value)
   }
   render() {
     return(
@@ -31,6 +28,7 @@ class BookGenreDropDown extends Component {
 }
 const mapStateToProps = state => {
   return {
+    nyt: state.user.nytbooks,
     genre: state.user.genre
   };
 };

@@ -41,19 +41,16 @@ export default function reducer(state = initialState, action) {
       }
 
     case 'LOGOUT_USER':
-    console.log("logout user", action, initialState)
     return {
       ...initialState
     }
 
   case 'GET_USER_BOOKS_SUCCESS':
-    console.log('GET USER BOOKS is returning', action);
     return {
       ...state, books: action.books[1], loading: false
     };
 
   case 'GET_NYT_BOOKS_SUCCESS':
-    console.log('GET NYT BOOKS is returning', action);
     return{
       ...state, nytbooks: action.books, loading: false
     };
@@ -64,13 +61,11 @@ export default function reducer(state = initialState, action) {
     }
 
     case 'ADD_BOOK':
-      console.log('ADD_BOOK is returning', action);
       return {
         ...state, books: [ action.book, ...state.books]
       };
 
     case 'UPDATE_BOOK':
-      console.log("UPDATE_BOOK REDUCER is returning", action)
       const allbooks = [...state.books]
       const index = allbooks.findIndex(book => book.id === action.book.id)
       allbooks[index].notes = action.book.notes
@@ -84,7 +79,6 @@ export default function reducer(state = initialState, action) {
        // the key in mapStateToProps === that key on the returned state
 
     case 'DELETE_USER_BOOK_SUCCESS':
-      console.log('DELETE USER BOOKS SUC is returning', action);
       const books = state.books.filter(book => book.id !== action.book.id)
       return {
         ...state, books: books

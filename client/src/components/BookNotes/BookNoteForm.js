@@ -6,7 +6,7 @@ const BookNoteForm = (props) => {
     <form onSubmit={props.onSubmitNote} style={props.display}>
       <textarea type="text" placeholder={props.placeholderText} value={props.note} onChange={props.handleNoteChange}></textarea>
       <br/>
-      <Button bsStyle="secondary" type="submit">{props.submitText}</Button>
+      <Button bsStyle="info" type="submit">{props.submitText}</Button>
     </form>
   )
 }

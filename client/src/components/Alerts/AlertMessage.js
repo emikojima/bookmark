@@ -6,8 +6,8 @@ class AlertMessage extends React.Component {
   componentDidMount() {
     this.timer = setTimeout(() =>
       this.props.removeAlert(this.props.alert.id),
-      3000
-    ) 
+      2000
+    )
   }
 
   componentWillUnmount() {

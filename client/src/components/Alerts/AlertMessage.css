@@ -28,7 +28,6 @@
   float: right;
   background-color: pink;
   border: none;
-  font-weight: bolder;
 }
 
 .success button {
@@ -36,5 +35,4 @@
   opacity: .9;
   float: right;
   border: none;
-  font-weight: bolder;
 }
