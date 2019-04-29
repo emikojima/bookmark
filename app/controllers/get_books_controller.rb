@@ -16,9 +16,9 @@ end
 def fetch(genre)
   begin
     @resp = Faraday.get 'https://api.nytimes.com/svc/books/v3/lists.json' do |req|
-      req.params['api-key'] = 'cdNc4siI7f2SvnV1uAFTa77wcTbF77tv'
+      req.params['api-key'] = ENV['NYT_KEY']
       req.params['list'] = genre
-    end
+  end
     body = JSON.parse(@resp.body)
     if @resp.success?
 
