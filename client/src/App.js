@@ -37,9 +37,9 @@ class App extends Component {
         <AlertList />
         <Switch>
         <Route exact path="/" render={() => logged} />
-        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="books"/> }/>
-        <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="nonfiction" /> }/>
-        <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers rgenre="science" /> }/>
+        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="books"/> }/>
+        <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="nonfiction" /> }/>
+        <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="science" /> }/>
         <Route exact path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>
         <Route path="/login" component={ () => logout()} />
         <Route path='/logout' component={ () => logout()} />

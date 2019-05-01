@@ -8,8 +8,8 @@ import './BestSellers.css'
 class BestSellers extends Component {
 
   componentDidMount() {
-      if(!!this.props.rgenre) {
-        this.props.getNytBooks(this.props.rgenre)
+      if(!!this.props.togglegenre) {
+        this.props.getNytBooks(this.props.togglegenre)
       } else {
         this.props.getNytBooks(this.props.genre)
       }
@@ -26,8 +26,8 @@ class BestSellers extends Component {
     }
 
   render() {
-    const {genre, rgenre, nytbooks} = this.props
-    const genreName = rgenre ? this.isRgenre(rgenre) : this.isRgenre(genre)
+    const {genre, togglegenre, nytbooks} = this.props
+    const genreName = togglegenre ? this.isRgenre(togglegenre) : this.isRgenre(genre)
     const bimage = () => {
       return `${genreName.charAt(0).toLowerCase()}margin`
     }
