@@ -37,7 +37,7 @@ class App extends Component {
         <AlertList />
         <Switch>
         <Route exact path="/" render={() => logged} />
-        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="books"/> }/>
+        <Route path="/bestsellers-fiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="fiction"/> }/>
         <Route path="/bestsellers-nonfiction" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="nonfiction" /> }/>
         <Route path="/bestsellers-science" component= {() => !loggedIn() ? <Redirect to="/"/> : <BestSellers togglegenre="science" /> }/>
         <Route exact path="/users/:id/books" render= {(routerProps) => !loggedIn() ? <Redirect to="/"/> : <UserBooks {...routerProps} /> }/>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/api/v1/books', to: 'get_books#books'
+  get '/api/v1/fiction', to: 'get_books#fiction'
   get '/api/v1/nonfiction', to: 'get_books#nonfiction'
   get '/api/v1/science', to: 'get_books#science'
   namespace :api do

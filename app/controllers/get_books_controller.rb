@@ -1,6 +1,6 @@
 class GetBooksController < ApplicationController
 
-def books
+def fiction
   fetch('trade-fiction-paperback')
 end
 

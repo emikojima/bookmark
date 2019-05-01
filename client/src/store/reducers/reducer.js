@@ -1,4 +1,3 @@
-
 const initialState = {
   username: "",
   userId: "",
@@ -6,11 +5,11 @@ const initialState = {
   loggedIn: false,
   signUp: false,
   books: [],
-  nytbooks: [],
+  fiction: [],
   nonfiction: [],
   science: [],
   loading: false,
-  genre: "books"
+  genre: "fiction"
 }
 
 export default function reducer(state = initialState, action) {
@@ -23,8 +22,8 @@ export default function reducer(state = initialState, action) {
   case 'LOADING_USER_INFO':
     return {...state, loading: "true"};
 
-    case 'LOADING_BOOKS':
-      return {...state, loading: "true"};
+  case 'LOADING_BOOKS':
+    return {...state, loading: "true"};
 
   case 'SIGNUP_USER':
     console.log("signup", action.user);
@@ -37,12 +36,12 @@ export default function reducer(state = initialState, action) {
       ...state, username: action.user.username, userId: action.user.id, password: action.user.password, loggedIn: true, loading: false
     };
 
-    case 'LOGINFORREFRESH':
-      return {
-        ...state, userId: action.userId, username: action.username
-      }
+  case 'LOGINFORREFRESH':
+    return {
+      ...state, userId: action.userId, username: action.username
+    }
 
-    case 'LOGOUT_USER':
+  case 'LOGOUT_USER':
     return {
       ...initialState
     }
@@ -54,48 +53,48 @@ export default function reducer(state = initialState, action) {
 
   case 'GET_NYT_BOOKS_SUCCESS':
     return{
-      ...state, nytbooks: action.books, loading: false
+      ...state, fiction: action.books, loading: false
     };
 
-    case 'GET_NYT_BOOKS_SUCCESS_nonfiction':
-      return{
-        ...state, nonfiction: action.books, loading: false
-      };
+  case 'GET_NYT_BOOKS_SUCCESS_nonfiction':
+    return{
+      ...state, nonfiction: action.books, loading: false
+    };
 
-      case 'GET_NYT_BOOKS_SUCCESS_science':
-        return{
-          ...state, science: action.books, loading: false
-        };
+  case 'GET_NYT_BOOKS_SUCCESS_science':
+    return{
+      ...state, science: action.books, loading: false
+    };
 
   case 'SET_GENRE':
     return{
       ...state, genre: action.genre
     }
 
-    case 'ADD_BOOK':
-      return {
-        ...state, books: [ action.book, ...state.books]
-      };
+  case 'ADD_BOOK':
+    return {
+      ...state, books: [ action.book, ...state.books]
+    };
 
-    case 'UPDATE_BOOK':
-      const allbooks = [...state.books]
-      const index = allbooks.findIndex(book => book.id === action.book.id)
-      allbooks[index].notes = action.book.notes
-       return {
-         ...state, books: allbooks
-       };
-       // whatever is returned is the new state for the store.
-       // there is also the old state.
-       // which component is not rerendering?
-       // must be the props didn't change. must mean that shallowCompare doesn't think a change happened.
-       // the key in mapStateToProps === that key on the returned state
+  case 'UPDATE_BOOK':
+    const allbooks = [...state.books]
+    const index = allbooks.findIndex(book => book.id === action.book.id)
+    allbooks[index].notes = action.book.notes
+     return {
+       ...state, books: allbooks
+     };
+     // whatever is returned is the new state for the store.
+     // there is also the old state.
+     // which component is not rerendering?
+     // must be the props didn't change. must mean that shallowCompare doesn't think a change happened.
+     // the key in mapStateToProps === that key on the returned state
 
-    case 'DELETE_USER_BOOK_SUCCESS':
-      const books = state.books.filter(book => book.id !== action.book.id)
-      return {
-        ...state, books: books
-      };
-      default:
-        return state;
-    }
+  case 'DELETE_USER_BOOK_SUCCESS':
+    const books = state.books.filter(book => book.id !== action.book.id)
+    return {
+      ...state, books: books
+    };
+    default:
+      return state;
+  }
 }

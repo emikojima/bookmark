@@ -21,18 +21,17 @@ class BestSellers extends Component {
   };
 
   isRgenre = (x) => {
-      const genre = x === "books" ? "fiction" : x
-      return  genre.charAt(0).toUpperCase() + genre.substr(1).toLowerCase()
+      return x.charAt(0).toUpperCase() + x.substr(1).toLowerCase()
     }
 
   render() {
-    const {genre, togglegenre, nytbooks} = this.props
+    const {genre, togglegenre, fiction} = this.props
     const genreName = togglegenre ? this.isRgenre(togglegenre) : this.isRgenre(genre)
     const bimage = () => {
       return `${genreName.charAt(0).toLowerCase()}margin`
     }
     const renderBooks =
-      nytbooks.map((book, id) =>
+      fiction.map((book, id) =>
       <NYTbookCard key={id} book={book} cFd={this.checkForDuplicateBook} id={id} />
     )
 
@@ -53,7 +52,7 @@ const mapStateToProps = state => {
   return {
     books: state.user.books,
     user: state.user.userId,
-    nytbooks: state.user.nytbooks,
+    fiction: state.user.fiction,
     genre: state.user.genre
   };
 };

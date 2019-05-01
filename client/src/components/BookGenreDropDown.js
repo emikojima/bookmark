@@ -16,7 +16,7 @@ class BookGenreDropDown extends Component {
       <form className="smallfont" >
           <select name="genre" onChange={this.handleGenreChange}>
             <option value="books">Choose a genre</option>
-            <option value="books">Fiction</option>
+            <option value="fiction">Fiction</option>
             <option value="nonfiction">Nonfiction</option>
             <option value="science">Science</option>
           </select>
