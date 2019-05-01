@@ -16,8 +16,7 @@ class BestSellers extends Component {
     }
 
   checkForDuplicateBook = (book) => {
-
-    this.props.books.find(b => b.title === book.title) ? this.props.addAlertMessage({text: "This book is already on your list", type: "error"}) : this.props.postBook(book, this.props.user) 
+    this.props.books.find(b => b.title === book.title) ? this.props.addAlertMessage({text: "This book is already on your list", type: "error"}) : this.props.postBook(book, this.props.user)
 
   };
 
@@ -32,9 +31,10 @@ class BestSellers extends Component {
     const bimage = () => {
       return `${genreName.charAt(0).toLowerCase()}margin`
     }
-    const renderBooks = nytbooks.map((book, id) =>
+    const renderBooks =
+      nytbooks.map((book, id) =>
       <NYTbookCard key={id} book={book} cFd={this.checkForDuplicateBook} id={id} />
-    );
+    )
 
     return(
         <div className={bimage()}>

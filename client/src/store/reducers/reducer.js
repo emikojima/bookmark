@@ -7,6 +7,8 @@ const initialState = {
   signUp: false,
   books: [],
   nytbooks: [],
+  nonfiction: [],
+  science: [],
   loading: false,
   genre: "books"
 }
@@ -54,6 +56,16 @@ export default function reducer(state = initialState, action) {
     return{
       ...state, nytbooks: action.books, loading: false
     };
+
+    case 'GET_NYT_BOOKS_SUCCESS_nonfiction':
+      return{
+        ...state, nonfiction: action.books, loading: false
+      };
+
+      case 'GET_NYT_BOOKS_SUCCESS_science':
+        return{
+          ...state, science: action.books, loading: false
+        };
 
   case 'SET_GENRE':
     return{

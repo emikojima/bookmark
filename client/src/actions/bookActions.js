@@ -1,4 +1,4 @@
-const setBooks = books => {
+const setBooks = (books) => {
   return {
   type: 'GET_USER_BOOKS_SUCCESS',
   books
@@ -23,9 +23,9 @@ const updateBook = book => {
   }
 }
 
-const setNytBooks = books => {
+const setNytBooks = (books) => {
   return {
-    type: 'GET_NYT_BOOKS_SUCCESS', books
+    type: `GET_NYT_BOOKS_SUCCESS`, books
   }
 }
 

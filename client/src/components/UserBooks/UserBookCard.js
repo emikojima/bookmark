@@ -21,9 +21,8 @@ class UserBookCard extends Component {
     return (
       <li className="pborder">
         <h4>{book.title}</h4>
-        <h5>By: {book.author}</h5>
-        <h6>{book.description}</h6>
-        <br />
+        <h6>By: {book.author}</h6>
+        <p>{book.description}</p>
         {bookNote}
         <Button bsStyle="success" style={show} onClick={() => this.setState({showBookNoteComponent: !this.state.showBookNoteComponent})}>{buttonText}</Button>
         {showBookNoteForm}
