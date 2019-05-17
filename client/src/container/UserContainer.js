@@ -11,14 +11,15 @@ class UserContainer extends Component {
     const show = !this.props.signUp ? <Login loginUser={this.props.logInThisUser} showSignup={this.props.showSignup} signUp={this.props.signUp} />  : <SignUp signUpUser={this.props.signUpUser} />;
     return (
       <div className="image" >
-        <Grid>
-          <Row >
-            <Col xs={2} md={4} lg={4}>
+        <Grid >
+          <Row>
+            <Col sm={2} md={4}>
             </Col>
-            <Col xs={4} md={6} lg={4} >
+            <Col sm={8} md={4}>
               {show}
             </Col>
-            <Col xs={2} md={4} lg={4} />
+            <Col sm={2} md={4}>
+            </Col>
           </Row>
         </Grid>
       </div>
