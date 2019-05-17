@@ -13,12 +13,12 @@ class UserContainer extends Component {
       <div className="image" >
         <Grid >
           <Row>
-            <Col sm={2} md={4}>
+            <Col sm={2} md={3} lg={4}>
             </Col>
-            <Col sm={8} md={4}>
+            <Col sm={8} md={6} lg={4}>
               {show}
             </Col>
-            <Col sm={2} md={4}>
+            <Col sm={2} md={3} lg={4}>
             </Col>
           </Row>
         </Grid>
