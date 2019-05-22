@@ -1,6 +1,6 @@
 { "name": "nyt-bookmark",
   "engines": {
-    "node": "8.15.1"
+    "node": "8.14.0"
   },
   "scripts": {
     "build": "cd client && npm install && npm run build && cd ..",
