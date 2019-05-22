@@ -1,5 +1,4 @@
-{
-  "name": "nyt-bookmark",
+{ "name": "nyt-bookmark",
   "engines": {
     "node": "8.15.1"
   },
