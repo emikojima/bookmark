@@ -3,8 +3,7 @@
 ## Usage
 To use this app, just fork and clone. 
 Then in terminal, run `cd bookmark`, `bundle install`, `rake db:migrate`, `cd client`, `npm i`, and then run `cd ..` 
-Then run `rails s -p3001`. Open a new tab in your terminal and run `yarn --cwd client start`.
-
+Then run `rake start`. 
 ## Summary
 “BookMark” utilizes a React/Redux client side, and a Rails API backend and New York Times API to show information about the week's NYT Bestsellers list by genre. 
 
