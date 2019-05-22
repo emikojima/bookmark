@@ -1,5 +1,5 @@
 {
-  "name": "the-goings-on",
+  "name": "nyt-bookmark",
   "engines": {
     "node": "8.15.1"
   },
