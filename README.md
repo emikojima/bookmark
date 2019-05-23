@@ -2,7 +2,10 @@
 
 ## Demo
 https://nyt-bookmark.herokuapp.com
-
+Use:
+username: keiko
+password: keiko
+Or: create your own account! 
 ## Usage
 To use this app, just fork and clone. 
 Then in terminal, run `cd bookmark`, `bundle install`, `rake db:migrate`, `cd client`, `npm i`, and then run `cd ..` 
