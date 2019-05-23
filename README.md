@@ -1,7 +1,7 @@
 # README
 
 ## Demo
-https://nyt-bookmark.herokuapp.com/
+https://nyt-bookmark.herokuapp.com
 
 ## Usage
 To use this app, just fork and clone. 
