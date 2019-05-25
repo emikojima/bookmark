@@ -29,8 +29,9 @@
   text-shadow: 0.5px 0.5px black;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .userBooks > h1 {
     padding-top: 10px;
   }
+  
 }
