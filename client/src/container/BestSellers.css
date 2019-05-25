@@ -5,9 +5,9 @@
   background-position: center;
   height: auto;
   width: 100%;
-  padding-top: 20px;
   text-align: center;
   padding-bottom: 100px;
+  padding-top: 55px;
 }
 
 .nmargin {
@@ -17,9 +17,9 @@
   background-position: center;
   height: auto;
   width: 100%;
-  padding-top: 20px;
   text-align: center;
   padding-bottom: 100px;
+  padding-top: 55px;
 }
 
 .smargin {
@@ -30,70 +30,83 @@
   height: auto;
   width: 100%;
   text-align: center;
-  padding-top: 20px;
   padding-bottom: 100px;
+  padding-top: 55px;
 }
 
-.fmargin > h6 {
-  color: white;
+.card {
+  background-color: snow;
+  opacity: 0.8;
+  padding-bottom: 10px;
+  width: 60%;
+  left: 20%;
+}
+
+.card > h6 {
+  color: black;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  text-shadow: 2px 2px Black;
-}
-
-.smargin > h6 {
-  color: white;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  text-shadow: 2px 2px Black;
-  margin-bottom: 20px;
-}
-
-.nmargin > h6 {
-  color: white;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  text-shadow: 2px 2px Black;
 
 }
 
-.fmargin > h3 {
-  color: white;
+
+.card > h5 {
+  color: black;
+}
+
+.card > h3 {
+  color: black;
   font-family: "Palatino Linotype";
-  text-shadow: 2px 2px Black;
-}
-
-.smargin > h3 {
-  color: white;
-  font-family: "Palatino Linotype";
-  text-shadow: 2px 2px Black;
-}
-
-.nmargin > h3 {
-  color: white;
-  font-family: "Palatino Linotype";
-  text-shadow: 2px 2px 2px Black;
 
 }
 
-.fmargin > h1 {
-  margin-top: 70px;
+.card > h1 {
+  color: black;
   padding-top: 30px;
-  text-shadow: 2px 2px Black;
-}
 
-.smargin > h1 {
-  margin-top: 70px;
-  padding-top: 30px;
-  text-shadow: 2px 2px Black;
 }
-
-.nmargin > h1 {
-  margin-top: 70px;
-  padding-top: 30px;
-  text-shadow: 2px 2px Black;
-}
-
 
 @media only screen and (max-width: 400px) {
-  .fmargin > h1, .smargin > h1, .nmargin > h1 {
+  .card > h1 {
     margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px 2px 0px;
+    font-size: 28px;
+  }
+
+  .card > h6 {
+    padding: 0 10px;
+  }
+
+  .card > h5 {
+    font-size: 18px;
+  }
+  .card > h3 {
+    font-size: 26px;
+  }
+
+  .card {
+    width: 100%;
+    left: 0;
+  }
+
+  .fmargin {
+    background-image: url('../images/fiction400.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    padding-top: 0;
+  }
+
+  .nmargin {
+    background-image: url('../images/nonfic400.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    padding-top: 0;
+  }
+
+  .smargin {
+    background-image: url('../images/science400.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+    padding-top: 0;
   }
 }

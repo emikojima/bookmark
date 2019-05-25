@@ -25,7 +25,8 @@ class BestSellers extends Component {
     }
 
   render() {
-    const {genre, togglegenre, fiction} = this.props
+    const {genre, togglegenre, fiction, listdate} = this.props
+
     const genreName = togglegenre ? this.isRgenre(togglegenre) : this.isRgenre(genre)
     const bimage = () => {
       return `${genreName.charAt(0).toLowerCase()}margin`
@@ -34,13 +35,18 @@ class BestSellers extends Component {
       fiction.map((book, id) =>
       <NYTbookCard key={id} book={book} cFd={this.checkForDuplicateBook} id={id} />
     )
+    const date = listdate.split("-")
+    const formatDate = date[1]+"."+date[2]+"."+date[0];
 
     return(
         <div className={bimage()}>
+          <div className="card">
           <h1> New York Times Bestsellers</h1>
           <h3>{genreName}</h3>
-          <br></br>
+          <h5>List Published: {formatDate}</h5>
+
           <h6>Click on a book card to add it to your reading list</h6>
+          </div>
           <br></br>
           {renderBooks}
         </div>
@@ -53,7 +59,8 @@ const mapStateToProps = state => {
     books: state.user.books,
     user: state.user.userId,
     fiction: state.user.fiction,
-    genre: state.user.genre
+    genre: state.user.genre,
+    listdate: state.user.listDate
   };
 };
 

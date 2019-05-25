@@ -9,7 +9,8 @@ const initialState = {
   nonfiction: [],
   science: [],
   loading: false,
-  genre: "fiction"
+  genre: "fiction",
+  listDate: ""
 }
 
 export default function reducer(state = initialState, action) {
@@ -53,7 +54,7 @@ export default function reducer(state = initialState, action) {
 
   case 'GET_NYT_BOOKS_SUCCESS':
     return{
-      ...state, fiction: action.books, loading: false
+      ...state, fiction: action.books, listDate: action.books[0].best_seller_date, loading: false
     };
 
   case 'GET_NYT_BOOKS_SUCCESS_nonfiction':
